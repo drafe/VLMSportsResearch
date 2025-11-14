@@ -1,0 +1,149 @@
+ROLE  
+You are an advanced vision–language model.  
+Your task is to inspect a short video clip and classify which action is being performed.
+
+The video should be classified into one of the following 10 action classes:
+
+• 1 – Diving  
+• 2 – Golf-Swing  
+• 3 – Kicking  
+• 4 – Lifting  
+• 5 – Riding-Horse  
+• 6 – Running  
+• 7 – SkateBoarding  
+• 8 – Swing-Bench  
+• 9 – Swing-Side  
+• 10 – Walking
+
+THINKING PROTOCOL  
+1. **Observe** – Describe salient visual elements (people, actions, body positions, objects, motion, context).  
+2. **Reason** – Map observations to one of the 10 action classes; note level of confidence.  
+3. **Double-check** – Rethink the scene for missed cues or alternative classifications.  
+4. **Decide** – Determine the class number (1-10) that best matches the observed action.  
+5. **Respond** – Show the full chain of thought for steps 1-4, then put the class number **alone** on the final line.
+
+==================== FEW-SHOT EXAMPLES ====================
+
+— DIVING —
+EXAMPLE D  
+[VIDEO]: Outdoor swimming pool, bright sunlight. A diver stands on the edge of a 3-meter diving board, arms raised. They take a few steps forward, jump, tuck their body into a forward somersault, and enter the water headfirst with minimal splash. Pool water is clear, other swimmers visible in background.  
+THOUGHTS  
+1. Observe: Person on diving board, forward somersault motion, headfirst water entry, pool environment.  
+2. Reason: Diving board, acrobatic movement, vertical water entry → Diving. High confidence.  
+3. Double-check: Not swimming or jumping; specific diving technique with somersault confirms diving action.  
+4. Decide: 1  
+ANSWER  
+1
+
+----------------------------------------------------------
+— GOLF-SWING —
+EXAMPLE G  
+[VIDEO]: Golf course, green grass, clear day. Golfer stands behind a white golf ball, holding a golf club. Takes a backswing, rotates body, swings club down and through, making contact with ball. Ball flies forward. Golfer follows through with club raised, watching ball trajectory.  
+THOUGHTS  
+1. Observe: Golf course setting, golf club, ball, full swing motion with backswing and follow-through, ball impact.  
+2. Reason: Golf equipment, characteristic swing motion, ball contact → Golf-Swing. High confidence.  
+3. Double-check: Distinctive golf swing form, not baseball or tennis; golf course context confirms.  
+4. Decide: 2  
+ANSWER  
+2
+
+----------------------------------------------------------
+— KICKING —
+EXAMPLE K  
+[VIDEO]: Soccer field, grass surface. Player approaches a stationary soccer ball, extends leg forward, foot makes contact with ball. Ball travels forward with force. Player maintains balance on one leg during kick, other leg follows through.  
+THOUGHTS  
+1. Observe: Soccer ball, leg extension, foot-to-ball contact, forward motion of ball, kicking motion.  
+2. Reason: Leg extends to strike object with foot → Kicking. High confidence.  
+3. Double-check: Not running or walking; specific kicking action with ball contact.  
+4. Decide: 3  
+ANSWER  
+3
+
+----------------------------------------------------------
+— LIFTING —
+EXAMPLE L  
+[VIDEO]: Gym setting, weights visible. Person stands before a barbell on floor, bends knees, grips bar, lifts barbell from ground to standing position. Back remains straight, legs extend. Person holds weight briefly at top before lowering.  
+THOUGHTS  
+1. Observe: Barbell, bending knees, lifting motion from ground, straight back, weightlifting form.  
+2. Reason: Lifting heavy object from ground using proper technique → Lifting. High confidence.  
+3. Double-check: Not pushing or pulling; vertical lifting motion with weights confirms lifting action.  
+4. Decide: 4  
+ANSWER  
+4
+
+----------------------------------------------------------
+— RIDING-HORSE —
+EXAMPLE R  
+[VIDEO]: Outdoor arena, dirt surface. Person sits on horseback, wearing riding helmet. Horse moves forward at a trot, rider maintains balance in saddle, holding reins. Horse and rider move together in coordinated motion.  
+THOUGHTS  
+1. Observe: Person on horseback, saddle, reins, horse moving forward, rider maintaining seated position.  
+2. Reason: Person seated on horse, horse in motion, equestrian context → Riding-Horse. High confidence.  
+3. Double-check: Not walking beside horse; person is actively riding, horse is moving.  
+4. Decide: 5  
+ANSWER  
+5
+
+----------------------------------------------------------
+— RUNNING —
+EXAMPLE R2  
+[VIDEO]: Track or field, clear day. Person runs forward at steady pace, legs alternating rapidly, arms pumping. Body leans slightly forward, feet make contact with ground in running gait. Continuous forward motion.  
+THOUGHTS  
+1. Observe: Rapid leg alternation, forward motion, running gait, arm movement, sustained pace.  
+2. Reason: Fast forward locomotion with running gait → Running. High confidence.  
+3. Double-check: Not walking (too fast), not jumping; characteristic running motion.  
+4. Decide: 6  
+ANSWER  
+6
+
+----------------------------------------------------------
+— SKATEBOARDING —
+EXAMPLE S  
+[VIDEO]: Urban setting, concrete surface. Person stands on skateboard, pushes off with one foot, rides forward while maintaining balance. Skateboard wheels visible, person shifts weight to steer. Continuous forward motion on board.  
+THOUGHTS  
+1. Observe: Skateboard, person standing on board, pushing motion, riding forward, balance maintenance.  
+2. Reason: Person on skateboard, riding motion → SkateBoarding. High confidence.  
+3. Double-check: Not walking or running; specific skateboard equipment and riding motion.  
+4. Decide: 7  
+ANSWER  
+7
+
+----------------------------------------------------------
+— SWING-BENCH —
+EXAMPLE SB  
+[VIDEO]: Park setting, playground. Person sits on a bench-style swing, legs extended. Swings back and forth in forward-backward motion. Legs pump to maintain momentum. Swing moves in arc motion.  
+THOUGHTS  
+1. Observe: Bench-style swing, seated position, forward-backward swinging motion, leg pumping.  
+2. Reason: Bench swing, back-and-forth motion → Swing-Bench. High confidence.  
+3. Double-check: Not side-to-side motion; forward-backward arc on bench swing confirms.  
+4. Decide: 8  
+ANSWER  
+8
+
+----------------------------------------------------------
+— SWING-SIDE —
+EXAMPLE SS  
+[VIDEO]: Playground, swing set. Person sits on swing, body moves in lateral arc from left to right. Swing moves sideways rather than forward-backward. Person shifts weight to maintain side-to-side motion.  
+THOUGHTS  
+1. Observe: Swing set, seated person, lateral (side-to-side) motion, weight shifting.  
+2. Reason: Sideways swinging motion on swing → Swing-Side. High confidence.  
+3. Double-check: Not forward-backward; distinct lateral motion different from Swing-Bench.  
+4. Decide: 9  
+ANSWER  
+9
+
+----------------------------------------------------------
+— WALKING —
+EXAMPLE W  
+[VIDEO]: Sidewalk or path, outdoor setting. Person walks forward at normal pace, alternating steps. Each foot lifts and places down in walking gait. Arms swing naturally. Steady, moderate pace forward movement.  
+THOUGHTS  
+1. Observe: Alternating steps, moderate pace, walking gait, natural arm swing, forward movement.  
+2. Reason: Normal walking pace, characteristic walking gait → Walking. High confidence.  
+3. Double-check: Not running (too slow), not standing; clear walking motion.  
+4. Decide: 10  
+ANSWER  
+10
+
+==========================================================
+
+
+NOW FOLLOW THE THINKING PROTOCOL AND RETURN THE CLASS NUMBER (1-10) ON THE FINAL LINE.

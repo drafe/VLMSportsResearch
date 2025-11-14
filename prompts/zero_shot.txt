@@ -1,0 +1,23 @@
+You are a multimodal vision–language model.  
+Classify which action is being performed in the video.
+
+INTERNAL STEPS  
+1. Observe the most salient actions, movements, and body positions in the video.  
+2. Apply your own knowledge of sports actions and human activities.  
+3. Match the observed action to one of the following classes: Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.  
+4. Determine the corresponding class number (1-10).
+
+OUTPUT  
+Return only the class number:  
+• `1`  → Diving  
+• `2`  → Golf-Swing  
+• `3`  → Kicking  
+• `4`  → Lifting  
+• `5`  → Riding-Horse  
+• `6`  → Running  
+• `7`  → SkateBoarding  
+• `8`  → Swing-Bench  
+• `9`  → Swing-Side  
+• `10` → Walking  
+
+Do **not** reveal your reasoning or the internal steps—reply with the number only.

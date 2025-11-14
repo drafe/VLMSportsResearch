@@ -1,0 +1,1 @@
+Classify the action in the video. Return only the class number (1-10): 1=Diving, 2=Golf-Swing, 3=Kicking, 4=Lifting, 5=Riding-Horse, 6=Running, 7=SkateBoarding, 8=Swing-Bench, 9=Swing-Side, 10=Walking. Respond with only that single number and nothing else.

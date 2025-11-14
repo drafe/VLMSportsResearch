@@ -1,0 +1,9 @@
+model: "gemma-3-4b-it"
+model_space: "google"
+cache_dir: ".cache/"
+output_prefix: "zero_shot"
+fps: 0.5
+num_frames: 16
+max_new_tokens: 16
+prompt: "/home/user/ksy-research/VLMSportsResearch/prompts/zero_shot.txt"
+continue_from: null          # use an int index or leave null
