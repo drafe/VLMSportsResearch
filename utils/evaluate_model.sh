@@ -1,3 +1,3 @@
-!/bin/bash
+#!/bin/bash
 
-python utils/evaluate_model.py configs/gemma_basic.yaml
+uv run python utils/evaluate_model.py configs/gemma_basic.yaml dataconfigs/ucf_conf.yaml

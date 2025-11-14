@@ -15,7 +15,7 @@ def extract_frames(video_path: str, num_frames: int):
     The function is adapted from:
     https://github.com/merveenoyan/smol-vision/blob/main/Gemma_3_for_Video_Understanding.ipynb
     """
-    video_path = video_path if video_path.endswith("mp4") else f"{video_path}.mp4"
+    # Use the video path as-is, supporting various formats (avi, mp4, etc.)
     cap = cv2.VideoCapture(video_path)
 
     if not cap.isOpened():
@@ -51,7 +51,7 @@ class GemmaAdapter(VLMBackend):
 
         logger.success("model loaded")
 
-        self.processor = AutoProcessor.from_pretrained(model_id, cache_dir=cache_dir)
+        self.processor = AutoProcessor.from_pretrained(model_id, cache_dir=cache_dir, use_fast=True)
         logger.success("processor inititalised")
 
     def encode_query(self, video_path: str, prompt: str, num_frames: int = 8, **kwargs):
@@ -100,5 +100,5 @@ class Gemma3nAdapter(GemmaAdapter):
 
         logger.success("model loaded")
 
-        self.processor = AutoProcessor.from_pretrained(model_id, cache_dir=cache_dir)
+        self.processor = AutoProcessor.from_pretrained(model_id, cache_dir=cache_dir, use_fast=True)
         logger.success("processor inititalised")

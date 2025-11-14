@@ -4,22 +4,22 @@ Your task is to inspect a short video clip and classify which action is being pe
 
 The video should be classified into one of the following 10 action classes:
 
-• 1 – Diving  
-• 2 – Golf-Swing  
-• 3 – Kicking  
-• 4 – Lifting  
-• 5 – Riding-Horse  
-• 6 – Running  
-• 7 – SkateBoarding  
-• 8 – Swing-Bench  
-• 9 – Swing-Side  
-• 10 – Walking
+• 0 – Diving  
+• 1 – Golf-Swing  
+• 2 – Kicking  
+• 3 – Lifting  
+• 4 – Riding-Horse  
+• 5 – Running  
+• 6 – SkateBoarding  
+• 7 – Swing-Bench  
+• 8 – Swing-Side  
+• 9 – Walking
 
 THINKING PROTOCOL  
 1. **Observe** – Describe salient visual elements (people, actions, body positions, objects, motion, context).  
 2. **Reason** – Map observations to one of the 10 action classes; note level of confidence.  
 3. **Double-check** – Rethink the scene for missed cues or alternative classifications.  
-4. **Decide** – Determine the class number (1-10) that best matches the observed action.  
+4. **Decide** – Determine the class number (0-9) that best matches the observed action.  
 5. **Respond** – Show the full chain of thought for steps 1-4, then put the class number **alone** on the final line.
 
 ==================== FEW-SHOT EXAMPLES ====================
@@ -31,9 +31,9 @@ THOUGHTS
 1. Observe: Person on diving board, forward somersault motion, headfirst water entry, pool environment.  
 2. Reason: Diving board, acrobatic movement, vertical water entry → Diving. High confidence.  
 3. Double-check: Not swimming or jumping; specific diving technique with somersault confirms diving action.  
-4. Decide: 1  
+4. Decide: 0  
 ANSWER  
-1
+0
 
 ----------------------------------------------------------
 — GOLF-SWING —
@@ -43,9 +43,9 @@ THOUGHTS
 1. Observe: Golf course setting, golf club, ball, full swing motion with backswing and follow-through, ball impact.  
 2. Reason: Golf equipment, characteristic swing motion, ball contact → Golf-Swing. High confidence.  
 3. Double-check: Distinctive golf swing form, not baseball or tennis; golf course context confirms.  
-4. Decide: 2  
+4. Decide: 1  
 ANSWER  
-2
+1
 
 ----------------------------------------------------------
 — KICKING —
@@ -55,9 +55,9 @@ THOUGHTS
 1. Observe: Soccer ball, leg extension, foot-to-ball contact, forward motion of ball, kicking motion.  
 2. Reason: Leg extends to strike object with foot → Kicking. High confidence.  
 3. Double-check: Not running or walking; specific kicking action with ball contact.  
-4. Decide: 3  
+4. Decide: 2  
 ANSWER  
-3
+2
 
 ----------------------------------------------------------
 — LIFTING —
@@ -67,9 +67,9 @@ THOUGHTS
 1. Observe: Barbell, bending knees, lifting motion from ground, straight back, weightlifting form.  
 2. Reason: Lifting heavy object from ground using proper technique → Lifting. High confidence.  
 3. Double-check: Not pushing or pulling; vertical lifting motion with weights confirms lifting action.  
-4. Decide: 4  
+4. Decide: 3  
 ANSWER  
-4
+3
 
 ----------------------------------------------------------
 — RIDING-HORSE —
@@ -79,9 +79,9 @@ THOUGHTS
 1. Observe: Person on horseback, saddle, reins, horse moving forward, rider maintaining seated position.  
 2. Reason: Person seated on horse, horse in motion, equestrian context → Riding-Horse. High confidence.  
 3. Double-check: Not walking beside horse; person is actively riding, horse is moving.  
-4. Decide: 5  
+4. Decide: 4  
 ANSWER  
-5
+4
 
 ----------------------------------------------------------
 — RUNNING —
@@ -91,9 +91,9 @@ THOUGHTS
 1. Observe: Rapid leg alternation, forward motion, running gait, arm movement, sustained pace.  
 2. Reason: Fast forward locomotion with running gait → Running. High confidence.  
 3. Double-check: Not walking (too fast), not jumping; characteristic running motion.  
-4. Decide: 6  
+4. Decide: 5  
 ANSWER  
-6
+5
 
 ----------------------------------------------------------
 — SKATEBOARDING —
@@ -103,9 +103,9 @@ THOUGHTS
 1. Observe: Skateboard, person standing on board, pushing motion, riding forward, balance maintenance.  
 2. Reason: Person on skateboard, riding motion → SkateBoarding. High confidence.  
 3. Double-check: Not walking or running; specific skateboard equipment and riding motion.  
-4. Decide: 7  
+4. Decide: 6  
 ANSWER  
-7
+6
 
 ----------------------------------------------------------
 — SWING-BENCH —
@@ -115,9 +115,9 @@ THOUGHTS
 1. Observe: Bench-style swing, seated position, forward-backward swinging motion, leg pumping.  
 2. Reason: Bench swing, back-and-forth motion → Swing-Bench. High confidence.  
 3. Double-check: Not side-to-side motion; forward-backward arc on bench swing confirms.  
-4. Decide: 8  
+4. Decide: 7  
 ANSWER  
-8
+7
 
 ----------------------------------------------------------
 — SWING-SIDE —
@@ -127,9 +127,9 @@ THOUGHTS
 1. Observe: Swing set, seated person, lateral (side-to-side) motion, weight shifting.  
 2. Reason: Sideways swinging motion on swing → Swing-Side. High confidence.  
 3. Double-check: Not forward-backward; distinct lateral motion different from Swing-Bench.  
-4. Decide: 9  
+4. Decide: 8  
 ANSWER  
-9
+8
 
 ----------------------------------------------------------
 — WALKING —
@@ -139,11 +139,11 @@ THOUGHTS
 1. Observe: Alternating steps, moderate pace, walking gait, natural arm swing, forward movement.  
 2. Reason: Normal walking pace, characteristic walking gait → Walking. High confidence.  
 3. Double-check: Not running (too slow), not standing; clear walking motion.  
-4. Decide: 10  
+4. Decide: 9  
 ANSWER  
-10
+9
 
 ==========================================================
 
 
-NOW FOLLOW THE THINKING PROTOCOL AND RETURN THE CLASS NUMBER (1-10) ON THE FINAL LINE.
+NOW FOLLOW THE THINKING PROTOCOL AND RETURN THE CLASS NUMBER (0-9) ON THE FINAL LINE.
