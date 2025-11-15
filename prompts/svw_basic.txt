@@ -1,0 +1,5 @@
+Classify the action in the video. 
+
+Return only the class name: archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling. 
+
+Respond with only that single word and nothing else.

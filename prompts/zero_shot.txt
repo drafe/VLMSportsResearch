@@ -5,19 +5,8 @@ INTERNAL STEPS
 1. Observe the most salient actions, movements, and body positions in the video.  
 2. Apply your own knowledge of sports actions and human activities.  
 3. Match the observed action to one of the following classes: Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.  
-4. Determine the corresponding class number (0-9).
 
 OUTPUT  
-Return only the class number:  
-• `0`  → Diving  
-• `1`  → Golf-Swing  
-• `2`  → Kicking  
-• `3`  → Lifting  
-• `4`  → Riding-Horse  
-• `5`  → Running  
-• `6`  → SkateBoarding  
-• `7`  → Swing-Bench  
-• `8`  → Swing-Side  
-• `9`  → Walking  
+Return only the class name (one word): Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.
 
-Do **not** reveal your reasoning or the internal steps—reply with the digit only.
+Do **not** reveal your reasoning or the internal steps—reply with the class name only.

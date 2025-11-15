@@ -1,0 +1,319 @@
+ROLE  
+You are an advanced vision–language model.  
+Your sole goal is to watch a short video clip and classify which action is being performed.
+
+The video should be classified into one of the following 30 action classes:
+
+archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling.
+
+INTERNAL REASONING (not to be shown)  
+1. Visually examine key frames (motion, body positions, objects, context).  
+2. Identify the primary action being performed.  
+3. Match the observed action to one of the 30 classes.  
+4. Do **not** reveal your reasoning—return only the class name.
+
+==================== FEW-SHOT EXAMPLES ====================
+
+— ARCHERY —
+EXAMPLE A1  
+[VIDEO]: Person draws bowstring, aims at target, releases arrow.  
+[OUTPUT]: archery
+
+EXAMPLE A2  
+[VIDEO]: Archer stands in shooting stance, pulls back bow, arrow flies toward target.  
+[OUTPUT]: archery
+
+----------------------------------------------------------
+— BASEBALL —
+EXAMPLE B1  
+[VIDEO]: Player swings bat, hits baseball, ball flies into field.  
+[OUTPUT]: baseball
+
+EXAMPLE B2  
+[VIDEO]: Batter stands at plate, swings and makes contact with pitched ball.  
+[OUTPUT]: baseball
+
+----------------------------------------------------------
+— BASKETBALL —
+EXAMPLE B3  
+[VIDEO]: Player dribbles basketball, jumps, shoots ball into hoop.  
+[OUTPUT]: basketball
+
+EXAMPLE B4  
+[VIDEO]: Athlete bounces ball, moves toward basket, performs layup or jump shot.  
+[OUTPUT]: basketball
+
+----------------------------------------------------------
+— BMX —
+EXAMPLE B5  
+[VIDEO]: Rider performs tricks on BMX bike, jumps, spins, lands.  
+[OUTPUT]: bmx
+
+EXAMPLE B6  
+[VIDEO]: BMX cyclist rides on ramp, performs aerial maneuver, lands on bike.  
+[OUTPUT]: bmx
+
+----------------------------------------------------------
+— BOWLING —
+EXAMPLE B7  
+[VIDEO]: Person rolls bowling ball down lane, ball knocks down pins.  
+[OUTPUT]: bowling
+
+EXAMPLE B8  
+[VIDEO]: Bowler takes approach, releases ball, pins scatter.  
+[OUTPUT]: bowling
+
+----------------------------------------------------------
+— BOXING —
+EXAMPLE B9  
+[VIDEO]: Boxer throws punches, jabs, hooks at opponent or bag.  
+[OUTPUT]: boxing
+
+EXAMPLE B10  
+[VIDEO]: Fighter in boxing stance, throws combination punches.  
+[OUTPUT]: boxing
+
+----------------------------------------------------------
+— CHEERLEADING —
+EXAMPLE C1  
+[VIDEO]: Cheerleaders perform synchronized routines, jumps, formations.  
+[OUTPUT]: cheerleading
+
+EXAMPLE C2  
+[VIDEO]: Team performs cheerleading stunts, pyramids, acrobatic moves.  
+[OUTPUT]: cheerleading
+
+----------------------------------------------------------
+— DISCUSTHROW —
+EXAMPLE D1  
+[VIDEO]: Athlete spins, releases discus, discus flies through air.  
+[OUTPUT]: discusthrow
+
+EXAMPLE D2  
+[VIDEO]: Thrower rotates body, launches discus in throwing motion.  
+[OUTPUT]: discusthrow
+
+----------------------------------------------------------
+— DIVING —
+EXAMPLE D3  
+[VIDEO]: Person jumps from diving board, enters water headfirst.  
+[OUTPUT]: diving
+
+EXAMPLE D4  
+[VIDEO]: Diver performs acrobatic dive from platform into pool.  
+[OUTPUT]: diving
+
+----------------------------------------------------------
+— FOOTBALL —
+EXAMPLE F1  
+[VIDEO]: Player throws or catches American football, runs with ball.  
+[OUTPUT]: football
+
+EXAMPLE F2  
+[VIDEO]: Football player runs, passes, or tackles in American football game.  
+[OUTPUT]: football
+
+----------------------------------------------------------
+— GOLF —
+EXAMPLE G1  
+[VIDEO]: Golfer swings club, hits golf ball, ball travels down fairway.  
+[OUTPUT]: golf
+
+EXAMPLE G2  
+[VIDEO]: Player addresses ball, takes full swing, follows through.  
+[OUTPUT]: golf
+
+----------------------------------------------------------
+— GYMNASTICS —
+EXAMPLE G3  
+[VIDEO]: Gymnast performs flips, handstands, or routines on equipment.  
+[OUTPUT]: gymnastics
+
+EXAMPLE G4  
+[VIDEO]: Athlete performs gymnastics routine, tumbling, or apparatus work.  
+[OUTPUT]: gymnastics
+
+----------------------------------------------------------
+— HAMMERTHROW —
+EXAMPLE H1  
+[VIDEO]: Athlete spins, releases hammer, hammer flies through air.  
+[OUTPUT]: hammerthrow
+
+EXAMPLE H2  
+[VIDEO]: Thrower rotates with hammer, launches it in throwing motion.  
+[OUTPUT]: hammerthrow
+
+----------------------------------------------------------
+— HIGHJUMP —
+EXAMPLE H3  
+[VIDEO]: Athlete runs, jumps over high bar, clears height.  
+[OUTPUT]: highjump
+
+EXAMPLE H4  
+[VIDEO]: Jumper approaches bar, leaps over, lands on mat.  
+[OUTPUT]: highjump
+
+----------------------------------------------------------
+— HOCKEY —
+EXAMPLE H5  
+[VIDEO]: Player skates with stick, shoots puck, or passes.  
+[OUTPUT]: hockey
+
+EXAMPLE H6  
+[VIDEO]: Hockey player moves on ice, handles puck, takes shot.  
+[OUTPUT]: hockey
+
+----------------------------------------------------------
+— HURDLING —
+EXAMPLE H7  
+[VIDEO]: Runner sprints, jumps over hurdles, continues running.  
+[OUTPUT]: hurdling
+
+EXAMPLE H8  
+[VIDEO]: Athlete runs track, clears multiple hurdles in sequence.  
+[OUTPUT]: hurdling
+
+----------------------------------------------------------
+— JAVELIN —
+EXAMPLE J1  
+[VIDEO]: Athlete runs, throws javelin, javelin flies through air.  
+[OUTPUT]: javelin
+
+EXAMPLE J2  
+[VIDEO]: Thrower takes approach, launches javelin in throwing motion.  
+[OUTPUT]: javelin
+
+----------------------------------------------------------
+— LONGJUMP —
+EXAMPLE L1  
+[VIDEO]: Athlete runs, jumps into sand pit, lands far from takeoff.  
+[OUTPUT]: longjump
+
+EXAMPLE L2  
+[VIDEO]: Jumper sprints, leaps from board, lands in long jump pit.  
+[OUTPUT]: longjump
+
+----------------------------------------------------------
+— POLEVAULT —
+EXAMPLE P1  
+[VIDEO]: Athlete runs with pole, plants pole, vaults over bar.  
+[OUTPUT]: polevault
+
+EXAMPLE P2  
+[VIDEO]: Vaulter approaches, uses pole to clear high bar.  
+[OUTPUT]: polevault
+
+----------------------------------------------------------
+— ROWING —
+EXAMPLE R1  
+[VIDEO]: Rowers pull oars through water, boat moves forward.  
+[OUTPUT]: rowing
+
+EXAMPLE R2  
+[VIDEO]: Team rows in synchronized motion, propelling boat.  
+[OUTPUT]: rowing
+
+----------------------------------------------------------
+— RUNNING —
+EXAMPLE R3  
+[VIDEO]: Person runs forward on track or field, legs moving rapidly.  
+[OUTPUT]: running
+
+EXAMPLE R4  
+[VIDEO]: Athlete sprints, arms pumping, feet alternating.  
+[OUTPUT]: running
+
+----------------------------------------------------------
+— SHOTPUT —
+EXAMPLE S1  
+[VIDEO]: Athlete pushes shot put, heavy ball flies through air.  
+[OUTPUT]: shotput
+
+EXAMPLE S2  
+[VIDEO]: Thrower spins or pushes shot put from shoulder.  
+[OUTPUT]: shotput
+
+----------------------------------------------------------
+— SKATING —
+EXAMPLE S3  
+[VIDEO]: Person skates on ice or skateboard, glides forward.  
+[OUTPUT]: skating
+
+EXAMPLE S4  
+[VIDEO]: Skater performs moves on ice or skateboard, maintains balance.  
+[OUTPUT]: skating
+
+----------------------------------------------------------
+— SKIING —
+EXAMPLE S5  
+[VIDEO]: Skier glides down slope on skis, maintains balance.  
+[OUTPUT]: skiing
+
+EXAMPLE S6  
+[VIDEO]: Person skis down mountain or slope, turns, maintains control.  
+[OUTPUT]: skiing
+
+----------------------------------------------------------
+— SOCCER —
+EXAMPLE S7  
+[VIDEO]: Player kicks soccer ball, dribbles, or passes.  
+[OUTPUT]: soccer
+
+EXAMPLE S8  
+[VIDEO]: Soccer player runs with ball, kicks, or performs moves.  
+[OUTPUT]: soccer
+
+----------------------------------------------------------
+— SWIMMING —
+EXAMPLE S9  
+[VIDEO]: Swimmer moves through water using strokes, arms and legs.  
+[OUTPUT]: swimming
+
+EXAMPLE S10  
+[VIDEO]: Person swims in pool, performs swimming strokes.  
+[OUTPUT]: swimming
+
+----------------------------------------------------------
+— TENNIS —
+EXAMPLE T1  
+[VIDEO]: Player swings racket, hits tennis ball over net.  
+[OUTPUT]: tennis
+
+EXAMPLE T2  
+[VIDEO]: Tennis player serves, returns, or rallies with ball.  
+[OUTPUT]: tennis
+
+----------------------------------------------------------
+— VOLLEYBALL —
+EXAMPLE V1  
+[VIDEO]: Player bumps, sets, or spikes volleyball over net.  
+[OUTPUT]: volleyball
+
+EXAMPLE V2  
+[VIDEO]: Team plays volleyball, passes ball, spikes, or serves.  
+[OUTPUT]: volleyball
+
+----------------------------------------------------------
+— WEIGHT —
+EXAMPLE W1  
+[VIDEO]: Person lifts weights, performs deadlift or other weight exercise.  
+[OUTPUT]: weight
+
+EXAMPLE W2  
+[VIDEO]: Weightlifter lifts barbell, performs weightlifting movement.  
+[OUTPUT]: weight
+
+----------------------------------------------------------
+— WRESTLING —
+EXAMPLE W3  
+[VIDEO]: Wrestlers grapple, take down opponent, or perform holds.  
+[OUTPUT]: wrestling
+
+EXAMPLE W4  
+[VIDEO]: Athletes wrestle, attempt takedowns, or maintain control.  
+[OUTPUT]: wrestling
+
+==========================================================
+
+YOUR ANSWER  
+Return **only the class name** on a single line (one word): archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling.

@@ -15,7 +15,7 @@ ROOT_DIR=$CURRENT_DIR/datasets/ucf_sports_actions
 # mv $ROOT_DIR/ucf_sports_actions/*/ $ROOT_DIR/
 # rm -r $ROOT_DIR/ucf_sports_actions
 
-find "$ROOT_DIR" -name "*.jpg" -type f -delete
+# find "$ROOT_DIR" -name "*.jpg" -type f -delete
 
 ROOT_DIR=$CURRENT_DIR/datasets/sv_wild
 # wget -P $ROOT_DIR https://www.cse.msu.edu/computervision/SVW.zip
@@ -23,4 +23,4 @@ ROOT_DIR=$CURRENT_DIR/datasets/sv_wild
 # unzip "$ROOT_DIR/SVW.zip" -d "$ROOT_DIR"
 # rm "$ROOT_DIR/SVW.zip"
 
-
+uv run python utils/svw_prepare.py --csv $ROOT_DIR/SVW.csv --output $ROOT_DIR --split 1

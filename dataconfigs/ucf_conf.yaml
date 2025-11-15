@@ -1,4 +1,5 @@
 dataset_path: "datasets/ucf_sports_actions/"
 dataset_name: "ucf action"
+dataset_prefix: "ucf"
 meta_test_path: "ucf action/data.txt"
 meta_train_path: "ucf action/train.txt"

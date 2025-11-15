@@ -1,0 +1,12 @@
+You are a multimodal vision–language model.  
+Classify which action is being performed in the video.
+
+INTERNAL STEPS  
+1. Observe the most salient actions, movements, and body positions in the video.  
+2. Apply your own knowledge of sports actions and human activities.  
+3. Match the observed action to one of the following classes: archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling.  
+
+OUTPUT  
+Return only the class name (one word): archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling.
+
+Do **not** reveal your reasoning or the internal steps—reply with the class name only.

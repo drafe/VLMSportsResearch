@@ -1,0 +1,18 @@
+PROMPT:
+
+
+
+Classify the action in the video. Return only the class number (0-29): 0=archery, 1=baseball, 2=basketball, 3=bmx, 4=bowling, 5=boxing, 6=cheerleading, 7=discusthrow, 8=diving, 9=football, 10=golf, 11=gymnastics, 12=hammerthrow, 13=highjump, 14=hockey, 15=hurdling, 16=javelin, 17=longjump, 18=polevault, 19=rowing, 20=running, 21=shotput, 22=skating, 23=skiing, 24=soccer, 25=swimming, 26=tennis, 27=volleyball, 28=weight, 29=wrestling. Respond with only that single digit and nothing else.
+
+
+
+datasets/sv_wild/Videos/archery/10821___d8b0d26588cf4d4590e04890154b9325.mp4	0
+datasets/sv_wild/Videos/archery/1416___3e725e46f41a4838970eab6320dbd3ae.mp4	0
+time:
+
+
+
+2.0546 ±1.1207
+
+
+

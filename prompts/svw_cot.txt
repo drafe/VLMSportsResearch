@@ -1,0 +1,380 @@
+ROLE  
+You are an advanced vision–language model.  
+Your task is to inspect a short video clip and classify which action is being performed.
+
+The video should be classified into one of the following 30 action classes:
+
+archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling.
+
+THINKING PROTOCOL  
+1. **Observe** – Describe salient visual elements (people, actions, body positions, objects, motion, context).  
+2. **Reason** – Map observations to one of the 30 action classes; note level of confidence.  
+3. **Double-check** – Rethink the scene for missed cues or alternative classifications.  
+4. **Decide** – Determine the class name that best matches the observed action.  
+5. **Respond** – Show the full chain of thought for steps 1-4, then put the class name **alone** on the final line.
+
+==================== FEW-SHOT EXAMPLES ====================
+
+— ARCHERY —
+EXAMPLE A  
+[VIDEO]: Outdoor range, target visible. Archer stands in shooting stance, draws bowstring back, aims at target, releases arrow. Arrow flies toward target.  
+THOUGHTS  
+1. Observe: Bow, arrow, drawing motion, aiming stance, arrow release, target.  
+2. Reason: Bow and arrow equipment, drawing and releasing motion → archery. High confidence.  
+3. Double-check: Not javelin (different equipment), not discus; specific archery equipment and motion.  
+4. Decide: archery  
+ANSWER  
+archery
+
+----------------------------------------------------------
+— BASEBALL —
+EXAMPLE B  
+[VIDEO]: Baseball field, grass infield. Batter stands at home plate, holds bat, swings at pitched ball. Ball makes contact with bat, flies into outfield. Batter follows through with swing.  
+THOUGHTS  
+1. Observe: Baseball bat, home plate, ball, swinging motion, ball contact, baseball field setting.  
+2. Reason: Baseball equipment, batting motion, field context → baseball. High confidence.  
+3. Double-check: Not golf (different equipment and setting), not tennis; baseball-specific context.  
+4. Decide: baseball  
+ANSWER  
+baseball
+
+----------------------------------------------------------
+— BASKETBALL —
+EXAMPLE B2  
+[VIDEO]: Basketball court, hardwood floor. Player dribbles basketball, moves toward hoop, jumps, shoots ball. Ball arcs toward basket.  
+THOUGHTS  
+1. Observe: Basketball, court, dribbling motion, shooting motion, hoop visible.  
+2. Reason: Basketball, court setting, dribbling and shooting → basketball. High confidence.  
+3. Double-check: Not volleyball (different ball and net), not other sports; basketball-specific actions.  
+4. Decide: basketball  
+ANSWER  
+basketball
+
+----------------------------------------------------------
+— BMX —
+EXAMPLE B3  
+[VIDEO]: Skate park or ramp setting. Rider on BMX bike approaches ramp, jumps, performs trick in air, lands on bike. Bike and rider move together.  
+THOUGHTS  
+1. Observe: BMX bike, ramp, jumping motion, aerial trick, bike landing.  
+2. Reason: BMX bike, ramp tricks, aerial maneuvers → bmx. High confidence.  
+3. Double-check: Not regular cycling, not skateboarding; BMX-specific bike and tricks.  
+4. Decide: bmx  
+ANSWER  
+bmx
+
+----------------------------------------------------------
+— BOWLING —
+EXAMPLE B4  
+[VIDEO]: Bowling alley, lanes visible. Person approaches lane, rolls bowling ball down lane. Ball travels down lane, knocks down pins at end.  
+THOUGHTS  
+1. Observe: Bowling ball, lane, rolling motion, pins, bowling alley setting.  
+2. Reason: Bowling ball, lane, pins, rolling motion → bowling. High confidence.  
+3. Double-check: Not shotput (different motion and equipment), not other throwing; bowling-specific.  
+4. Decide: bowling  
+ANSWER  
+bowling
+
+----------------------------------------------------------
+— BOXING —
+EXAMPLE B5  
+[VIDEO]: Boxing ring or gym. Boxer in fighting stance, throws punches, jabs, hooks at opponent or heavy bag. Gloves visible, punching motion.  
+THOUGHTS  
+1. Observe: Boxing gloves, fighting stance, punching motion, jabs and hooks.  
+2. Reason: Boxing gloves, punching techniques, fighting context → boxing. High confidence.  
+3. Double-check: Not wrestling (different techniques), not martial arts; boxing-specific punches.  
+4. Decide: boxing  
+ANSWER  
+boxing
+
+----------------------------------------------------------
+— CHEERLEADING —
+EXAMPLE C  
+[VIDEO]: Gym or field setting. Cheerleaders perform synchronized routine, jumps, formations, pom-poms visible. Team moves in coordinated patterns.  
+THOUGHTS  
+1. Observe: Multiple people, synchronized movements, jumps, formations, pom-poms, cheerleading uniforms.  
+2. Reason: Synchronized team routine, cheerleading equipment, formations → cheerleading. High confidence.  
+3. Double-check: Not gymnastics (different focus), not dance; cheerleading-specific routines.  
+4. Decide: cheerleading  
+ANSWER  
+cheerleading
+
+----------------------------------------------------------
+— DISCUSTHROW —
+EXAMPLE D  
+[VIDEO]: Track and field setting. Athlete holds discus, spins in circle, releases discus. Discus flies through air in arc.  
+THOUGHTS  
+1. Observe: Discus, spinning motion, release, discus flight, track setting.  
+2. Reason: Discus equipment, spinning throw, discus flight → discusthrow. High confidence.  
+3. Double-check: Not hammer (different equipment), not shotput; discus-specific equipment and motion.  
+4. Decide: discusthrow  
+ANSWER  
+discusthrow
+
+----------------------------------------------------------
+— DIVING —
+EXAMPLE D2  
+[VIDEO]: Swimming pool, diving board visible. Diver stands on board, jumps, performs acrobatic dive, enters water headfirst.  
+THOUGHTS  
+1. Observe: Diving board, pool, acrobatic motion, headfirst water entry.  
+2. Reason: Diving board, diving motion, water entry → diving. High confidence.  
+3. Double-check: Not swimming (different motion), not jumping; diving-specific technique.  
+4. Decide: diving  
+ANSWER  
+diving
+
+----------------------------------------------------------
+— FOOTBALL —
+EXAMPLE F  
+[VIDEO]: Football field, grass surface. Player in football uniform runs with ball, throws pass, or tackles opponent. Football equipment visible.  
+THOUGHTS  
+1. Observe: Football, field, uniform, running with ball, throwing or tackling.  
+2. Reason: American football equipment, field, football actions → football. High confidence.  
+3. Double-check: Not soccer (different ball and rules), not rugby; American football-specific.  
+4. Decide: football  
+ANSWER  
+football
+
+----------------------------------------------------------
+— GOLF —
+EXAMPLE G  
+[VIDEO]: Golf course, green grass. Golfer stands behind ball, takes backswing, swings club, makes contact with ball. Ball flies down fairway.  
+THOUGHTS  
+1. Observe: Golf club, ball, golf course, swing motion, ball contact.  
+2. Reason: Golf equipment, course setting, golf swing → golf. High confidence.  
+3. Double-check: Not baseball (different equipment), not tennis; golf-specific context.  
+4. Decide: golf  
+ANSWER  
+golf
+
+----------------------------------------------------------
+— GYMNASTICS —
+EXAMPLE G2  
+[VIDEO]: Gymnastics gym, equipment visible. Gymnast performs flips, handstands, or routines on bars, beam, or floor. Acrobatic movements.  
+THOUGHTS  
+1. Observe: Gymnastics equipment, flips, handstands, acrobatic movements.  
+2. Reason: Gymnastics equipment, acrobatic routines → gymnastics. High confidence.  
+3. Double-check: Not cheerleading (different focus), not diving; gymnastics-specific equipment and skills.  
+4. Decide: gymnastics  
+ANSWER  
+gymnastics
+
+----------------------------------------------------------
+— HAMMERTHROW —
+EXAMPLE H  
+[VIDEO]: Track and field setting. Athlete holds hammer, spins in circle, releases hammer. Hammer flies through air.  
+THOUGHTS  
+1. Observe: Hammer, spinning motion, release, hammer flight, track setting.  
+2. Reason: Hammer equipment, spinning throw → hammerthrow. High confidence.  
+3. Double-check: Not discus (different equipment), not shotput; hammer-specific.  
+4. Decide: hammerthrow  
+ANSWER  
+hammerthrow
+
+----------------------------------------------------------
+— HIGHJUMP —
+EXAMPLE H2  
+[VIDEO]: Track and field, high jump bar and mat visible. Athlete runs toward bar, jumps, clears bar, lands on mat.  
+THOUGHTS  
+1. Observe: High jump bar, mat, running approach, jumping over bar, landing.  
+2. Reason: High jump equipment, jumping over bar → highjump. High confidence.  
+3. Double-check: Not long jump (different equipment), not polevault; high jump-specific.  
+4. Decide: highjump  
+ANSWER  
+highjump
+
+----------------------------------------------------------
+— HOCKEY —
+EXAMPLE H3  
+[VIDEO]: Ice rink, hockey equipment. Player skates with stick, handles puck, shoots or passes. Ice surface visible.  
+THOUGHTS  
+1. Observe: Ice rink, hockey stick, puck, skating motion, stick handling.  
+2. Reason: Ice hockey equipment, skating with stick → hockey. High confidence.  
+3. Double-check: Not skating (different focus), not other sports; ice hockey-specific.  
+4. Decide: hockey  
+ANSWER  
+hockey
+
+----------------------------------------------------------
+— HURDLING —
+EXAMPLE H4  
+[VIDEO]: Track, hurdles visible. Runner sprints, jumps over hurdles, continues running. Multiple hurdles in sequence.  
+THOUGHTS  
+1. Observe: Hurdles, running motion, jumping over obstacles, track setting.  
+2. Reason: Hurdles, running and jumping → hurdling. High confidence.  
+3. Double-check: Not running (has obstacles), not long jump; hurdling-specific.  
+4. Decide: hurdling  
+ANSWER  
+hurdling
+
+----------------------------------------------------------
+— JAVELIN —
+EXAMPLE J  
+[VIDEO]: Track and field setting. Athlete holds javelin, runs, throws javelin. Javelin flies through air.  
+THOUGHTS  
+1. Observe: Javelin, running approach, throwing motion, javelin flight.  
+2. Reason: Javelin equipment, throwing motion → javelin. High confidence.  
+3. Double-check: Not discus (different equipment), not other throws; javelin-specific.  
+4. Decide: javelin  
+ANSWER  
+javelin
+
+----------------------------------------------------------
+— LONGJUMP —
+EXAMPLE L  
+[VIDEO]: Track and field, long jump pit visible. Athlete runs, jumps from board into sand pit, lands far from takeoff.  
+THOUGHTS  
+1. Observe: Long jump pit, sand, running approach, jumping into pit, landing.  
+2. Reason: Long jump pit, jumping for distance → longjump. High confidence.  
+3. Double-check: Not high jump (different equipment), not triple jump; long jump-specific.  
+4. Decide: longjump  
+ANSWER  
+longjump
+
+----------------------------------------------------------
+— POLEVAULT —
+EXAMPLE P  
+[VIDEO]: Track and field, pole vault equipment. Athlete runs with pole, plants pole, vaults over high bar, lands on mat.  
+THOUGHTS  
+1. Observe: Pole, high bar, mat, running approach, vaulting motion, clearing bar.  
+2. Reason: Pole vault equipment, vaulting over bar → polevault. High confidence.  
+3. Double-check: Not high jump (different technique), not other jumps; pole vault-specific.  
+4. Decide: polevault  
+ANSWER  
+polevault
+
+----------------------------------------------------------
+— ROWING —
+EXAMPLE R  
+[VIDEO]: Water, boat visible. Rowers sit in boat, pull oars through water in synchronized motion. Boat moves forward.  
+THOUGHTS  
+1. Observe: Boat, oars, water, rowing motion, synchronized movement.  
+2. Reason: Rowing boat, oars, rowing motion → rowing. High confidence.  
+3. Double-check: Not swimming (different motion), not other water sports; rowing-specific.  
+4. Decide: rowing  
+ANSWER  
+rowing
+
+----------------------------------------------------------
+— RUNNING —
+EXAMPLE R2  
+[VIDEO]: Track or field, clear day. Person runs forward at steady pace, legs alternating rapidly, arms pumping. Continuous forward motion.  
+THOUGHTS  
+1. Observe: Running gait, rapid leg alternation, forward motion, sustained pace.  
+2. Reason: Running motion, forward locomotion → running. High confidence.  
+3. Double-check: Not walking (too fast), not hurdling (no obstacles); pure running.  
+4. Decide: running  
+ANSWER  
+running
+
+----------------------------------------------------------
+— SHOTPUT —
+EXAMPLE S  
+[VIDEO]: Track and field setting. Athlete holds shot put, spins or pushes from shoulder. Heavy ball flies through air.  
+THOUGHTS  
+1. Observe: Shot put, pushing or spinning motion, heavy ball, throwing motion.  
+2. Reason: Shot put equipment, pushing throw → shotput. High confidence.  
+3. Double-check: Not discus (different motion), not hammer; shotput-specific.  
+4. Decide: shotput  
+ANSWER  
+shotput
+
+----------------------------------------------------------
+— SKATING —
+EXAMPLE S2  
+[VIDEO]: Ice rink or skate park. Person skates on ice or skateboard, glides forward, performs moves, maintains balance.  
+THOUGHTS  
+1. Observe: Skates or skateboard, gliding motion, balance, forward movement.  
+2. Reason: Skating equipment, gliding motion → skating. High confidence.  
+3. Double-check: Not running (different motion), not skiing; skating-specific.  
+4. Decide: skating  
+ANSWER  
+skating
+
+----------------------------------------------------------
+— SKIING —
+EXAMPLE S3  
+[VIDEO]: Mountain slope, snow visible. Skier glides down slope on skis, turns, maintains control. Ski equipment visible.  
+THOUGHTS  
+1. Observe: Skis, snow, slope, gliding motion, turning, ski equipment.  
+2. Reason: Skis, snow, downhill motion → skiing. High confidence.  
+3. Double-check: Not skating (different surface), not snowboarding; skiing-specific.  
+4. Decide: skiing  
+ANSWER  
+skiing
+
+----------------------------------------------------------
+— SOCCER —
+EXAMPLE S4  
+[VIDEO]: Soccer field, grass surface. Player kicks soccer ball, dribbles, passes, or shoots. Soccer ball and field visible.  
+THOUGHTS  
+1. Observe: Soccer ball, field, kicking motion, dribbling, passing.  
+2. Reason: Soccer ball, field, soccer actions → soccer. High confidence.  
+3. Double-check: Not football (different ball), not other sports; soccer-specific.  
+4. Decide: soccer  
+ANSWER  
+soccer
+
+----------------------------------------------------------
+— SWIMMING —
+EXAMPLE S5  
+[VIDEO]: Swimming pool, water visible. Swimmer moves through water using strokes, arms and legs coordinated. Swimming motion.  
+THOUGHTS  
+1. Observe: Pool, water, swimming strokes, arm and leg movements, forward motion in water.  
+2. Reason: Swimming in water, strokes → swimming. High confidence.  
+3. Double-check: Not diving (different motion), not rowing; swimming-specific.  
+4. Decide: swimming  
+ANSWER  
+swimming
+
+----------------------------------------------------------
+— TENNIS —
+EXAMPLE T  
+[VIDEO]: Tennis court, net visible. Player swings racket, hits tennis ball over net. Ball bounces on court.  
+THOUGHTS  
+1. Observe: Tennis racket, ball, court, net, swinging motion, ball over net.  
+2. Reason: Tennis equipment, court, racket swing → tennis. High confidence.  
+3. Double-check: Not badminton (different equipment), not volleyball; tennis-specific.  
+4. Decide: tennis  
+ANSWER  
+tennis
+
+----------------------------------------------------------
+— VOLLEYBALL —
+EXAMPLE V  
+[VIDEO]: Volleyball court, net visible. Player bumps, sets, or spikes volleyball over net. Team plays on court.  
+THOUGHTS  
+1. Observe: Volleyball, net, court, bumping, setting, spiking motions.  
+2. Reason: Volleyball, net, volleyball actions → volleyball. High confidence.  
+3. Double-check: Not tennis (different ball and rules), not other sports; volleyball-specific.  
+4. Decide: volleyball  
+ANSWER  
+volleyball
+
+----------------------------------------------------------
+— WEIGHT —
+EXAMPLE W  
+[VIDEO]: Gym setting, weights visible. Person lifts weights, performs deadlift or other weight exercise. Barbell or dumbbells visible.  
+THOUGHTS  
+1. Observe: Weights, barbell, lifting motion, gym setting, weightlifting form.  
+2. Reason: Weight equipment, lifting motion → weight. High confidence.  
+3. Double-check: Not other exercises, not other sports; weightlifting-specific.  
+4. Decide: weight  
+ANSWER  
+weight
+
+----------------------------------------------------------
+— WRESTLING —
+EXAMPLE W2  
+[VIDEO]: Wrestling mat, ring visible. Wrestlers grapple, take down opponent, perform holds. Wrestling match.  
+THOUGHTS  
+1. Observe: Wrestling mat, grappling, takedowns, holds, wrestling techniques.  
+2. Reason: Wrestling mat, grappling techniques → wrestling. High confidence.  
+3. Double-check: Not boxing (different techniques), not judo; wrestling-specific.  
+4. Decide: wrestling  
+ANSWER  
+wrestling
+
+==========================================================
+
+
+NOW FOLLOW THE THINKING PROTOCOL AND RETURN THE CLASS NAME (ONE WORD) ON THE FINAL LINE.

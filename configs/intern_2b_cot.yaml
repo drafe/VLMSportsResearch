@@ -1,9 +1,9 @@
-model: "gemma-3-4b-it"
-model_space: "google"
+model: "InternVL3-2B"
+model_space: "OpenGVLab"
 cache_dir: ".cache/"
 output_prefix: "cot"
 fps: 0.5
-num_frames: 16
+num_frames: 12
 max_new_tokens: 320
 prompt_type: "cot"  # Options: basic, zero_shot, fewshot, cot (automatically uses prompts/cot.txt for UCF or prompts/svw_cot.txt for SVW)
 continue_from: null          # use an int index or leave null

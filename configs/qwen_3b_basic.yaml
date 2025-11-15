@@ -1,5 +1,5 @@
-model: "gemma-3-4b-it"
-model_space: "google"
+model: "Qwen2.5-VL-3B-Instruct"
+model_space: "Qwen"
 cache_dir: ".cache/"
 output_prefix: "basic"
 fps: 0.5

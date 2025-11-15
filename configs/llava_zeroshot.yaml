@@ -1,5 +1,5 @@
-model: "gemma-3-4b-it"
-model_space: "google"
+model: "Video-LLaVA-7B-hf"
+model_space: "LanguageBind"
 cache_dir: ".cache/"
 output_prefix: "zero_shot"
 fps: 0.5
@@ -7,3 +7,4 @@ num_frames: 16
 max_new_tokens: 16
 prompt_type: "zero_shot"  # Options: basic, zero_shot, fewshot, cot (automatically uses prompts/zero_shot.txt for UCF or prompts/svw_zero_shot.txt for SVW)
 continue_from: null          # use an int index or leave null
+

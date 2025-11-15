@@ -1,5 +1,5 @@
-model: "gemma-3-4b-it"
-model_space: "google"
+model: "InternVL3-8B"
+model_space: "OpenGVLab"
 cache_dir: ".cache/"
 output_prefix: "zero_shot"
 fps: 0.5

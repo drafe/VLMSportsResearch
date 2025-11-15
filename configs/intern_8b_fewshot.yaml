@@ -1,9 +1,9 @@
-model: "gemma-3-4b-it"
-model_space: "google"
+model: "InternVL3-8B"
+model_space: "OpenGVLab"
 cache_dir: ".cache/"
 output_prefix: "fewshot"
 fps: 0.5
-num_frames: 16
+num_frames: 12
 max_new_tokens: 16
 prompt_type: "fewshot"  # Options: basic, zero_shot, fewshot, cot (automatically uses prompts/fewshot.txt for UCF or prompts/svw_fewshot.txt for SVW)
 continue_from: null          # use an int index or leave null

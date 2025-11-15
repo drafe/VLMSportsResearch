@@ -4,137 +4,116 @@ Your sole goal is to watch a short video clip and classify which action is being
 
 The video should be classified into one of the following 10 action classes:
 
-• 0 – Diving  
-• 1 – Golf-Swing  
-• 2 – Kicking  
-• 3 – Lifting  
-• 4 – Riding-Horse  
-• 5 – Running  
-• 6 – SkateBoarding  
-• 7 – Swing-Bench  
-• 8 – Swing-Side  
-• 9 – Walking
+Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.
 
 INTERNAL REASONING (not to be shown)  
 1. Visually examine key frames (motion, body positions, objects, context).  
 2. Identify the primary action being performed.  
 3. Match the observed action to one of the 10 classes.  
-4. Determine the corresponding class number (0-9).  
-5. Do **not** reveal your reasoning—return only the number.
+4. Do **not** reveal your reasoning—return only the class name.
 
 ==================== FEW-SHOT EXAMPLES ====================
 
 — DIVING —
 EXAMPLE D1  
 [VIDEO]: Person jumps from a diving board, tucks body into a forward somersault, and enters water headfirst.  
-[OUTPUT]: 0  # diving action
+[OUTPUT]: Diving
 
 EXAMPLE D2  
 [VIDEO]: Athlete performs a backward dive from platform, arms extended, entering pool vertically.  
-[OUTPUT]: 0  # diving from platform
+[OUTPUT]: Diving
 
 ----------------------------------------------------------
 — GOLF-SWING —
 EXAMPLE G1  
 [VIDEO]: Person stands on golf course, holds club, performs full swing motion hitting a golf ball.  
-[OUTPUT]: 1  # golf swing
+[OUTPUT]: Golf-Swing
 
 EXAMPLE G2  
 [VIDEO]: Golfer addresses ball, takes backswing, follows through with club after impact.  
-[OUTPUT]: 1  # complete golf swing motion
+[OUTPUT]: Golf-Swing
 
 ----------------------------------------------------------
 — KICKING —
 EXAMPLE K1  
 [VIDEO]: Person kicks a soccer ball with foot, leg extends forward in kicking motion.  
-[OUTPUT]: 2  # kicking a ball
+[OUTPUT]: Kicking
 
 EXAMPLE K2  
 [VIDEO]: Athlete performs a high kick, leg extends upward in martial arts style.  
-[OUTPUT]: 2  # kicking motion
+[OUTPUT]: Kicking
 
 ----------------------------------------------------------
 — LIFTING —
 EXAMPLE L1  
 [VIDEO]: Person lifts a heavy object from ground, using proper form with bent knees and straight back.  
-[OUTPUT]: 3  # lifting object
+[OUTPUT]: Lifting
 
 EXAMPLE L2  
 [VIDEO]: Weightlifter performs a deadlift, raising barbell from floor to standing position.  
-[OUTPUT]: 3  # weightlifting
+[OUTPUT]: Lifting
 
 ----------------------------------------------------------
 — RIDING-HORSE —
 EXAMPLE R1  
 [VIDEO]: Person sits on horseback, horse moves forward at trot or gallop.  
-[OUTPUT]: 4  # riding a horse
+[OUTPUT]: Riding-Horse
 
 EXAMPLE R2  
 [VIDEO]: Equestrian rider guides horse through arena, maintaining balance in saddle.  
-[OUTPUT]: 4  # horseback riding
+[OUTPUT]: Riding-Horse
 
 ----------------------------------------------------------
 — RUNNING —
 EXAMPLE R3  
 [VIDEO]: Person runs forward on track or field, legs moving in running gait.  
-[OUTPUT]: 5  # running motion
+[OUTPUT]: Running
 
 EXAMPLE R4  
 [VIDEO]: Athlete sprints down track, arms pumping, feet alternating rapidly.  
-[OUTPUT]: 5  # sprinting
+[OUTPUT]: Running
 
 ----------------------------------------------------------
 — SKATEBOARDING —
 EXAMPLE S1  
 [VIDEO]: Person stands on skateboard, pushes off and rides forward, maintaining balance.  
-[OUTPUT]: 6  # skateboarding
+[OUTPUT]: SkateBoarding
 
 EXAMPLE S2  
 [VIDEO]: Skateboarder performs tricks, jumps, or maneuvers on skateboard.  
-[OUTPUT]: 6  # skateboarding tricks
+[OUTPUT]: SkateBoarding
 
 ----------------------------------------------------------
 — SWING-BENCH —
 EXAMPLE SB1  
 [VIDEO]: Person sits on park bench swing, moves back and forth in swinging motion.  
-[OUTPUT]: 7  # bench swinging
+[OUTPUT]: Swing-Bench
 
 EXAMPLE SB2  
 [VIDEO]: Child swings on bench-style swing, legs pumping to maintain momentum.  
-[OUTPUT]: 7  # bench swing motion
+[OUTPUT]: Swing-Bench
 
 ----------------------------------------------------------
 — SWING-SIDE —
 EXAMPLE SS1  
 [VIDEO]: Person swings sideways on swing set, body moves left and right.  
-[OUTPUT]: 8  # side swinging
+[OUTPUT]: Swing-Side
 
 EXAMPLE SS2  
 [VIDEO]: Child on swing moves in lateral arc, swinging from side to side.  
-[OUTPUT]: 8  # lateral swing motion
+[OUTPUT]: Swing-Side
 
 ----------------------------------------------------------
 — WALKING —
 EXAMPLE W1  
 [VIDEO]: Person walks forward at normal pace, alternating steps.  
-[OUTPUT]: 9  # walking
+[OUTPUT]: Walking
 
 EXAMPLE W2  
 [VIDEO]: Individual strides along sidewalk or path, maintaining walking gait.  
-[OUTPUT]: 9  # walking motion
+[OUTPUT]: Walking
 
 ==========================================================
 
 YOUR ANSWER  
-Return **only the class number** on a single line:  
-
-• `0` — Diving  
-• `1` — Golf-Swing  
-• `2` — Kicking  
-• `3` — Lifting  
-• `4` — Riding-Horse  
-• `5` — Running  
-• `6` — SkateBoarding  
-• `7` — Swing-Bench  
-• `8` — Swing-Side  
-• `9` — Walking
+Return **only the class name** on a single line (one word): Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.
