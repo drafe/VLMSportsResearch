@@ -1,0 +1,311 @@
+PROMPT:
+
+
+
+ROLE  
+You are an advanced vision–language model.  
+Your task is to inspect a short video clip and classify which action is being performed.
+
+The video should be classified into one of the following 10 action classes:
+
+Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.
+
+THINKING PROTOCOL  
+1. **Observe** – Describe salient visual elements (people, actions, body positions, objects, motion, context).  
+2. **Reason** – Map observations to one of the 10 action classes; note level of confidence.  
+3. **Double-check** – Rethink the scene for missed cues or alternative classifications.  
+4. **Decide** – Determine the class name that best matches the observed action.  
+5. **Respond** – Show the full chain of thought for steps 1-4, then put the class name **alone** on the final line.
+
+==================== FEW-SHOT EXAMPLES ====================
+
+— DIVING —
+EXAMPLE D  
+[VIDEO]: Outdoor swimming pool, bright sunlight. A diver stands on the edge of a 3-meter diving board, arms raised. They take a few steps forward, jump, tuck their body into a forward somersault, and enter the water headfirst with minimal splash. Pool water is clear, other swimmers visible in background.  
+THOUGHTS  
+1. Observe: Person on diving board, forward somersault motion, headfirst water entry, pool environment.  
+2. Reason: Diving board, acrobatic movement, vertical water entry → Diving. High confidence.  
+3. Double-check: Not swimming or jumping; specific diving technique with somersault confirms diving action.  
+4. Decide: Diving  
+ANSWER  
+Diving
+
+----------------------------------------------------------
+— GOLF-SWING —
+EXAMPLE G  
+[VIDEO]: Golf course, green grass, clear day. Golfer stands behind a white golf ball, holding a golf club. Takes a backswing, rotates body, swings club down and through, making contact with ball. Ball flies forward. Golfer follows through with club raised, watching ball trajectory.  
+THOUGHTS  
+1. Observe: Golf course setting, golf club, ball, full swing motion with backswing and follow-through, ball impact.  
+2. Reason: Golf equipment, characteristic swing motion, ball contact → Golf-Swing. High confidence.  
+3. Double-check: Distinctive golf swing form, not baseball or tennis; golf course context confirms.  
+4. Decide: Golf-Swing  
+ANSWER  
+Golf-Swing
+
+----------------------------------------------------------
+— KICKING —
+EXAMPLE K  
+[VIDEO]: Soccer field, grass surface. Player approaches a stationary soccer ball, extends leg forward, foot makes contact with ball. Ball travels forward with force. Player maintains balance on one leg during kick, other leg follows through.  
+THOUGHTS  
+1. Observe: Soccer ball, leg extension, foot-to-ball contact, forward motion of ball, kicking motion.  
+2. Reason: Leg extends to strike object with foot → Kicking. High confidence.  
+3. Double-check: Not running or walking; specific kicking action with ball contact.  
+4. Decide: Kicking  
+ANSWER  
+Kicking
+
+----------------------------------------------------------
+— LIFTING —
+EXAMPLE L  
+[VIDEO]: Gym setting, weights visible. Person stands before a barbell on floor, bends knees, grips bar, lifts barbell from ground to standing position. Back remains straight, legs extend. Person holds weight briefly at top before lowering.  
+THOUGHTS  
+1. Observe: Barbell, bending knees, lifting motion from ground, straight back, weightlifting form.  
+2. Reason: Lifting heavy object from ground using proper technique → Lifting. High confidence.  
+3. Double-check: Not pushing or pulling; vertical lifting motion with weights confirms lifting action.  
+4. Decide: Lifting  
+ANSWER  
+Lifting
+
+----------------------------------------------------------
+— RIDING-HORSE —
+EXAMPLE R  
+[VIDEO]: Outdoor arena, dirt surface. Person sits on horseback, wearing riding helmet. Horse moves forward at a trot, rider maintains balance in saddle, holding reins. Horse and rider move together in coordinated motion.  
+THOUGHTS  
+1. Observe: Person on horseback, saddle, reins, horse moving forward, rider maintaining seated position.  
+2. Reason: Person seated on horse, horse in motion, equestrian context → Riding-Horse. High confidence.  
+3. Double-check: Not walking beside horse; person is actively riding, horse is moving.  
+4. Decide: Riding-Horse  
+ANSWER  
+Riding-Horse
+
+----------------------------------------------------------
+— RUNNING —
+EXAMPLE R2  
+[VIDEO]: Track or field, clear day. Person runs forward at steady pace, legs alternating rapidly, arms pumping. Body leans slightly forward, feet make contact with ground in running gait. Continuous forward motion.  
+THOUGHTS  
+1. Observe: Rapid leg alternation, forward motion, running gait, arm movement, sustained pace.  
+2. Reason: Fast forward locomotion with running gait → Running. High confidence.  
+3. Double-check: Not walking (too fast), not jumping; characteristic running motion.  
+4. Decide: Running  
+ANSWER  
+Running
+
+----------------------------------------------------------
+— SKATEBOARDING —
+EXAMPLE S  
+[VIDEO]: Urban setting, concrete surface. Person stands on skateboard, pushes off with one foot, rides forward while maintaining balance. Skateboard wheels visible, person shifts weight to steer. Continuous forward motion on board.  
+THOUGHTS  
+1. Observe: Skateboard, person standing on board, pushing motion, riding forward, balance maintenance.  
+2. Reason: Person on skateboard, riding motion → SkateBoarding. High confidence.  
+3. Double-check: Not walking or running; specific skateboard equipment and riding motion.  
+4. Decide: SkateBoarding  
+ANSWER  
+SkateBoarding
+
+----------------------------------------------------------
+— SWING-BENCH —
+EXAMPLE SB  
+[VIDEO]: Park setting, playground. Person sits on a bench-style swing, legs extended. Swings back and forth in forward-backward motion. Legs pump to maintain momentum. Swing moves in arc motion.  
+THOUGHTS  
+1. Observe: Bench-style swing, seated position, forward-backward swinging motion, leg pumping.  
+2. Reason: Bench swing, back-and-forth motion → Swing-Bench. High confidence.  
+3. Double-check: Not side-to-side motion; forward-backward arc on bench swing confirms.  
+4. Decide: Swing-Bench  
+ANSWER  
+Swing-Bench
+
+----------------------------------------------------------
+— SWING-SIDE —
+EXAMPLE SS  
+[VIDEO]: Playground, swing set. Person sits on swing, body moves in lateral arc from left to right. Swing moves sideways rather than forward-backward. Person shifts weight to maintain side-to-side motion.  
+THOUGHTS  
+1. Observe: Swing set, seated person, lateral (side-to-side) motion, weight shifting.  
+2. Reason: Sideways swinging motion on swing → Swing-Side. High confidence.  
+3. Double-check: Not forward-backward; distinct lateral motion different from Swing-Bench.  
+4. Decide: Swing-Side  
+ANSWER  
+Swing-Side
+
+----------------------------------------------------------
+— WALKING —
+EXAMPLE W  
+[VIDEO]: Sidewalk or path, outdoor setting. Person walks forward at normal pace, alternating steps. Each foot lifts and places down in walking gait. Arms swing naturally. Steady, moderate pace forward movement.  
+THOUGHTS  
+1. Observe: Alternating steps, moderate pace, walking gait, natural arm swing, forward movement.  
+2. Reason: Normal walking pace, characteristic walking gait → Walking. High confidence.  
+3. Double-check: Not running (too slow), not standing; clear walking motion.  
+4. Decide: Walking  
+ANSWER  
+Walking
+
+==========================================================
+
+
+NOW FOLLOW THE THINKING PROTOCOL AND RETURN THE CLASS NAME (ONE WORD) ON THE FINAL LINE.
+
+
+
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/004/RF1-13206_70024.avi	Diving
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/005/RF1-13209_70050.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/002/7608-9_70(2)151.avi	Walking
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/006/RF1-13428_70288.avi	SWING-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/008/RF1-13678_70045.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/003/RF1-13157_70040.avi	Golf-Swing
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/001/7603-4_70159.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/007/RF1-13588_70046.avi	Dig
+datasets/ucf_sports_actions/ucf action/Walk-Front/022/7608-3_70626.avi	WALKING
+datasets/ucf_sports_actions/ucf action/Walk-Front/014/RF1-18526_70364.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/004/RF1-10799_70080.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/009/RF1-15341_70050.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/005/RF1-11529_70033.avi	Running
+datasets/ucf_sports_actions/ucf action/Walk-Front/021/RF1-13205_70100.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/002/5561-7_70102.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/017/RF1-18598_70075.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/020/RF1-13204_70095.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/006/RF1-13902_70016.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/019/RF1-18602_70140.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/011/RF1-18085_70010.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Walk-Front/012/RF1-18156_70301.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/008/RF1-15295_70060.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/018/RF1-18598_70530.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/010/RF1-18075_70140.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/003/RF1-10578_70285.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/001/3206-12_70000.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/015/RF1-18566_700411.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/013/RF1-18524_70031.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/016/RF1-18566_700560.avi	Walking
+datasets/ucf_sports_actions/ucf action/Walk-Front/007/RF1-14377_70025.avi	Walking
+datasets/ucf_sports_actions/ucf action/Riding-Horse/004/4456-16_700406.avi	Walking
+datasets/ucf_sports_actions/ucf action/Riding-Horse/009/6326-9_70170.avi	Walking
+datasets/ucf_sports_actions/ucf action/Riding-Horse/005/4456-16_700516.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Riding-Horse/002/4456-16_700165.avi	Walking
+datasets/ucf_sports_actions/ucf action/Riding-Horse/006/6018-29_70000.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Riding-Horse/011/1098-6_70000.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Riding-Horse/012/7467-18_70103.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Riding-Horse/008/6029-1_70143.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Riding-Horse/010/RF1-12001_70063.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Riding-Horse/003/4456-16_700273.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Riding-Horse/001/4456-16_700040.avi	Walking
+datasets/ucf_sports_actions/ucf action/Riding-Horse/007/6029-1_70001.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/004/7608-5_70039.avi	Sure, here is a summary of the action being performed in the video:
+
+The main action in the video is:
+
+- Golf-Swing
+
+I identified the action by observing the person holding a golf club and taking a swing at a golf ball. The setting and equipment (golf club and ball) support the interpretation of a golf swing. The person's stance and position suggest they are preparing to drive the golf ball, which fits the golf-swing class.
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/005/7606-2_700810.avi	Golf-Swing
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/002/RF1-11456_70034.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/003/7608-5_70308.avi	Golf-Swing
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/001/RF1-13207_7015.avi	Golf-Swing
+datasets/ucf_sports_actions/ucf action/Run-Side/004/5238-17_700950.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/009/3687-17_70245.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/005/5238-17_701581.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/002/5238-17_700000.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/006/5238-17_701141.avi	Diving
+datasets/ucf_sports_actions/ucf action/Run-Side/011/5117-8_70157.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/012/7603-3_70195.avi	Walking
+datasets/ucf_sports_actions/ucf action/Run-Side/008/7850-5_70090.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/010/5373-10_70026.avi	Walking
+datasets/ucf_sports_actions/ucf action/Run-Side/003/5238-17_700641.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/001/2670-5_70111.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/013/5020-1_70062.avi	Running
+datasets/ucf_sports_actions/ucf action/Run-Side/007/6065-8_70110.avi	Running
+datasets/ucf_sports_actions/ucf action/Kicking-Front/004/3937-9_70105.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Front/009/6729-10_70314.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Front/005/3949-12_70207.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Front/002/1084-44_l865.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Front/006/5117-8_70113.avi	Diving
+datasets/ucf_sports_actions/ucf action/Kicking-Front/008/6351-6_70000.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Front/010/6731-2_70017.avi	Diving
+datasets/ucf_sports_actions/ucf action/Kicking-Front/003/3833-27_70006.avi	Diving
+datasets/ucf_sports_actions/ucf action/Kicking-Front/001/778-62_l146.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Front/007/6063-21_70056.avi	Diving
+datasets/ucf_sports_actions/ucf action/Swing-Bench/014/2527-12_70360.avi	Diving
+datasets/ucf_sports_actions/ucf action/Swing-Bench/004/669-67070.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/009/2527-9_70087.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/005/669-67178.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/002/669-60176.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/017/2527-12_70526.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/020/4379-9_70018.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/006/2527-5_70020.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/019/2527-12_70641.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/011/2527-12_70137.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/012/2527-12_70186.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/008/2527-9_70018.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Swing-Bench/018/2527-12_70574.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/010/2527-9_70267.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/003/669-60220.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/001/669-60084.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/015/2527-12_70411.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-Bench/013/2527-12_70297.avi	Diving
+datasets/ucf_sports_actions/ucf action/Swing-Bench/016/2527-12_70461.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Swing-Bench/007/2527-5_70114.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/004/vid6_214.avi	SWING-Side
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/009/vid1_0377.avi	Diving  
+FINAL ANSWER: Diving
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/005/vid8_0500.avi	Swing-Side
+
+In the video, the athlete performs a gymnastics routine on parallel bars, characterized by swinging and balancing movements. The description and analysis align with the Swing-Side action class because the athlete maneuvers around the bars in a side-to-side motion typical of side swings.
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/002/vid1_0461.avi	SWING-Bench
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/006/vid8_0685.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/011/vid1_0855.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/012/vid5_000.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/008/vid1_0302.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/010/vid1_0674.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/003/vid6_025.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/001/vid1_0117.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/013/vid8_0027.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/007/4367-6_70167.avi	Lifting
+
+In the video, the gymnast performs a routine on the parallel bars. The individual executes a series of complex movements, including hangs and rotations, while maintaining a strong, upright position. The execution involves lifting their body with the arms extended, which is characteristic of certain gymnastic routines, especially in events like the pommel horse championship or similar competitions. The consistent upward movement and stabilization on the bars, along with the precision of each movement, aligns with the "Lifting" action class. These details confirm that the gymnast is engaged in lifting their body, highlighting the key elements of the sport and the specific actions captured in the video.
+datasets/ucf_sports_actions/ucf action/Lifting/004/3528-6_70(2)268.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Lifting/005/3528-6_70270.avi	Diving
+datasets/ucf_sports_actions/ucf action/Lifting/002/2502-2_70340.avi	Lifting
+datasets/ucf_sports_actions/ucf action/Lifting/006/3528-10_70424.avi	Lifting
+datasets/ucf_sports_actions/ucf action/Lifting/003/2502-3_70368.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/Lifting/001/3528-8_70514.avi	Lifting
+datasets/ucf_sports_actions/ucf action/Diving-Side/004/2538-16_70032.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/005/4475-1_70541.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/002/2538-11_70015.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/006/4475-2_70045.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/003/2538-12_70246.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Diving-Side/001/2538-5_70133.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/007/4475-6_70099.avi	Diving
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/004/7616-7_70270.avi	Golf-Swing
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/005/RF1-13903_70070.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/002/3283-8_701201.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/003/7608-12_70275.avi	Swing-Side
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/001/3283-8_700741.avi	Golf-Swing
+datasets/ucf_sports_actions/ucf action/Kicking-Side/004/5117-8_70350.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Side/009/pstch3_clp21_0088_l105.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Side/005/5863-29_70025.avi	Diving
+datasets/ucf_sports_actions/ucf action/Kicking-Side/002/3833-40_70336.avi	Diving
+datasets/ucf_sports_actions/ucf action/Kicking-Side/006/6063-20_70333.avi	Swinging
+
+The action shown in the video is a player taking a penalty kick. Observing the sequence, the player wears a yellow uniform and is standing near the goal with his foot advanced towards the ball near the penalty area, confirming the action of **Swinging**. The goalkeeper is positioned to block, and players from opposing teams are nearby, indicating a typical penalty kick situation in a football match.
+datasets/ucf_sports_actions/ucf action/Kicking-Side/008/pstch3_clp16_0079_l050.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Side/010/RF1-16941_70021.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Side/003/3833-41_70187.avi	Diving
+datasets/ucf_sports_actions/ucf action/Kicking-Side/001/3833-15_70577.avi	Kicking
+datasets/ucf_sports_actions/ucf action/Kicking-Side/007/6351-1_70011.avi	Kicking
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/004/761-39000.avi	SkateBoarding
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/009/947-58108.avi	SkateBoarding
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/005/860-2001.avi	Swing-Bench
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/002/708-77009.avi	Walking
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/006/860-2729.avi	SkateBoarding
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/011/947-70454.avi	SkateBoarding
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/012/1058-22003.avi	SkateBoarding
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/008/860-38064.avi	SkateBoarding
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/010/947-70005.avi	A person appears to skateboarding while being pulled by a dog on a leash. Skating involves balancing and moving on a skateboard, which is consistent with the "SkateBoarding" action class. Therefore, the action class is **SkateBoarding**.
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/003/711-66044.avi	SkateBoarding
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/001/708-75070.avi	Riding-Horse
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/007/860-37150.avi	SkateBoarding
+time:
+
+
+
+0.4608 ±0.0662
+
+
+

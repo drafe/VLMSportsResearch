@@ -1,0 +1,973 @@
+PROMPT:
+
+
+
+ROLE  
+You are an advanced vision–language model.  
+Your sole goal is to watch a short video clip and classify which action is being performed.
+
+The video should be classified into one of the following 10 action classes:
+
+Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.
+
+INTERNAL REASONING (not to be shown)  
+1. Visually examine key frames (motion, body positions, objects, context).  
+2. Identify the primary action being performed.  
+3. Match the observed action to one of the 10 classes.  
+4. Do **not** reveal your reasoning—return only the class name.
+
+==================== FEW-SHOT EXAMPLES ====================
+
+— DIVING —
+EXAMPLE D1  
+[VIDEO]: Person jumps from a diving board, tucks body into a forward somersault, and enters water headfirst.  
+[OUTPUT]: Diving
+
+EXAMPLE D2  
+[VIDEO]: Athlete performs a backward dive from platform, arms extended, entering pool vertically.  
+[OUTPUT]: Diving
+
+----------------------------------------------------------
+— GOLF-SWING —
+EXAMPLE G1  
+[VIDEO]: Person stands on golf course, holds club, performs full swing motion hitting a golf ball.  
+[OUTPUT]: Golf-Swing
+
+EXAMPLE G2  
+[VIDEO]: Golfer addresses ball, takes backswing, follows through with club after impact.  
+[OUTPUT]: Golf-Swing
+
+----------------------------------------------------------
+— KICKING —
+EXAMPLE K1  
+[VIDEO]: Person kicks a soccer ball with foot, leg extends forward in kicking motion.  
+[OUTPUT]: Kicking
+
+EXAMPLE K2  
+[VIDEO]: Athlete performs a high kick, leg extends upward in martial arts style.  
+[OUTPUT]: Kicking
+
+----------------------------------------------------------
+— LIFTING —
+EXAMPLE L1  
+[VIDEO]: Person lifts a heavy object from ground, using proper form with bent knees and straight back.  
+[OUTPUT]: Lifting
+
+EXAMPLE L2  
+[VIDEO]: Weightlifter performs a deadlift, raising barbell from floor to standing position.  
+[OUTPUT]: Lifting
+
+----------------------------------------------------------
+— RIDING-HORSE —
+EXAMPLE R1  
+[VIDEO]: Person sits on horseback, horse moves forward at trot or gallop.  
+[OUTPUT]: Riding-Horse
+
+EXAMPLE R2  
+[VIDEO]: Equestrian rider guides horse through arena, maintaining balance in saddle.  
+[OUTPUT]: Riding-Horse
+
+----------------------------------------------------------
+— RUNNING —
+EXAMPLE R3  
+[VIDEO]: Person runs forward on track or field, legs moving in running gait.  
+[OUTPUT]: Running
+
+EXAMPLE R4  
+[VIDEO]: Athlete sprints down track, arms pumping, feet alternating rapidly.  
+[OUTPUT]: Running
+
+----------------------------------------------------------
+— SKATEBOARDING —
+EXAMPLE S1  
+[VIDEO]: Person stands on skateboard, pushes off and rides forward, maintaining balance.  
+[OUTPUT]: SkateBoarding
+
+EXAMPLE S2  
+[VIDEO]: Skateboarder performs tricks, jumps, or maneuvers on skateboard.  
+[OUTPUT]: SkateBoarding
+
+----------------------------------------------------------
+— SWING-BENCH —
+EXAMPLE SB1  
+[VIDEO]: Person sits on park bench swing, moves back and forth in swinging motion.  
+[OUTPUT]: Swing-Bench
+
+EXAMPLE SB2  
+[VIDEO]: Child swings on bench-style swing, legs pumping to maintain momentum.  
+[OUTPUT]: Swing-Bench
+
+----------------------------------------------------------
+— SWING-SIDE —
+EXAMPLE SS1  
+[VIDEO]: Person swings sideways on swing set, body moves left and right.  
+[OUTPUT]: Swing-Side
+
+EXAMPLE SS2  
+[VIDEO]: Child on swing moves in lateral arc, swinging from side to side.  
+[OUTPUT]: Swing-Side
+
+----------------------------------------------------------
+— WALKING —
+EXAMPLE W1  
+[VIDEO]: Person walks forward at normal pace, alternating steps.  
+[OUTPUT]: Walking
+
+EXAMPLE W2  
+[VIDEO]: Individual strides along sidewalk or path, maintaining walking gait.  
+[OUTPUT]: Walking
+
+==========================================================
+
+YOUR ANSWER  
+Return **only the class name** on a single line (one word): Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.
+
+
+
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/004/RF1-13206_70024.avi	and and and and and and and and and and and and and3
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/005/RF1-13209_70050.avi	and and and and and and and and and and.  and.  and
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/002/7608-9_70(2)151.avi	g and g and g and g, g, 
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/006/RF1-13428_70288.avi	and's ands ands ands ands and and and and
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/008/RF1-13678_70045.avi	6, and,  and and and and and and, 6
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/003/RF1-13157_70040.avi	and333333333333333
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/001/7603-4_70159.avi	and and and and and and and in and and and and and and in and
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Front/007/RF1-13588_70046.avi	5, 55555555555, 
+datasets/ucf_sports_actions/ucf action/Walk-Front/022/7608-3_70626.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Walk-Front/014/RF1-18526_70364.avi	 and,  and, and, and, and,  and, 
+datasets/ucf_sports_actions/ucf action/Walk-Front/004/RF1-10799_70080.avi	and.
+ and. and. and. and. and. and. and
+datasets/ucf_sports_actions/ucf action/Walk-Front/009/RF1-15341_70050.avi	
+
+
+
+
+3 and 3
+33
+3
+3
+datasets/ucf_sports_actions/ucf action/Walk-Front/005/RF1-11529_70033.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Walk-Front/021/RF1-13205_70100.avi	and and's and and's and and's and
+datasets/ucf_sports_actions/ucf action/Walk-Front/002/5561-7_70102.avi	and, and, and, and, and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Walk-Front/017/RF1-18598_70075.avi	and's and and and and and and's and's and
+datasets/ucf_sports_actions/ucf action/Walk-Front/020/RF1-13204_70095.avi	and's, and's and's and's and'
+datasets/ucf_sports_actions/ucf action/Walk-Front/006/RF1-13902_70016.avi	g, g, g, g, g, 
+datasets/ucf_sports_actions/ucf action/Walk-Front/019/RF1-18602_70140.avi	 and  and  and  and  and 6 6 6
+datasets/ucf_sports_actions/ucf action/Walk-Front/011/RF1-18085_70010.avi	and,  and, and, and, and, and, and, and
+datasets/ucf_sports_actions/ucf action/Walk-Front/012/RF1-18156_70301.avi	               
+datasets/ucf_sports_actions/ucf action/Walk-Front/008/RF1-15295_70060.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Walk-Front/018/RF1-18598_70530.avi	and and and and and and and and and and and 5555
+datasets/ucf_sports_actions/ucf action/Walk-Front/010/RF1-18075_70140.avi	 and  and.
+ and.  and.  and  and 
+datasets/ucf_sports_actions/ucf action/Walk-Front/003/RF1-10578_70285.avi	
+555555555555555
+datasets/ucf_sports_actions/ucf action/Walk-Front/001/3206-12_70000.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Walk-Front/015/RF1-18566_700411.avi	and and and and  and and and and
+datasets/ucf_sports_actions/ucf action/Walk-Front/013/RF1-18524_70031.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Walk-Front/016/RF1-18566_700560.avi	 and 
+ 
+  and  and  and 
+ 
+
+datasets/ucf_sports_actions/ucf action/Walk-Front/007/RF1-14377_70025.avi	
+
+
+ and,
+ and, and, and,
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Riding-Horse/004/4456-16_700406.avi	and. and. and. and.
+ and, and, and, and
+datasets/ucf_sports_actions/ucf action/Riding-Horse/009/6326-9_70170.avi	in, and, and, and, and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Riding-Horse/005/4456-16_700516.avi	in. and. and. ins. ins. ins. in
+datasets/ucf_sports_actions/ucf action/Riding-Horse/002/4456-16_700165.avi	and's and's and's, and's, and,
+datasets/ucf_sports_actions/ucf action/Riding-Horse/006/6018-29_70000.avi	in, and, and, and, and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Riding-Horse/011/1098-6_70000.avi	
+ in a in a ins ins in, and in, and in
+datasets/ucf_sports_actions/ucf action/Riding-Horse/012/7467-18_70103.avi	in, in, in, and, and,
+ in, in, in
+datasets/ucf_sports_actions/ucf action/Riding-Horse/008/6029-1_70143.avi	and, and, and, and, and, ands, ands,
+datasets/ucf_sports_actions/ucf action/Riding-Horse/010/RF1-12001_70063.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Riding-Horse/003/4456-16_700273.avi	in, ins and ins ins ins ins ins in
+datasets/ucf_sports_actions/ucf action/Riding-Horse/001/4456-16_700040.avi	ands, ands, ands, ands, ands, and
+datasets/ucf_sports_actions/ucf action/Riding-Horse/007/6029-1_70001.avi	and, and, and and and and and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/004/7608-5_70039.avi	and, and, and, and, and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/005/7606-2_700810.avi	and, and, and, and, and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/002/RF1-11456_70034.avi	Diving
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/003/7608-5_70308.avi	and, and, and, and, and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Side/001/RF1-13207_7015.avi	3, 3, 3, 3, 333
+datasets/ucf_sports_actions/ucf action/Run-Side/004/5238-17_700950.avi	and and and and and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Run-Side/009/3687-17_70245.avi	and, and, and, and, and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Run-Side/005/5238-17_701581.avi	and, and, and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Run-Side/002/5238-17_700000.avi	and, and, and, and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Run-Side/006/5238-17_701141.avi	and, and, and, and, and, and, and, and,
+datasets/ucf_sports_actions/ucf action/Run-Side/011/5117-8_70157.avi	and the and the and the and the and the and the and the and the
+datasets/ucf_sports_actions/ucf action/Run-Side/012/7603-3_70195.avi	and's and and and and and and and and and and in
+datasets/ucf_sports_actions/ucf action/Run-Side/008/7850-5_70090.avi	and and, and, and, and and, and and
+datasets/ucf_sports_actions/ucf action/Run-Side/010/5373-10_70026.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Run-Side/003/5238-17_700641.avi	Diving
+datasets/ucf_sports_actions/ucf action/Run-Side/001/2670-5_70111.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Run-Side/013/5020-1_70062.avi	Diving
+datasets/ucf_sports_actions/ucf action/Run-Side/007/6065-8_70110.avi	and, and and and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Kicking-Front/004/3937-9_70105.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Kicking-Front/009/6729-10_70314.avi	
+
+
+ and and and and and and and and. 
+datasets/ucf_sports_actions/ucf action/Kicking-Front/005/3949-12_70207.avi	and the, and the, and the, and the, and the, and
+datasets/ucf_sports_actions/ucf action/Kicking-Front/002/1084-44_l865.avi	4444444444444444
+datasets/ucf_sports_actions/ucf action/Kicking-Front/006/5117-8_70113.avi	1, 1, 1, 1, 1, 
+datasets/ucf_sports_actions/ucf action/Kicking-Front/008/6351-6_70000.avi	
+ and in and and and and and and and and and,
+
+
+
+datasets/ucf_sports_actions/ucf action/Kicking-Front/010/6731-2_70017.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Kicking-Front/003/3833-27_70006.avi	3, 3, 3 and and and
+3 ands and
+
+datasets/ucf_sports_actions/ucf action/Kicking-Front/001/778-62_l146.avi	and and and and the and and and and and and
+datasets/ucf_sports_actions/ucf action/Kicking-Front/007/6063-21_70056.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/014/2527-12_70360.avi	
+
+
+
+
+
+
+
+
+
+
+
+ and  and 
+datasets/ucf_sports_actions/ucf action/Swing-Bench/004/669-67070.avi	66666666.
+ and.
+ and.
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/009/2527-9_70087.avi	and,  and  and  and  and  and  and 
+datasets/ucf_sports_actions/ucf action/Swing-Bench/005/669-67178.avi	and. and. and. and. and. 
+datasets/ucf_sports_actions/ucf action/Swing-Bench/002/669-60176.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/017/2527-12_70526.avi	
+
+
+
+
+
+
+
+
+
+ and,  and, 
+datasets/ucf_sports_actions/ucf action/Swing-Bench/020/4379-9_70018.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/006/2527-5_70020.avi	and  and  and  and  and  and  and  and 
+datasets/ucf_sports_actions/ucf action/Swing-Bench/019/2527-12_70641.avi	
+
+
+
+ and in the and  and  and  and  and
+datasets/ucf_sports_actions/ucf action/Swing-Bench/011/2527-12_70137.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/012/2527-12_70186.avi	1, 1, red.
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/008/2527-9_70018.avi	and, and, and, and, and, 
+datasets/ucf_sports_actions/ucf action/Swing-Bench/018/2527-12_70574.avi	
+
+
+
+ and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Swing-Bench/010/2527-9_70267.avi	 and and  and and and and and and and and and and  and
+datasets/ucf_sports_actions/ucf action/Swing-Bench/003/669-60220.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6
+datasets/ucf_sports_actions/ucf action/Swing-Bench/001/669-60084.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/015/2527-12_70411.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/013/2527-12_70297.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/016/2527-12_70461.avi	
+
+
+
+
+ and and and ands.
+ ands.
+
+datasets/ucf_sports_actions/ucf action/Swing-Bench/007/2527-5_70114.avi	
+
+
+
+
+ and  and  and  and  and  and
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/004/vid6_214.avi	and, and, 1, g, and, 
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/009/vid1_0377.avi	and, 1, 1, and, and, 
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/005/vid8_0500.avi	Diving
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/002/vid1_0461.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/006/vid8_0685.avi	and and ofs and of, and, and,
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/011/vid1_0855.avi	and, and, and,  and, and, 
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/012/vid5_000.avi	1, and, and, 
+ 
+ 
+
+
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/008/vid1_0302.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/010/vid1_0674.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/003/vid6_025.avi	Diving
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/001/vid1_0117.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/013/vid8_0027.avi	Diving
+datasets/ucf_sports_actions/ucf action/Swing-SideAngle/007/4367-6_70167.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Lifting/004/3528-6_70(2)268.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Lifting/005/3528-6_70270.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Lifting/002/2502-2_70340.avi	and, 1, 1, and, and, 
+datasets/ucf_sports_actions/ucf action/Lifting/006/3528-10_70424.avi	2, 2, 2
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Lifting/003/2502-3_70368.avi	and
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Lifting/001/3528-8_70514.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Diving-Side/004/2538-16_70032.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/005/4475-1_70541.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Diving-Side/002/2538-11_70015.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/006/4475-2_70045.avi	Diving
+datasets/ucf_sports_actions/ucf action/Diving-Side/003/2538-12_70246.avi	and in the and in a and and and and and and and
+datasets/ucf_sports_actions/ucf action/Diving-Side/001/2538-5_70133.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Diving-Side/007/4475-6_70099.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/004/7616-7_70270.avi	and and, and, and, and, and 
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/005/RF1-13903_70070.avi	and and and and and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/002/3283-8_701201.avi	and ins and ins ands ands ands and in the and
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/003/7608-12_70275.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Golf-Swing-Back/001/3283-8_700741.avi	and and and, ands ands ands ands and, and,
+datasets/ucf_sports_actions/ucf action/Kicking-Side/004/5117-8_70350.avi	and. and.
+ and.  and.
+ and. and and
+datasets/ucf_sports_actions/ucf action/Kicking-Side/009/pstch3_clp21_0088_l105.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Kicking-Side/005/5863-29_70025.avi	and, and, and, and and and 
+datasets/ucf_sports_actions/ucf action/Kicking-Side/002/3833-40_70336.avi	
+33
+3333
+3
+3
+3
+3
+datasets/ucf_sports_actions/ucf action/Kicking-Side/006/6063-20_70333.avi	and, and, and, and, and, 
+datasets/ucf_sports_actions/ucf action/Kicking-Side/008/pstch3_clp16_0079_l050.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Kicking-Side/010/RF1-16941_70021.avi	and and and and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/Kicking-Side/003/3833-41_70187.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/Kicking-Side/001/3833-15_70577.avi	
+3 ands ands ands and
+
+
+3's and
+datasets/ucf_sports_actions/ucf action/Kicking-Side/007/6351-1_70011.avi	and and and and and and and and and.
+.
+.
+.
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/004/761-39000.avi	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/009/947-58108.avi	5.  and.  and.  and. 555
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/005/860-2001.avi	
+
+
+ and and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/002/708-77009.avi	and in and' and' and' and' and and and and and and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/006/860-2729.avi	
+
+
+
+
+
+
+
+
+
+
+ in, and, and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/011/947-70454.avi	and  and and and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/012/1058-22003.avi	and and and and and and and and and and. and. and. and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/008/860-38064.avi	and and and and and and and and and and and and and and and and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/010/947-70005.avi	
+
+
+
+
+
+
+
+
+
+7
+7 and and and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/003/711-66044.avi	 and  and, and, and, and and and and and and and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/001/708-75070.avi	7's. 7. 7.  and.  and
+datasets/ucf_sports_actions/ucf action/SkateBoarding-Front/007/860-37150.avi	
+4444444444, and in and in
+time:
+
+
+
+1.0368 ±0.0334
+
+
+

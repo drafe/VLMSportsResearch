@@ -2,11 +2,325 @@ PROMPT:
 
 
 
-Classify the action in the video. 
+ROLE  
+You are an advanced vision–language model.  
+Your sole goal is to watch a short video clip and classify which action is being performed.
 
-Return only the class name: archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling. 
+The video should be classified into one of the following 30 action classes:
 
-Respond with only that single word and nothing else.
+archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling.
+
+INTERNAL REASONING (not to be shown)  
+1. Visually examine key frames (motion, body positions, objects, context).  
+2. Identify the primary action being performed.  
+3. Match the observed action to one of the 30 classes.  
+4. Do **not** reveal your reasoning—return only the class name.
+
+==================== FEW-SHOT EXAMPLES ====================
+
+— ARCHERY —
+EXAMPLE A1  
+[VIDEO]: Person draws bowstring, aims at target, releases arrow.  
+[OUTPUT]: archery
+
+EXAMPLE A2  
+[VIDEO]: Archer stands in shooting stance, pulls back bow, arrow flies toward target.  
+[OUTPUT]: archery
+
+----------------------------------------------------------
+— BASEBALL —
+EXAMPLE B1  
+[VIDEO]: Player swings bat, hits baseball, ball flies into field.  
+[OUTPUT]: baseball
+
+EXAMPLE B2  
+[VIDEO]: Batter stands at plate, swings and makes contact with pitched ball.  
+[OUTPUT]: baseball
+
+----------------------------------------------------------
+— BASKETBALL —
+EXAMPLE B3  
+[VIDEO]: Player dribbles basketball, jumps, shoots ball into hoop.  
+[OUTPUT]: basketball
+
+EXAMPLE B4  
+[VIDEO]: Athlete bounces ball, moves toward basket, performs layup or jump shot.  
+[OUTPUT]: basketball
+
+----------------------------------------------------------
+— BMX —
+EXAMPLE B5  
+[VIDEO]: Rider performs tricks on BMX bike, jumps, spins, lands.  
+[OUTPUT]: bmx
+
+EXAMPLE B6  
+[VIDEO]: BMX cyclist rides on ramp, performs aerial maneuver, lands on bike.  
+[OUTPUT]: bmx
+
+----------------------------------------------------------
+— BOWLING —
+EXAMPLE B7  
+[VIDEO]: Person rolls bowling ball down lane, ball knocks down pins.  
+[OUTPUT]: bowling
+
+EXAMPLE B8  
+[VIDEO]: Bowler takes approach, releases ball, pins scatter.  
+[OUTPUT]: bowling
+
+----------------------------------------------------------
+— BOXING —
+EXAMPLE B9  
+[VIDEO]: Boxer throws punches, jabs, hooks at opponent or bag.  
+[OUTPUT]: boxing
+
+EXAMPLE B10  
+[VIDEO]: Fighter in boxing stance, throws combination punches.  
+[OUTPUT]: boxing
+
+----------------------------------------------------------
+— CHEERLEADING —
+EXAMPLE C1  
+[VIDEO]: Cheerleaders perform synchronized routines, jumps, formations.  
+[OUTPUT]: cheerleading
+
+EXAMPLE C2  
+[VIDEO]: Team performs cheerleading stunts, pyramids, acrobatic moves.  
+[OUTPUT]: cheerleading
+
+----------------------------------------------------------
+— DISCUSTHROW —
+EXAMPLE D1  
+[VIDEO]: Athlete spins, releases discus, discus flies through air.  
+[OUTPUT]: discusthrow
+
+EXAMPLE D2  
+[VIDEO]: Thrower rotates body, launches discus in throwing motion.  
+[OUTPUT]: discusthrow
+
+----------------------------------------------------------
+— DIVING —
+EXAMPLE D3  
+[VIDEO]: Person jumps from diving board, enters water headfirst.  
+[OUTPUT]: diving
+
+EXAMPLE D4  
+[VIDEO]: Diver performs acrobatic dive from platform into pool.  
+[OUTPUT]: diving
+
+----------------------------------------------------------
+— FOOTBALL —
+EXAMPLE F1  
+[VIDEO]: Player throws or catches American football, runs with ball.  
+[OUTPUT]: football
+
+EXAMPLE F2  
+[VIDEO]: Football player runs, passes, or tackles in American football game.  
+[OUTPUT]: football
+
+----------------------------------------------------------
+— GOLF —
+EXAMPLE G1  
+[VIDEO]: Golfer swings club, hits golf ball, ball travels down fairway.  
+[OUTPUT]: golf
+
+EXAMPLE G2  
+[VIDEO]: Player addresses ball, takes full swing, follows through.  
+[OUTPUT]: golf
+
+----------------------------------------------------------
+— GYMNASTICS —
+EXAMPLE G3  
+[VIDEO]: Gymnast performs flips, handstands, or routines on equipment.  
+[OUTPUT]: gymnastics
+
+EXAMPLE G4  
+[VIDEO]: Athlete performs gymnastics routine, tumbling, or apparatus work.  
+[OUTPUT]: gymnastics
+
+----------------------------------------------------------
+— HAMMERTHROW —
+EXAMPLE H1  
+[VIDEO]: Athlete spins, releases hammer, hammer flies through air.  
+[OUTPUT]: hammerthrow
+
+EXAMPLE H2  
+[VIDEO]: Thrower rotates with hammer, launches it in throwing motion.  
+[OUTPUT]: hammerthrow
+
+----------------------------------------------------------
+— HIGHJUMP —
+EXAMPLE H3  
+[VIDEO]: Athlete runs, jumps over high bar, clears height.  
+[OUTPUT]: highjump
+
+EXAMPLE H4  
+[VIDEO]: Jumper approaches bar, leaps over, lands on mat.  
+[OUTPUT]: highjump
+
+----------------------------------------------------------
+— HOCKEY —
+EXAMPLE H5  
+[VIDEO]: Player skates with stick, shoots puck, or passes.  
+[OUTPUT]: hockey
+
+EXAMPLE H6  
+[VIDEO]: Hockey player moves on ice, handles puck, takes shot.  
+[OUTPUT]: hockey
+
+----------------------------------------------------------
+— HURDLING —
+EXAMPLE H7  
+[VIDEO]: Runner sprints, jumps over hurdles, continues running.  
+[OUTPUT]: hurdling
+
+EXAMPLE H8  
+[VIDEO]: Athlete runs track, clears multiple hurdles in sequence.  
+[OUTPUT]: hurdling
+
+----------------------------------------------------------
+— JAVELIN —
+EXAMPLE J1  
+[VIDEO]: Athlete runs, throws javelin, javelin flies through air.  
+[OUTPUT]: javelin
+
+EXAMPLE J2  
+[VIDEO]: Thrower takes approach, launches javelin in throwing motion.  
+[OUTPUT]: javelin
+
+----------------------------------------------------------
+— LONGJUMP —
+EXAMPLE L1  
+[VIDEO]: Athlete runs, jumps into sand pit, lands far from takeoff.  
+[OUTPUT]: longjump
+
+EXAMPLE L2  
+[VIDEO]: Jumper sprints, leaps from board, lands in long jump pit.  
+[OUTPUT]: longjump
+
+----------------------------------------------------------
+— POLEVAULT —
+EXAMPLE P1  
+[VIDEO]: Athlete runs with pole, plants pole, vaults over bar.  
+[OUTPUT]: polevault
+
+EXAMPLE P2  
+[VIDEO]: Vaulter approaches, uses pole to clear high bar.  
+[OUTPUT]: polevault
+
+----------------------------------------------------------
+— ROWING —
+EXAMPLE R1  
+[VIDEO]: Rowers pull oars through water, boat moves forward.  
+[OUTPUT]: rowing
+
+EXAMPLE R2  
+[VIDEO]: Team rows in synchronized motion, propelling boat.  
+[OUTPUT]: rowing
+
+----------------------------------------------------------
+— RUNNING —
+EXAMPLE R3  
+[VIDEO]: Person runs forward on track or field, legs moving rapidly.  
+[OUTPUT]: running
+
+EXAMPLE R4  
+[VIDEO]: Athlete sprints, arms pumping, feet alternating.  
+[OUTPUT]: running
+
+----------------------------------------------------------
+— SHOTPUT —
+EXAMPLE S1  
+[VIDEO]: Athlete pushes shot put, heavy ball flies through air.  
+[OUTPUT]: shotput
+
+EXAMPLE S2  
+[VIDEO]: Thrower spins or pushes shot put from shoulder.  
+[OUTPUT]: shotput
+
+----------------------------------------------------------
+— SKATING —
+EXAMPLE S3  
+[VIDEO]: Person skates on ice or skateboard, glides forward.  
+[OUTPUT]: skating
+
+EXAMPLE S4  
+[VIDEO]: Skater performs moves on ice or skateboard, maintains balance.  
+[OUTPUT]: skating
+
+----------------------------------------------------------
+— SKIING —
+EXAMPLE S5  
+[VIDEO]: Skier glides down slope on skis, maintains balance.  
+[OUTPUT]: skiing
+
+EXAMPLE S6  
+[VIDEO]: Person skis down mountain or slope, turns, maintains control.  
+[OUTPUT]: skiing
+
+----------------------------------------------------------
+— SOCCER —
+EXAMPLE S7  
+[VIDEO]: Player kicks soccer ball, dribbles, or passes.  
+[OUTPUT]: soccer
+
+EXAMPLE S8  
+[VIDEO]: Soccer player runs with ball, kicks, or performs moves.  
+[OUTPUT]: soccer
+
+----------------------------------------------------------
+— SWIMMING —
+EXAMPLE S9  
+[VIDEO]: Swimmer moves through water using strokes, arms and legs.  
+[OUTPUT]: swimming
+
+EXAMPLE S10  
+[VIDEO]: Person swims in pool, performs swimming strokes.  
+[OUTPUT]: swimming
+
+----------------------------------------------------------
+— TENNIS —
+EXAMPLE T1  
+[VIDEO]: Player swings racket, hits tennis ball over net.  
+[OUTPUT]: tennis
+
+EXAMPLE T2  
+[VIDEO]: Tennis player serves, returns, or rallies with ball.  
+[OUTPUT]: tennis
+
+----------------------------------------------------------
+— VOLLEYBALL —
+EXAMPLE V1  
+[VIDEO]: Player bumps, sets, or spikes volleyball over net.  
+[OUTPUT]: volleyball
+
+EXAMPLE V2  
+[VIDEO]: Team plays volleyball, passes ball, spikes, or serves.  
+[OUTPUT]: volleyball
+
+----------------------------------------------------------
+— WEIGHT —
+EXAMPLE W1  
+[VIDEO]: Person lifts weights, performs deadlift or other weight exercise.  
+[OUTPUT]: weight
+
+EXAMPLE W2  
+[VIDEO]: Weightlifter lifts barbell, performs weightlifting movement.  
+[OUTPUT]: weight
+
+----------------------------------------------------------
+— WRESTLING —
+EXAMPLE W3  
+[VIDEO]: Wrestlers grapple, take down opponent, or perform holds.  
+[OUTPUT]: wrestling
+
+EXAMPLE W4  
+[VIDEO]: Athletes wrestle, attempt takedowns, or maintain control.  
+[OUTPUT]: wrestling
+
+==========================================================
+
+YOUR ANSWER  
+Return **only the class name** on a single line (one word): archery, baseball, basketball, bmx, bowling, boxing, cheerleading, discusthrow, diving, football, golf, gymnastics, hammerthrow, highjump, hockey, hurdling, javelin, longjump, polevault, rowing, running, shotput, skating, skiing, soccer, swimming, tennis, volleyball, weight, wrestling.
 
 
 
@@ -86,7 +400,7 @@ datasets/sv_wild/Videos/baseball/527___bb79a2d1d3b642d39ca4b2a96944b158.mp4	base
 datasets/sv_wild/Videos/baseball/543___1440fa3f5c63443e8eae3affdf0a6efc.mp4	baseball
 datasets/sv_wild/Videos/baseball/599___d3350a9ac2f14e37ba225cb6568c65fb.mp4	baseball
 datasets/sv_wild/Videos/baseball/612___37ed7bbe65fb40bfab76ec463d1c9183.mp4	baseball
-datasets/sv_wild/Videos/baseball/624___d0daf1584f444e168e60b3f446e69416.mp4	weight
+datasets/sv_wild/Videos/baseball/624___d0daf1584f444e168e60b3f446e69416.mp4	baseball
 datasets/sv_wild/Videos/baseball/658___0578c2c69ace49e4a80847f10c9e3cfe.mp4	baseball
 datasets/sv_wild/Videos/baseball/689___32f90c306142408e84aa97e3cee2c30e.mp4	baseball
 datasets/sv_wild/Videos/baseball/758___79279a2dbd49431fa608f5d67f76b7bf.mp4	baseball
@@ -125,41 +439,41 @@ datasets/sv_wild/Videos/basketball/6873___9ee81906ded3482999f330147b909c55.mp4	b
 datasets/sv_wild/Videos/basketball/8459___68015ee71737409ab4b6ed1e46d6ba73.mp4	basketball
 datasets/sv_wild/Videos/basketball/882___f87ddaffcfb04356a47add81a0182be3.mp4	basketball
 datasets/sv_wild/Videos/basketball/9301___cd8231467ba34ce2953f061a60fbeaa7.mp4	basketball
-datasets/sv_wild/Videos/bmx/10430___5a7e92c81534414f902e77a58d343a98.mp4	BMX
+datasets/sv_wild/Videos/bmx/10430___5a7e92c81534414f902e77a58d343a98.mp4	bmx
 datasets/sv_wild/Videos/bmx/10673___f6a811e9524a4511a2ca0aa6cdeb08af.mp4	bmx
-datasets/sv_wild/Videos/bmx/10756___db80feb992fe4799a79149247c189bd9.mp4	BMX
-datasets/sv_wild/Videos/bmx/11007___613d0e71584e4f3e813b0266ce35a47e.mp4	BMX
+datasets/sv_wild/Videos/bmx/10756___db80feb992fe4799a79149247c189bd9.mp4	bmx
+datasets/sv_wild/Videos/bmx/11007___613d0e71584e4f3e813b0266ce35a47e.mp4	bmx
 datasets/sv_wild/Videos/bmx/11280___d25d12996f3649b298b55a81086ff175.mp4	bmx
-datasets/sv_wild/Videos/bmx/1484___4aa46ff061dd4dc39b39bd01b03fc871.mp4	skating
-datasets/sv_wild/Videos/bmx/1581___13abff9f101c4ccc8bc90bafcc51f8fe.mp4	BMX
-datasets/sv_wild/Videos/bmx/17708___fe91d5733a80411fa1c883a91085fad7.mp4	BMX
-datasets/sv_wild/Videos/bmx/1895___62d3c5f6cc864900b9c29f76900c5fa5.mp4	BMX
+datasets/sv_wild/Videos/bmx/1484___4aa46ff061dd4dc39b39bd01b03fc871.mp4	bmx
+datasets/sv_wild/Videos/bmx/1581___13abff9f101c4ccc8bc90bafcc51f8fe.mp4	bmx
+datasets/sv_wild/Videos/bmx/17708___fe91d5733a80411fa1c883a91085fad7.mp4	bmx
+datasets/sv_wild/Videos/bmx/1895___62d3c5f6cc864900b9c29f76900c5fa5.mp4	bmx
 datasets/sv_wild/Videos/bmx/20488___b90b046eda6549c98cbdc74757c5bd27.mp4	bmx
 datasets/sv_wild/Videos/bmx/20948___48eab15ef72543d488d192e4beb1925c.mp4	bmx
 datasets/sv_wild/Videos/bmx/2640___169c2afa7c554fd1b55510064296cd7e.mp4	bmx
-datasets/sv_wild/Videos/bmx/27771___fe77452d104944c3869b959c7a6bf4d9.mp4	BMX
-datasets/sv_wild/Videos/bmx/3773___b2de443fcd5f4709bec5e6ef2756b69a.mp4	BMX
-datasets/sv_wild/Videos/bmx/3850___684c0d19fcc04fc49a622f40ef262718.mp4	BMX
-datasets/sv_wild/Videos/bmx/40915___e805df7baf674d11b25e1a11396376c0.mp4	BMX
-datasets/sv_wild/Videos/bmx/41051___166f674def8a48cda271eb8458aeb3de.mp4	BMX
+datasets/sv_wild/Videos/bmx/27771___fe77452d104944c3869b959c7a6bf4d9.mp4	bmx
+datasets/sv_wild/Videos/bmx/3773___b2de443fcd5f4709bec5e6ef2756b69a.mp4	bmx
+datasets/sv_wild/Videos/bmx/3850___684c0d19fcc04fc49a622f40ef262718.mp4	bmx
+datasets/sv_wild/Videos/bmx/40915___e805df7baf674d11b25e1a11396376c0.mp4	bmx
+datasets/sv_wild/Videos/bmx/41051___166f674def8a48cda271eb8458aeb3de.mp4	bmx
 datasets/sv_wild/Videos/bmx/43889___e31cb0cd90db4237bf336aa728353734.mp4	bmx
 datasets/sv_wild/Videos/bmx/44320___0cfb9ca1393f45c498dea65cff4aaee6.mp4	bmx
-datasets/sv_wild/Videos/bmx/45508___5a623d99cad7460a99213e18c74960d7.mp4	BMX
-datasets/sv_wild/Videos/bmx/4645___eeadd25d202e4fa18ba0fcae5f2ab081.mp4	BMX
-datasets/sv_wild/Videos/bmx/4693___773406c07fcc436bafc3db3b4e21fe5a.mp4	BMX
-datasets/sv_wild/Videos/bmx/49262___a01853d5afa649df83a3a50e49090a1a.mp4	BMX
-datasets/sv_wild/Videos/bmx/50858___2ecf97b5aa4d4041ae7c0b7935fff0d6.mp4	BMX
-datasets/sv_wild/Videos/bmx/52116___ae5230194c604ea1b05894480637d870.mp4	BMX
+datasets/sv_wild/Videos/bmx/45508___5a623d99cad7460a99213e18c74960d7.mp4	bmx
+datasets/sv_wild/Videos/bmx/4645___eeadd25d202e4fa18ba0fcae5f2ab081.mp4	bmx
+datasets/sv_wild/Videos/bmx/4693___773406c07fcc436bafc3db3b4e21fe5a.mp4	bmx
+datasets/sv_wild/Videos/bmx/49262___a01853d5afa649df83a3a50e49090a1a.mp4	bmx
+datasets/sv_wild/Videos/bmx/50858___2ecf97b5aa4d4041ae7c0b7935fff0d6.mp4	bmx
+datasets/sv_wild/Videos/bmx/52116___ae5230194c604ea1b05894480637d870.mp4	bmx
 datasets/sv_wild/Videos/bmx/52943___28e3b1a24dd145b8a0ccc38a6dd1b726.mp4	bmx
 datasets/sv_wild/Videos/bmx/56433___48f090413e114758b8ee1abf5e128082.mp4	bmx
-datasets/sv_wild/Videos/bmx/58947___564b944ad7494bbeaf5ba9f48697af5b.mp4	BMX
-datasets/sv_wild/Videos/bmx/59365___fde736471e7c4e53ae661476ae12d65c.mp4	BMX
+datasets/sv_wild/Videos/bmx/58947___564b944ad7494bbeaf5ba9f48697af5b.mp4	bmx
+datasets/sv_wild/Videos/bmx/59365___fde736471e7c4e53ae661476ae12d65c.mp4	bmx
 datasets/sv_wild/Videos/bmx/6125___e1da0fe0ba3a43f5a1055660e1b0ae32.mp4	bmx
-datasets/sv_wild/Videos/bmx/7151___88debd3866f5464580c2a73e47580391.mp4	BMX
+datasets/sv_wild/Videos/bmx/7151___88debd3866f5464580c2a73e47580391.mp4	bmx
 datasets/sv_wild/Videos/bmx/7652___880f114ec1eb4fb8a6c9d342f6c8e58e.mp4	bmx
-datasets/sv_wild/Videos/bmx/812___0d82ad3c3516459a82add7bc1fcba22d.mp4	BMX
+datasets/sv_wild/Videos/bmx/812___0d82ad3c3516459a82add7bc1fcba22d.mp4	bmx
 datasets/sv_wild/Videos/bmx/9080___8e65a6721daa4116bb7dae3a274a5e8e.mp4	bmx
-datasets/sv_wild/Videos/bmx/9527___9f08af98a0f84bc6a5d021bbd500cac1.mp4	BMX
+datasets/sv_wild/Videos/bmx/9527___9f08af98a0f84bc6a5d021bbd500cac1.mp4	bmx
 datasets/sv_wild/Videos/bmx/9757___fefd5a9082ee457ea863ec8972711da2.mp4	bmx
 datasets/sv_wild/Videos/bowling/10641___189d0be795df4ff081b997bf928d1355.mp4	bowling
 datasets/sv_wild/Videos/bowling/10784___acdd4685fb644631a47e1bc2c360148f.mp4	bowling
@@ -176,7 +490,7 @@ datasets/sv_wild/Videos/bowling/22124___737ace570a1c4af0a55f57ee77543bb8.mp4	bow
 datasets/sv_wild/Videos/bowling/2360___deb368cd5c7b45efa5eb1e70476ef30a.mp4	bowling
 datasets/sv_wild/Videos/bowling/23922___6295ef8dcb97430cabc7a0e380333f30.mp4	bowling
 datasets/sv_wild/Videos/bowling/2426___b5bf7c9683c64ed993241c3e83424571.mp4	bowling
-datasets/sv_wild/Videos/bowling/24337___19f87d6d5cb34aa1882162670f8011a5.mp4	Bowling
+datasets/sv_wild/Videos/bowling/24337___19f87d6d5cb34aa1882162670f8011a5.mp4	bowling
 datasets/sv_wild/Videos/bowling/2485___fabbc5cd846448ba84e8995de7d5336a.mp4	bowling
 datasets/sv_wild/Videos/bowling/24991___086b7bd2b979411fb1a2c421f8a0c264.mp4	bowling
 datasets/sv_wild/Videos/bowling/25580___ab3578e361814c3db079a3668cbd1f5e.mp4	bowling
@@ -255,19 +569,19 @@ datasets/sv_wild/Videos/cheerleading/243___cf71bdaa7d2a4608923d7e2663f26f97.mp4	
 datasets/sv_wild/Videos/cheerleading/24425___b4e553abcb2a4b069baafe69d35feaec.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/2458___3c7eac89959545c29a78fa07cfaff789.mp4	gymnastics
 datasets/sv_wild/Videos/cheerleading/2527___910d0161599f440c93f52439a298927a.mp4	gymnastics
-datasets/sv_wild/Videos/cheerleading/25304___e5d3a5622b2d45c59b40ca16ecb98f8c.mp4	cheerleading
+datasets/sv_wild/Videos/cheerleading/25304___e5d3a5622b2d45c59b40ca16ecb98f8c.mp4	wrestling
 datasets/sv_wild/Videos/cheerleading/25677___0cf03ad5bc3b47db8757dc88587f16c1.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/2579___e74e661916504031a5c4d2e0427dabaa.mp4	cheerleading
-datasets/sv_wild/Videos/cheerleading/25876___2785827aaacf49d4b09ede18ee4fc85b.mp4	gymnastics
-datasets/sv_wild/Videos/cheerleading/26084___167f3cd54d8347ea899134ae397c94de.mp4	wrestling
-datasets/sv_wild/Videos/cheerleading/26136___74fa8eb3e66f45b796f75089b94c2f49.mp4	gymnastics
+datasets/sv_wild/Videos/cheerleading/25876___2785827aaacf49d4b09ede18ee4fc85b.mp4	weight
+datasets/sv_wild/Videos/cheerleading/26084___167f3cd54d8347ea899134ae397c94de.mp4	cheerleading
+datasets/sv_wild/Videos/cheerleading/26136___74fa8eb3e66f45b796f75089b94c2f49.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/26202___7db2920b673e4a568dab2bddfb7ad88d.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/26287___d90540ceae6341afa644a06d29134403.mp4	cheerleading
-datasets/sv_wild/Videos/cheerleading/27440___2589e700950741a399dafffdd7f3273e.mp4	gymnastics
+datasets/sv_wild/Videos/cheerleading/27440___2589e700950741a399dafffdd7f3273e.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/2999___5eedeeed34ba472687854424bd988822.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/3082___e436a62113574b5faa870ccd75882ea1.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/31380___d12d81cbdcdc4eaaa6997d7f3a39ef9b.mp4	cheerleading
-datasets/sv_wild/Videos/cheerleading/31407___d7459ebe67ad497295ee495d9c828f5b.mp4	gymnastics
+datasets/sv_wild/Videos/cheerleading/31407___d7459ebe67ad497295ee495d9c828f5b.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/31427___dd278b8acffc4f2f897da4c1d1df2716.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/31507___6036f902830a405eabc644d0d229f11f.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/31648___61044d49a95d4fb79b7c304c98d06b7a.mp4	cheerleading
@@ -299,54 +613,54 @@ datasets/sv_wild/Videos/cheerleading/8498___8bb5ec4e18e84bfc963ba88e2032dadb.mp4
 datasets/sv_wild/Videos/cheerleading/8729___cbb241848ada459cb920fdb559aed919.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/8791___a13d9862d9cd4cdaa939dd1cee059c68.mp4	cheerleading
 datasets/sv_wild/Videos/cheerleading/9808___92807c57d02c4beea6a9dd09fcf17705.mp4	cheerleading
-datasets/sv_wild/Videos/discusthrow/10245___65b8032d6b8847fe8c38195703b7f8cf.mp4	highjump
-datasets/sv_wild/Videos/discusthrow/10494___26cee5a547fb4bf3afe336a96d6ebba5.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/10536___7c381819bd494478a096d88569847a50.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/1089___7368e32fcf154c478bdd46d048d73db1.mp4	baseball
-datasets/sv_wild/Videos/discusthrow/11218___de6efe82dab6431485084a900cd3fbdc.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/10245___65b8032d6b8847fe8c38195703b7f8cf.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/10494___26cee5a547fb4bf3afe336a96d6ebba5.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/10536___7c381819bd494478a096d88569847a50.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/1089___7368e32fcf154c478bdd46d048d73db1.mp4	tennis
+datasets/sv_wild/Videos/discusthrow/11218___de6efe82dab6431485084a900cd3fbdc.mp4	discusthrow
 datasets/sv_wild/Videos/discusthrow/1281___3f10157242e64035b88dd416191d3e97.mp4	hammerthrow
 datasets/sv_wild/Videos/discusthrow/1520___7af64b9c30f64e2493139dcaa4557574.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/1569___dfe60c05c8be4c04a100316cb8e43f32.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/1678___ec04dc7457cb4c0191dac81d07c5f736.mp4	hammerthrow
+datasets/sv_wild/Videos/discusthrow/1569___dfe60c05c8be4c04a100316cb8e43f32.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/1678___ec04dc7457cb4c0191dac81d07c5f736.mp4	shotput
 datasets/sv_wild/Videos/discusthrow/2007___7a82c44b06a44178873f6c82ed9da49f.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/2403___902f8aba8d21470fa718c55944351ca7.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/2477___651351a9161e45ad86092a23e84c1e4c.mp4	hammerthrow
+datasets/sv_wild/Videos/discusthrow/2403___902f8aba8d21470fa718c55944351ca7.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/2477___651351a9161e45ad86092a23e84c1e4c.mp4	baseball
 datasets/sv_wild/Videos/discusthrow/2767___e0fee240d07744cc94635a73b993b0c4.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/30716___50269a24aec34dde8694db8d91d354fa.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/30889___cd4da1275ad6413b994ef5075dbb270f.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/3230___bbd0cafcd86b40459967f372e18cf358.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/3302___11a7073d52f74249b89c1780ad47fa14.mp4	hammerthrow
+datasets/sv_wild/Videos/discusthrow/30716___50269a24aec34dde8694db8d91d354fa.mp4	discusthrow
+datasets/sv_wild/Videos/discusthrow/30889___cd4da1275ad6413b994ef5075dbb270f.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/3230___bbd0cafcd86b40459967f372e18cf358.mp4	discusthrow
+datasets/sv_wild/Videos/discusthrow/3302___11a7073d52f74249b89c1780ad47fa14.mp4	shotput
 datasets/sv_wild/Videos/discusthrow/3512___d9efb963262449a1965550bb533941ca.mp4	shotput
-datasets/sv_wild/Videos/discusthrow/5019___b034f65048e54e3ca356da058d77fe7f.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/5863___f736350bf97f45288fa247326cf36c2c.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/5876___4131f8e223ef4154ac85fd710a2aced8.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/6695___c2b7edaca98a4fabbd7f6e565d1862d4.mp4	hammerthrow
+datasets/sv_wild/Videos/discusthrow/5019___b034f65048e54e3ca356da058d77fe7f.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/5863___f736350bf97f45288fa247326cf36c2c.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/5876___4131f8e223ef4154ac85fd710a2aced8.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/6695___c2b7edaca98a4fabbd7f6e565d1862d4.mp4	shotput
 datasets/sv_wild/Videos/discusthrow/7098___349a9606d1334dc2bd766fec1d546010.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/735___efa53cd6eff0462c92cd13ae78f3663f.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/7827___d8078f117f974b59a794ec9751d68705.mp4	hammerthrow
+datasets/sv_wild/Videos/discusthrow/735___efa53cd6eff0462c92cd13ae78f3663f.mp4	baseball
+datasets/sv_wild/Videos/discusthrow/7827___d8078f117f974b59a794ec9751d68705.mp4	shotput
 datasets/sv_wild/Videos/discusthrow/8175___684f752fb9b143dcae1c4991bf0ea88f.mp4	archery
-datasets/sv_wild/Videos/discusthrow/8268___e4e2233b353d403bbe8e6f462784322f.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/8386___ec48564e264941a69736d984b5356b11.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/8519___21105ddf4b2445bdb93248d763b6cf06.mp4	highjump
-datasets/sv_wild/Videos/discusthrow/874___47b97ee861fc43b1a849bffebd39a13a.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/9003___1cedc5999d4d4bd9888a4d3cce8c95a1.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/9270___1ca20ce5b55e4a45b1b3414b96e94109.mp4	hammerthrow
+datasets/sv_wild/Videos/discusthrow/8268___e4e2233b353d403bbe8e6f462784322f.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/8386___ec48564e264941a69736d984b5356b11.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/8519___21105ddf4b2445bdb93248d763b6cf06.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/874___47b97ee861fc43b1a849bffebd39a13a.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/9003___1cedc5999d4d4bd9888a4d3cce8c95a1.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/9270___1ca20ce5b55e4a45b1b3414b96e94109.mp4	shotput
 datasets/sv_wild/Videos/discusthrow/9383___07e654139dae48ba9813fa66ad49e569.mp4	hammerthrow
 datasets/sv_wild/Videos/discusthrow/9476___35be0b740e3d4adaad11b71a638730e9.mp4	archery
-datasets/sv_wild/Videos/discusthrow/9747___8759299ffa3348b0a67e5765b2bf760c.mp4	hammerthrow
-datasets/sv_wild/Videos/discusthrow/9816___f911af3ba661463eab235750cf6b9bf8.mp4	hammerthrow
+datasets/sv_wild/Videos/discusthrow/9747___8759299ffa3348b0a67e5765b2bf760c.mp4	shotput
+datasets/sv_wild/Videos/discusthrow/9816___f911af3ba661463eab235750cf6b9bf8.mp4	shotput
 datasets/sv_wild/Videos/diving/1010020464___44bbed4163744c108640f74b9a67ed13.mp4	diving
-datasets/sv_wild/Videos/diving/1010024356___1b6805a57ed945cd9a10d9447fd38b85.mp4	diving
+datasets/sv_wild/Videos/diving/1010024356___1b6805a57ed945cd9a10d9447fd38b85.mp4	swimming
 datasets/sv_wild/Videos/diving/101004052___13691904e7794a648b662ed56a882421.mp4	diving
 datasets/sv_wild/Videos/diving/1010042743___4af61eb060804eb4b599c17af3aed687.mp4	swimming
 datasets/sv_wild/Videos/diving/1010043606___29c4919ee456482888be0102f0c1c820.mp4	diving
 datasets/sv_wild/Videos/diving/101006995___e0274864f3ef42358457a280a3d16b11.mp4	diving
-datasets/sv_wild/Videos/diving/10347___9812e48c908642a58325abb99f94617b.mp4	swimming
+datasets/sv_wild/Videos/diving/10347___9812e48c908642a58325abb99f94617b.mp4	diving
 datasets/sv_wild/Videos/diving/10912___c294733828fe472fb99a9ac5fd28390f.mp4	swimming
 datasets/sv_wild/Videos/diving/10964___819f60de6a9d4ef5aadea0cb9f0ca084.mp4	diving
 datasets/sv_wild/Videos/diving/1202___e3a845a54a654a578d0a5d433f476b96.mp4	diving
 datasets/sv_wild/Videos/diving/1875___3a97aca3a3594b8384391c40e6b9cf01.mp4	diving
-datasets/sv_wild/Videos/diving/1959___c0663f30cedb4e56b75455db3cabf0da.mp4	swimming
+datasets/sv_wild/Videos/diving/1959___c0663f30cedb4e56b75455db3cabf0da.mp4	diving
 datasets/sv_wild/Videos/diving/217___db72bd8012dc4deba8361b8404881fd7.mp4	diving
 datasets/sv_wild/Videos/diving/2793___2cd7f96983b242f8b5d0219794950e90.mp4	diving
 datasets/sv_wild/Videos/diving/2827___d7c51d02a7af487282c32801eee479af.mp4	diving
@@ -363,7 +677,7 @@ datasets/sv_wild/Videos/diving/5179___901c2f20298b457484a2a9c0bf8e05d9.mp4	swimm
 datasets/sv_wild/Videos/diving/5599___1e9ce2f11e6342e885497ca9d1567e9a.mp4	swimming
 datasets/sv_wild/Videos/diving/6277___956fc5c9ab0543d5a101716f83b5c463.mp4	diving
 datasets/sv_wild/Videos/diving/6789___03eab0cccc8d4440bbeafff76c74dc45.mp4	diving
-datasets/sv_wild/Videos/diving/6916___14f8c3ad3579480199e36e91a390a745.mp4	swimming
+datasets/sv_wild/Videos/diving/6916___14f8c3ad3579480199e36e91a390a745.mp4	diving
 datasets/sv_wild/Videos/diving/7200___b8d52c5e9d5044b49a0e69c7447965e4.mp4	diving
 datasets/sv_wild/Videos/diving/7711___ab28242daedf464cb15304d81b14aa3f.mp4	diving
 datasets/sv_wild/Videos/diving/8239___b79b1f4423d348f89c1dfcc821b368df.mp4	diving
@@ -374,7 +688,7 @@ datasets/sv_wild/Videos/football/1020___d1515e2e36a94364b90d33d221836ba0.mp4	foo
 datasets/sv_wild/Videos/football/1073___2016b18127424f93930af933c1c52230.mp4	football
 datasets/sv_wild/Videos/football/1098___0600062dc9c549319ae838afec7c7ecc.mp4	football
 datasets/sv_wild/Videos/football/1186___6c724b3acd7b4eaead6b76d5939320ad.mp4	football
-datasets/sv_wild/Videos/football/1225___fa50cc83c4734cb2ac3cf6115a74a12a.mp4	football
+datasets/sv_wild/Videos/football/1225___fa50cc83c4734cb2ac3cf6115a74a12a.mp4	archery
 datasets/sv_wild/Videos/football/1269___a62789fce7f94a2fbe0d0a8b3704202f.mp4	football
 datasets/sv_wild/Videos/football/1388___2cf703429698446d8a4daa2da87b2158.mp4	football
 datasets/sv_wild/Videos/football/1396___9854f4e0a9a142f393b3fde0868ce087.mp4	running
@@ -383,8 +697,8 @@ datasets/sv_wild/Videos/football/1438___70c6116b41ea483eb785453343bda1eb.mp4	soc
 datasets/sv_wild/Videos/football/1647___3b570783d4854581937d791205dc989f.mp4	football
 datasets/sv_wild/Videos/football/1689___cb5533b050d543638531a567ee8c8e07.mp4	football
 datasets/sv_wild/Videos/football/1783___8e35696a03c24475bce74eef2e0b1695.mp4	football
-datasets/sv_wild/Videos/football/185___933702921f8c4787bcf98dad8a8684b4.mp4	football
-datasets/sv_wild/Videos/football/1916___4c3537dbd5894e52b62d321cdf9e4ff8.mp4	football
+datasets/sv_wild/Videos/football/185___933702921f8c4787bcf98dad8a8684b4.mp4	baseball
+datasets/sv_wild/Videos/football/1916___4c3537dbd5894e52b62d321cdf9e4ff8.mp4	baseball
 datasets/sv_wild/Videos/football/1954___78c98289151844748eb88f2d863f125a.mp4	football
 datasets/sv_wild/Videos/football/195___c0a94c310cb14e3ca2d6d12269394963.mp4	football
 datasets/sv_wild/Videos/football/2098___78864acc9ce7403c855f8aaeff4810bf.mp4	football
@@ -395,13 +709,13 @@ datasets/sv_wild/Videos/football/2383___2450783d52ee4d4fa226a6154710b869.mp4	foo
 datasets/sv_wild/Videos/football/2691___2375f35559904ddea9459ea1f58e36a6.mp4	football
 datasets/sv_wild/Videos/football/2758___2c08d25e101f4742ba16acb4b5465403.mp4	football
 datasets/sv_wild/Videos/football/2831___ab4bd97d88a0470f9bbfc604d477e417.mp4	football
-datasets/sv_wild/Videos/football/2843___b3f21355d07c4a428fc4d48dd10d8190.mp4	football
+datasets/sv_wild/Videos/football/2843___b3f21355d07c4a428fc4d48dd10d8190.mp4	basketball
 datasets/sv_wild/Videos/football/3020___96879d80e6384a39b2d908b50a073777.mp4	football
 datasets/sv_wild/Videos/football/3163___3ce0c7a4162b4496b69527b5c1ee4458.mp4	football
 datasets/sv_wild/Videos/football/3375___2c63c485fe364a8d893311756529a4e8.mp4	football
 datasets/sv_wild/Videos/football/351___27b6f66cd0d84ab0ae087f4d741b6f31.mp4	football
 datasets/sv_wild/Videos/football/3521___bfcc527290584d30b4b8ed3b017e0976.mp4	football
-datasets/sv_wild/Videos/football/3813___cd5777cd8f2d4453aaf284f05537232b.mp4	Wrestling
+datasets/sv_wild/Videos/football/3813___cd5777cd8f2d4453aaf284f05537232b.mp4	wrestling
 datasets/sv_wild/Videos/football/3848___296e25f2b75a4ff7a7afadc3908d8ac3.mp4	football
 datasets/sv_wild/Videos/football/3957___e4df0d019ca6405eb593aa94f44b8dd5.mp4	shotput
 datasets/sv_wild/Videos/football/489___728079b8a6ac4c51869094cd6fe69bd9.mp4	football
@@ -428,7 +742,7 @@ datasets/sv_wild/Videos/golf/1692___12babdb366cf4d4a9f6028d6006bd756.mp4	golf
 datasets/sv_wild/Videos/golf/1701___9f5a837337314a88ad0afe3d996d4928.mp4	golf
 datasets/sv_wild/Videos/golf/1715___548ce2045f404ec18bd00c8ca4c1048f.mp4	golf
 datasets/sv_wild/Videos/golf/1761___8c11cf1628b048b08c459201680b0b18.mp4	golf
-datasets/sv_wild/Videos/golf/1852___ac8d8c97e4994b1fbfddefaadda66a04.mp4	Golf
+datasets/sv_wild/Videos/golf/1852___ac8d8c97e4994b1fbfddefaadda66a04.mp4	golf
 datasets/sv_wild/Videos/golf/1941___898b0966e5e6409db933ee7593295d4a.mp4	golf
 datasets/sv_wild/Videos/golf/20___b98e0203cd784137bc7b9c1b2a47ae57.mp4	golf
 datasets/sv_wild/Videos/golf/2159___62ca65abcdf546a88106497ae00ea703.mp4	golf
@@ -462,14 +776,14 @@ datasets/sv_wild/Videos/gymnastics/18___f9f5efe4c3ae41b392ddc91300ae9a57.mp4	gym
 datasets/sv_wild/Videos/gymnastics/2033___60fbd3930e8a4b5499f8a29161a7e886.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/2110___2fb70d1b82f845e9ac86f2d2ebaceb77.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/2326___5093aafb5e6946af833fdece7e8886f2.mp4	gymnastics
-datasets/sv_wild/Videos/gymnastics/2333___419abe22d656425697db090c1daddb07.mp4	Gymnastics
+datasets/sv_wild/Videos/gymnastics/2333___419abe22d656425697db090c1daddb07.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/234___eb37055a96ec451782f1c0d02fd753e0.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/242___22dbda8c9f5c44b09d94efccf6ed018d.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/2502___65a66dd154544f6880db79abda657e72.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/2550___31239c973b444e69aa592f13c768b159.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/2795___88f9ae92e75d4bf29c906ceb7c213d55.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/2899___3d0750cba95848ed9a38834cd703ef34.mp4	gymnastics
-datasets/sv_wild/Videos/gymnastics/3017___b1c18b535cf64483bc86dbdbc4b5c4b5.mp4	basketball
+datasets/sv_wild/Videos/gymnastics/3017___b1c18b535cf64483bc86dbdbc4b5c4b5.mp4	wrestling
 datasets/sv_wild/Videos/gymnastics/3121___17b5f955f12c4e14a303383dd087a7e6.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/3176___6529d3a5ac334ef18f5bb87a69a8af0d.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/3227___e55a32dbb2694fcfa50cdecda0ca285d.mp4	gymnastics
@@ -486,7 +800,7 @@ datasets/sv_wild/Videos/gymnastics/4014___82321915be9c471e9a25d5032157775c.mp4	g
 datasets/sv_wild/Videos/gymnastics/4034___303e44064c40421ba77cdb4ead96f84a.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/4038___13d1e3a45aaf47cd90cf77ebebbafc0b.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/4083___fd3cf510345f4982a2e1b4b4fb11b423.mp4	gymnastics
-datasets/sv_wild/Videos/gymnastics/4164___252e5e5fd32a40aeb227ee6b3b125d88.mp4	Gymnastics
+datasets/sv_wild/Videos/gymnastics/4164___252e5e5fd32a40aeb227ee6b3b125d88.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/4176___ff2664c1a688481ebeee4393181978cc.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/4516___29ddfab35dab4da3b836e24784e39b4a.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/458___401dffcdd45545d28e3c30b4902fab4c.mp4	gymnastics
@@ -503,85 +817,85 @@ datasets/sv_wild/Videos/gymnastics/587___9a34cf3197ca47a9811f43ec83f4049f.mp4	gy
 datasets/sv_wild/Videos/gymnastics/5925___77f706f51d7040fd8f119bf2c65bfa78.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/592___82d30e3ab6624dea8812ef71da7f4310.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/5949___dfa84c61085d49859d6a0b19377666a6.mp4	gymnastics
-datasets/sv_wild/Videos/gymnastics/664___abf92ff552d44390a6c2564153aa2f06.mp4	Gymnastics
+datasets/sv_wild/Videos/gymnastics/664___abf92ff552d44390a6c2564153aa2f06.mp4	gymnastics
 datasets/sv_wild/Videos/gymnastics/859___ccea2694b1cd4d05babb44357616a0f1.mp4	gymnastics
-datasets/sv_wild/Videos/hammerthrow/1517___5f8554f9fcad4e75b07b5cb3e57025f0.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/1517___5f8554f9fcad4e75b07b5cb3e57025f0.mp4	archery
 datasets/sv_wild/Videos/hammerthrow/16089___faa01fff7f3d4686a6ad80856afc4ba3.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/16944___0afebc2a26b1403da31d5c5da948252e.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/16994___b7776e3c915e47a8be7a63e370e52b7b.mp4	basketball
-datasets/sv_wild/Videos/hammerthrow/20045___1958809d668f4d38992d71bd7d23368a.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/20899___aabab155accc40fbb2c41a6ad1ec7c39.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/16944___0afebc2a26b1403da31d5c5da948252e.mp4	weight
+datasets/sv_wild/Videos/hammerthrow/16994___b7776e3c915e47a8be7a63e370e52b7b.mp4	boxing
+datasets/sv_wild/Videos/hammerthrow/20045___1958809d668f4d38992d71bd7d23368a.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/20899___aabab155accc40fbb2c41a6ad1ec7c39.mp4	discusthrow
 datasets/sv_wild/Videos/hammerthrow/21474___8ab9bca60be24dbd85ea67408fe4baf7.mp4	baseball
-datasets/sv_wild/Videos/hammerthrow/22036___03d1b973791d4a9b817f97ccccfc0fcc.mp4	polevault
-datasets/sv_wild/Videos/hammerthrow/23209___6cafa3d59aaa498587a6e329678d8efa.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/22036___03d1b973791d4a9b817f97ccccfc0fcc.mp4	archery
+datasets/sv_wild/Videos/hammerthrow/23209___6cafa3d59aaa498587a6e329678d8efa.mp4	shotput
 datasets/sv_wild/Videos/hammerthrow/23881___43d1dfdba3fa40e0bf48a7e237bc61d3.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/26650___452c732187aa493fae17ab6c5a2d0e67.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/26742___f1f9705c30ad440ea22775a2f1798d6c.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/26859___61c76d01a5d44f88b5542198a794cc04.mp4	basketball
+datasets/sv_wild/Videos/hammerthrow/26650___452c732187aa493fae17ab6c5a2d0e67.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/26742___f1f9705c30ad440ea22775a2f1798d6c.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/26859___61c76d01a5d44f88b5542198a794cc04.mp4	weight
 datasets/sv_wild/Videos/hammerthrow/2936___e628deec927f4edd8d81c917572d94fb.mp4	hammerthrow
 datasets/sv_wild/Videos/hammerthrow/30248___075837b0b55447288551f31031440d71.mp4	hammerthrow
 datasets/sv_wild/Videos/hammerthrow/3092___327bc75e7bb24c1297ddbc303c2779fe.mp4	hammerthrow
 datasets/sv_wild/Videos/hammerthrow/31276___8a77e9c20b7942d896552c1e51ef9633.mp4	weight
-datasets/sv_wild/Videos/hammerthrow/31451___5d81e1cb012c474b92c37366b0d230c3.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/3443___b49e0ddc90564b5293e53486823f9b19.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/40160___88f0315e475a4b12b2a6129c840f58a0.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/31451___5d81e1cb012c474b92c37366b0d230c3.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/3443___b49e0ddc90564b5293e53486823f9b19.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/40160___88f0315e475a4b12b2a6129c840f58a0.mp4	shotput
 datasets/sv_wild/Videos/hammerthrow/40266___8e834e37fb0d49f58f77f91df74d23ec.mp4	hammerthrow
 datasets/sv_wild/Videos/hammerthrow/41141___e5c2a5c017e94e198826f752bc879fe7.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/41182___ff532300a4d4411b8c11b12d5dc2f7eb.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/41182___ff532300a4d4411b8c11b12d5dc2f7eb.mp4	shotput
 datasets/sv_wild/Videos/hammerthrow/43420___b2f92dd1106a42f8ad8bd1546a65bfb2.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/43497___d3eeb58a3f29451aa8627eb88d3f4f3c.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/44901___f2c61d8f809e4ede99a49407707f0916.mp4	baseball
-datasets/sv_wild/Videos/hammerthrow/45588___89bf27222a414f64bc656e3a2d6d775d.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/45601___b8a2a9f107034e238d26258c0037c0ec.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/43497___d3eeb58a3f29451aa8627eb88d3f4f3c.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/44901___f2c61d8f809e4ede99a49407707f0916.mp4	archery
+datasets/sv_wild/Videos/hammerthrow/45588___89bf27222a414f64bc656e3a2d6d775d.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/45601___b8a2a9f107034e238d26258c0037c0ec.mp4	shotput
 datasets/sv_wild/Videos/hammerthrow/45811___89d277d195a442b3abdc4a38f639dd4d.mp4	weight
-datasets/sv_wild/Videos/hammerthrow/46069___2cc8c4e5971243478cda3d5af29b60dc.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/47025___4b8b63211cbd4bbc937fd8041684ab8b.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/46069___2cc8c4e5971243478cda3d5af29b60dc.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/47025___4b8b63211cbd4bbc937fd8041684ab8b.mp4	archery
 datasets/sv_wild/Videos/hammerthrow/47462___ebc552c242624771beb35ebfcf3ef0ed.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/48737___8cf1d688f2cf44c6ac646bf9bf62ed00.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/48737___8cf1d688f2cf44c6ac646bf9bf62ed00.mp4	shotput
 datasets/sv_wild/Videos/hammerthrow/5086___71f8d7ee7b514301812622b2cb94a1e5.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/5093___8d8a1741c0254c26b8908af062c33afc.mp4	baseball
+datasets/sv_wild/Videos/hammerthrow/5093___8d8a1741c0254c26b8908af062c33afc.mp4	archery
 datasets/sv_wild/Videos/hammerthrow/51768___2298840346ed4663b1c9d1e4668a0714.mp4	hammerthrow
 datasets/sv_wild/Videos/hammerthrow/5650___3d2a29c7723a4a2ea97cf47d090baaca.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/6561___83f30ee0e4f148c48cb1196ac3037223.mp4	hammerthrow
+datasets/sv_wild/Videos/hammerthrow/6561___83f30ee0e4f148c48cb1196ac3037223.mp4	shotput
 datasets/sv_wild/Videos/hammerthrow/7291___314102a2bd0b40e08addee1e791a9a1d.mp4	baseball
 datasets/sv_wild/Videos/hammerthrow/7752___a5f312de3349449f9410fe6dd57a63c8.mp4	tennis
 datasets/sv_wild/Videos/hammerthrow/8604___fcb7e8a8507c409ea123f1053e81d6ae.mp4	hammerthrow
-datasets/sv_wild/Videos/hammerthrow/9134___3876c45c318c48ca8024c89c4cbd04ca.mp4	shotput
+datasets/sv_wild/Videos/hammerthrow/9134___3876c45c318c48ca8024c89c4cbd04ca.mp4	bowling
 datasets/sv_wild/Videos/hammerthrow/987___0c74d6762c394068962b7352ae533fb5.mp4	hammerthrow
 datasets/sv_wild/Videos/highjump/1584___af0ddf13f639468a8575abb2e4fffc05.mp4	highjump
 datasets/sv_wild/Videos/highjump/1617___1bada11a523743f28857bddc88d0b9bc.mp4	running
 datasets/sv_wild/Videos/highjump/1764___38bb90b2fec54b33847c8339f677e7ee.mp4	running
 datasets/sv_wild/Videos/highjump/20671___699ff264116e4422858f44552a807388.mp4	highjump
 datasets/sv_wild/Videos/highjump/20772___bd738875259f4c8ca3d838351354b429.mp4	hurdling
-datasets/sv_wild/Videos/highjump/20964___58620a73aa334e76927c86611c403c75.mp4	hurdling
+datasets/sv_wild/Videos/highjump/20964___58620a73aa334e76927c86611c403c75.mp4	highjump
 datasets/sv_wild/Videos/highjump/21553___dc580250010249f9a64769d3aced4289.mp4	highjump
-datasets/sv_wild/Videos/highjump/21633___84e1120f4c0a4750b860c39a66facda7.mp4	running
+datasets/sv_wild/Videos/highjump/21633___84e1120f4c0a4750b860c39a66facda7.mp4	highjump
 datasets/sv_wild/Videos/highjump/21831___eb18dcd3fd1b484a8e37f5d8ea3b1160.mp4	hurdling
 datasets/sv_wild/Videos/highjump/22309___7a9710746ca64263879676b8e4d606c1.mp4	hurdling
 datasets/sv_wild/Videos/highjump/2329___932eabbd676c4f93ba28b39f75f7c04c.mp4	running
-datasets/sv_wild/Videos/highjump/2419___ecf6b68965b64f2798761a30acc79d4f.mp4	running
+datasets/sv_wild/Videos/highjump/2419___ecf6b68965b64f2798761a30acc79d4f.mp4	hurdling
 datasets/sv_wild/Videos/highjump/24699___cd31a58c57344c10ab040245ba52b702.mp4	highjump
-datasets/sv_wild/Videos/highjump/25218___c08ad0d4894547029425be7f9f0a25c7.mp4	highjump
-datasets/sv_wild/Videos/highjump/25232___b7e29998de96423ba6c1418ebd1ceab2.mp4	polevault
-datasets/sv_wild/Videos/highjump/26214___355e8aa1dd8f4c4ab7733cd9d82a2f78.mp4	highjump
-datasets/sv_wild/Videos/highjump/26472___faf63b04da61453bbb6934727993c56a.mp4	polevault
+datasets/sv_wild/Videos/highjump/25218___c08ad0d4894547029425be7f9f0a25c7.mp4	hurdling
+datasets/sv_wild/Videos/highjump/25232___b7e29998de96423ba6c1418ebd1ceab2.mp4	highjump
+datasets/sv_wild/Videos/highjump/26214___355e8aa1dd8f4c4ab7733cd9d82a2f78.mp4	gymnastics
+datasets/sv_wild/Videos/highjump/26472___faf63b04da61453bbb6934727993c56a.mp4	highjump
 datasets/sv_wild/Videos/highjump/2775___b09ebf497f9a4176bd89e3a26659ef32.mp4	basketball
-datasets/sv_wild/Videos/highjump/3403___03ea80b7b3b34aa98530c54af033b604.mp4	highjump
+datasets/sv_wild/Videos/highjump/3403___03ea80b7b3b34aa98530c54af033b604.mp4	running
 datasets/sv_wild/Videos/highjump/4016___b7ea32f7873d4b24ad6cbbe09efab68a.mp4	highjump
 datasets/sv_wild/Videos/highjump/4277___3ff89fb7b8b94a9a82685398456ea205.mp4	highjump
-datasets/sv_wild/Videos/highjump/439___7e8e0ba16fb441dc92f93f628ca374fd.mp4	running
-datasets/sv_wild/Videos/highjump/4674___2549f04832af482ba6a9ddebfaf1a0de.mp4	running
-datasets/sv_wild/Videos/highjump/4980___5d547209ea854210a3a7a7fc9a983f88.mp4	hurdling
+datasets/sv_wild/Videos/highjump/439___7e8e0ba16fb441dc92f93f628ca374fd.mp4	highjump
+datasets/sv_wild/Videos/highjump/4674___2549f04832af482ba6a9ddebfaf1a0de.mp4	hurdling
+datasets/sv_wild/Videos/highjump/4980___5d547209ea854210a3a7a7fc9a983f88.mp4	highjump
 datasets/sv_wild/Videos/highjump/5230___1327874ba2104d21ae47bf8bb7a416f2.mp4	hurdling
-datasets/sv_wild/Videos/highjump/5520___c96f8e3138ff405a98d37900b52d46da.mp4	gymnastics
-datasets/sv_wild/Videos/highjump/5952___9cb42de88ee341e1b755ee63ed680b74.mp4	running
+datasets/sv_wild/Videos/highjump/5520___c96f8e3138ff405a98d37900b52d46da.mp4	highjump
+datasets/sv_wild/Videos/highjump/5952___9cb42de88ee341e1b755ee63ed680b74.mp4	hurdling
 datasets/sv_wild/Videos/highjump/6263___ea168af220164ecbb8c5fa4d67765187.mp4	highjump
 datasets/sv_wild/Videos/highjump/6715___151deb0009b14fb3aa2bbe2af8abeb66.mp4	highjump
 datasets/sv_wild/Videos/highjump/7048___7ffe225f5e1d4c3381e6ec07ed26c4ed.mp4	highjump
 datasets/sv_wild/Videos/highjump/7207___ea36c8f080144c4c8413647be38b4064.mp4	running
 datasets/sv_wild/Videos/highjump/7451___b23319c926d04350b3fac046f577c838.mp4	highjump
-datasets/sv_wild/Videos/highjump/7557___a139c7fa01fe46418d222f7b0bf6a4d2.mp4	running
-datasets/sv_wild/Videos/highjump/7685___93fb8b2c64bf458c990f0fcd065958a4.mp4	running
+datasets/sv_wild/Videos/highjump/7557___a139c7fa01fe46418d222f7b0bf6a4d2.mp4	highjump
+datasets/sv_wild/Videos/highjump/7685___93fb8b2c64bf458c990f0fcd065958a4.mp4	hurdling
 datasets/sv_wild/Videos/highjump/847___3a879ab99be54361a1609f22d2366e1b.mp4	hurdling
 datasets/sv_wild/Videos/highjump/973___cad19ba3f3d140c99e06aa3b3b631a1f.mp4	highjump
 datasets/sv_wild/Videos/hockey/101002317___99cace82557c4470af74104a5114a75d.mp4	hockey
@@ -630,7 +944,7 @@ datasets/sv_wild/Videos/hurdling/22470___5964a07cdca04362b7130c108ed82bff.mp4	hu
 datasets/sv_wild/Videos/hurdling/22942___6117256e7e2e4c31abd00c742b5e26d7.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/22959___edda1a8abcf346058bd60c13dc29bf19.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/24885___3160b99152454f8693964579c46371a6.mp4	hurdling
-datasets/sv_wild/Videos/hurdling/25095___e66285c2a83e4c66a9d185b2cc5ee026.mp4	running
+datasets/sv_wild/Videos/hurdling/25095___e66285c2a83e4c66a9d185b2cc5ee026.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/25633___43a23cb95ce7448e8d5978d3599722a1.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/25754___da9e0e15e1274136bf2fb582237d4369.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/26179___137f3f43665f474eb2b6236b2ef83810.mp4	hurdling
@@ -647,120 +961,120 @@ datasets/sv_wild/Videos/hurdling/43360___c8f9b90734ff4730b21b41a6de73e91f.mp4	hu
 datasets/sv_wild/Videos/hurdling/44981___4405e49328a24e71ba4ca92afc3c6cfe.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/45149___4cddb93545f64ea9bda4e4341ae59999.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/46251___6d2acf45f2cc45a7acb9ced4dc496d10.mp4	hurdling
-datasets/sv_wild/Videos/hurdling/48953___9d033a5999fc449bbd640b87605aea3d.mp4	Running
-datasets/sv_wild/Videos/hurdling/49359___a5d5b656c5ae455688f88338d04207a6.mp4	running
+datasets/sv_wild/Videos/hurdling/48953___9d033a5999fc449bbd640b87605aea3d.mp4	hurdling
+datasets/sv_wild/Videos/hurdling/49359___a5d5b656c5ae455688f88338d04207a6.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/49972___069d4a0f8948423a9fb2470ccc145e87.mp4	hurdling
-datasets/sv_wild/Videos/hurdling/5042___763d1d255c434c5c992378633704642f.mp4	running
+datasets/sv_wild/Videos/hurdling/5042___763d1d255c434c5c992378633704642f.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/5702___258e90bcad054760b69354b499e1af21.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/5898___cd267a77147f429ab711a18f6978646c.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/6746___44b77bfcc615485db45a7ffc87f98306.mp4	hurdling
 datasets/sv_wild/Videos/hurdling/7207___69f6025330f746f0b61826af90337fae.mp4	running
 datasets/sv_wild/Videos/hurdling/7517___c5e0ec6d19ef416dbab3956f20d32dfb.mp4	hurdling
-datasets/sv_wild/Videos/javelin/1292___39ab50f66a134a8ebea0f7a001e4b18c.mp4	archery
+datasets/sv_wild/Videos/javelin/1292___39ab50f66a134a8ebea0f7a001e4b18c.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/1880___d331d77ffb724e50806576f162dc39a3.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/20015___0e70f441ff9048eaa893e1d3bce5e232.mp4	hammerthrow
+datasets/sv_wild/Videos/javelin/20015___0e70f441ff9048eaa893e1d3bce5e232.mp4	shotput
 datasets/sv_wild/Videos/javelin/20283___4cd13ac432464580b7cb783b645768fc.mp4	highjump
-datasets/sv_wild/Videos/javelin/20603___7ebf6197471e403f8fb8a2858bb0e806.mp4	hammerthrow
+datasets/sv_wild/Videos/javelin/20603___7ebf6197471e403f8fb8a2858bb0e806.mp4	running
 datasets/sv_wild/Videos/javelin/21971___cdbabdb984aa43daa68782a3f629cbdf.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/2261___f2cd5183aa984db2bcc3b83ad7380c00.mp4	archery
+datasets/sv_wild/Videos/javelin/2261___f2cd5183aa984db2bcc3b83ad7380c00.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/2274___d838e03869a446acbd4b99e706a2d79e.mp4	highjump
-datasets/sv_wild/Videos/javelin/24086___18b456e9d4d74a6d84067903b0ed8020.mp4	javelin
+datasets/sv_wild/Videos/javelin/24086___18b456e9d4d74a6d84067903b0ed8020.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/25544___3a765805bbfe4e3e8188e5372b53f4d7.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/25740___669273a31bb145f6b476a3d8fe5fd325.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/26468___425ea0ed52b04c8893fef0c7eab46b43.mp4	running
 datasets/sv_wild/Videos/javelin/2777___7346e8e76c034210b629ae9a798d01b7.mp4	highjump
 datasets/sv_wild/Videos/javelin/2794___f2bc2e5cf0724e11b0d4f5f957d92259.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/2924___05d952c676db4cc09e813ace6806a27a.mp4	football
-datasets/sv_wild/Videos/javelin/3043___056a6ace3ff34a538f39354bbc72dd9f.mp4	highjump
-datasets/sv_wild/Videos/javelin/3150___0913728590ca4990bb2de5a77aef543d.mp4	hammerthrow
+datasets/sv_wild/Videos/javelin/2924___05d952c676db4cc09e813ace6806a27a.mp4	running
+datasets/sv_wild/Videos/javelin/3043___056a6ace3ff34a538f39354bbc72dd9f.mp4	hammerthrow
+datasets/sv_wild/Videos/javelin/3150___0913728590ca4990bb2de5a77aef543d.mp4	archery
 datasets/sv_wild/Videos/javelin/3208___eded2b0f56f8414abc8b8b9a235b4c75.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/3734___bb7b1806053749e98ee2928af1143725.mp4	running
 datasets/sv_wild/Videos/javelin/3793___032c503867784c9a8d692f1d6b177c1e.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/4204___a9fd49677509482999b9c0aec4defe65.mp4	highjump
-datasets/sv_wild/Videos/javelin/4223___e32e85f7229b4ad48e1356c4699b6f5b.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/46177___bc79d2befbc84baa856fecf22eeb3c9c.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/48345___1bac5923d68f4f60876466cdfa7fd08f.mp4	polevault
+datasets/sv_wild/Videos/javelin/4204___a9fd49677509482999b9c0aec4defe65.mp4	shotput
+datasets/sv_wild/Videos/javelin/4223___e32e85f7229b4ad48e1356c4699b6f5b.mp4	shotput
+datasets/sv_wild/Videos/javelin/46177___bc79d2befbc84baa856fecf22eeb3c9c.mp4	shotput
+datasets/sv_wild/Videos/javelin/48345___1bac5923d68f4f60876466cdfa7fd08f.mp4	highjump
 datasets/sv_wild/Videos/javelin/4___3e61b02bd5184494aa4690d0670dbb11.mp4	polevault
-datasets/sv_wild/Videos/javelin/52454___c12c16e77f4f453a850e66ed2e36c706.mp4	running
+datasets/sv_wild/Videos/javelin/52454___c12c16e77f4f453a850e66ed2e36c706.mp4	shotput
 datasets/sv_wild/Videos/javelin/52765___ac29419b86514571916a28001ecb7842.mp4	archery
-datasets/sv_wild/Videos/javelin/52982___765597292c9344eaaef69ccbbd425c88.mp4	highjump
+datasets/sv_wild/Videos/javelin/52982___765597292c9344eaaef69ccbbd425c88.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/5628___88d89349fab445be855db11c99596f1d.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/59896___9698fbb49e8a4dfcab9d59e8c8683700.mp4	hammerthrow
 datasets/sv_wild/Videos/javelin/59928___a1edda5375374bf89f3e46851ef79be5.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/6288___f8b0a541908d49c3a0de13d003a95d2e.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/6704___c8f3ff4588164cb78a78dbd2bdceb8f8.mp4	trackandfield
+datasets/sv_wild/Videos/javelin/6288___f8b0a541908d49c3a0de13d003a95d2e.mp4	highjump
+datasets/sv_wild/Videos/javelin/6704___c8f3ff4588164cb78a78dbd2bdceb8f8.mp4	shotput
 datasets/sv_wild/Videos/javelin/7768___84d9d8796018475cad9b3d91d21de319.mp4	archery
 datasets/sv_wild/Videos/javelin/8206___33bcea6d192648119c012dc540a62cb8.mp4	javelin
-datasets/sv_wild/Videos/javelin/8545___4b1671b8b0f248cb9740c96f3be958cb.mp4	highjump
-datasets/sv_wild/Videos/javelin/864___494301b84bf0493199f996de4a301e2f.mp4	archery
-datasets/sv_wild/Videos/javelin/8715___5d41299ffd5e413cb87f1ad78243d257.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/9008___a46a04b8f7224a4a9a309f5bf3e5d5e0.mp4	discusthrow
+datasets/sv_wild/Videos/javelin/8545___4b1671b8b0f248cb9740c96f3be958cb.mp4	longjump
+datasets/sv_wild/Videos/javelin/864___494301b84bf0493199f996de4a301e2f.mp4	cheerleading
+datasets/sv_wild/Videos/javelin/8715___5d41299ffd5e413cb87f1ad78243d257.mp4	highjump
+datasets/sv_wild/Videos/javelin/9008___a46a04b8f7224a4a9a309f5bf3e5d5e0.mp4	shotput
 datasets/sv_wild/Videos/javelin/9860___fbd628f8380843888bbd596979ba08b1.mp4	hammerthrow
-datasets/sv_wild/Videos/javelin/9914___a159de349cd2498b9c108082a313021c.mp4	running
-datasets/sv_wild/Videos/javelin/999___bceaee19c3714dc1873ede3a8a1b1746.mp4	hammerthrow
-datasets/sv_wild/Videos/longjump/10074___36e71202e2124a12b65ea88a09c02510.mp4	running
-datasets/sv_wild/Videos/longjump/10539___94f40ae2e268470fad32ccda0115bea0.mp4	highjump
-datasets/sv_wild/Videos/longjump/10609___7765aec416484a469fda44cdfde320e4.mp4	running
+datasets/sv_wild/Videos/javelin/9914___a159de349cd2498b9c108082a313021c.mp4	hammerthrow
+datasets/sv_wild/Videos/javelin/999___bceaee19c3714dc1873ede3a8a1b1746.mp4	polevault
+datasets/sv_wild/Videos/longjump/10074___36e71202e2124a12b65ea88a09c02510.mp4	longjump
+datasets/sv_wild/Videos/longjump/10539___94f40ae2e268470fad32ccda0115bea0.mp4	longjump
+datasets/sv_wild/Videos/longjump/10609___7765aec416484a469fda44cdfde320e4.mp4	highjump
 datasets/sv_wild/Videos/longjump/1174___4cf42ddfe41b4ed1ad22f81897a60d71.mp4	highjump
-datasets/sv_wild/Videos/longjump/1341___c042baab1ec84f1fb8a688e4913a29f1.mp4	hurdling
-datasets/sv_wild/Videos/longjump/1626___650b63e4a2844693973d50f102d7f2ca.mp4	running
+datasets/sv_wild/Videos/longjump/1341___c042baab1ec84f1fb8a688e4913a29f1.mp4	longjump
+datasets/sv_wild/Videos/longjump/1626___650b63e4a2844693973d50f102d7f2ca.mp4	longjump
 datasets/sv_wild/Videos/longjump/21115___37e0b19770a2474d8d2aed0954640a01.mp4	highjump
 datasets/sv_wild/Videos/longjump/21684___759ae90543e943b887a5d95d006d06c4.mp4	hurdling
-datasets/sv_wild/Videos/longjump/23052___6a0141128ae64fc4a5aee13e57073ca9.mp4	running
+datasets/sv_wild/Videos/longjump/23052___6a0141128ae64fc4a5aee13e57073ca9.mp4	longjump
 datasets/sv_wild/Videos/longjump/24112___bf90f9367a894b34a2e3d16a00e65717.mp4	hurdling
-datasets/sv_wild/Videos/longjump/25108___93be1650d1124a35b929c1c2e6bd9eb2.mp4	longjump
+datasets/sv_wild/Videos/longjump/25108___93be1650d1124a35b929c1c2e6bd9eb2.mp4	shotput
 datasets/sv_wild/Videos/longjump/25320___003a9f138ae2453f8629356569ff02c2.mp4	running
 datasets/sv_wild/Videos/longjump/25622___98c5696cd4734842b13c1e5fbbd64eeb.mp4	highjump
 datasets/sv_wild/Videos/longjump/2605___f566b860d69442d1b621ad3397107e78.mp4	running
-datasets/sv_wild/Videos/longjump/2786___e697cfa54f9f483ab3269919df559d22.mp4	running
+datasets/sv_wild/Videos/longjump/2786___e697cfa54f9f483ab3269919df559d22.mp4	hurdling
 datasets/sv_wild/Videos/longjump/3115___bacaa2a1bb01457a92016a841b92dd95.mp4	highjump
 datasets/sv_wild/Videos/longjump/3671___f4ccaedd983e4aa1a8a94f956f95bbc8.mp4	hurdling
-datasets/sv_wild/Videos/longjump/3901___2320ebf6f11a44d892f0a568066a0cde.mp4	highjump
+datasets/sv_wild/Videos/longjump/3901___2320ebf6f11a44d892f0a568066a0cde.mp4	running
 datasets/sv_wild/Videos/longjump/4353___23c52b2b495f4a04b4c2e1ffd8b659a4.mp4	running
 datasets/sv_wild/Videos/longjump/4720___35aa4df0acc74958a6e0de24bc81d4ac.mp4	running
-datasets/sv_wild/Videos/longjump/4756___67dc4d494c82463e9ba2d6e5cd0c5310.mp4	Running
-datasets/sv_wild/Videos/longjump/4885___a89816509ae748439d6edacf3576327e.mp4	hurdling
-datasets/sv_wild/Videos/longjump/5182___2346b040445e40debf4dcbf277441b85.mp4	running
+datasets/sv_wild/Videos/longjump/4756___67dc4d494c82463e9ba2d6e5cd0c5310.mp4	longjump
+datasets/sv_wild/Videos/longjump/4885___a89816509ae748439d6edacf3576327e.mp4	highjump
+datasets/sv_wild/Videos/longjump/5182___2346b040445e40debf4dcbf277441b85.mp4	highjump
 datasets/sv_wild/Videos/longjump/5371___963558a574544e3a8139980d91628ad3.mp4	hurdling
-datasets/sv_wild/Videos/longjump/6233___bb1b9060dd094ae6863d69448f8ee156.mp4	running
-datasets/sv_wild/Videos/longjump/7247___0c929917126b436885b11ff7741328a7.mp4	gymnastics
-datasets/sv_wild/Videos/longjump/7352___e557248f05d44ce580c56d9283487aee.mp4	hurdling
+datasets/sv_wild/Videos/longjump/6233___bb1b9060dd094ae6863d69448f8ee156.mp4	longjump
+datasets/sv_wild/Videos/longjump/7247___0c929917126b436885b11ff7741328a7.mp4	highjump
+datasets/sv_wild/Videos/longjump/7352___e557248f05d44ce580c56d9283487aee.mp4	highjump
 datasets/sv_wild/Videos/longjump/7466___5db7c234cc8f4d7fa438788ad1b04ae2.mp4	running
 datasets/sv_wild/Videos/longjump/777___036cbcada05e4f8fbaa00029d26d8b9b.mp4	running
 datasets/sv_wild/Videos/longjump/7851___02b1d1fb54a74e098e44a4bcf8605791.mp4	running
 datasets/sv_wild/Videos/longjump/7927___f7efdc79defd43969f4cf4529af83cfd.mp4	highjump
-datasets/sv_wild/Videos/longjump/8101___32e6aee523ab4fcfb08f98f0f1bfee6d.mp4	running
+datasets/sv_wild/Videos/longjump/8101___32e6aee523ab4fcfb08f98f0f1bfee6d.mp4	highjump
 datasets/sv_wild/Videos/longjump/8263___d0f35a1ec2b5405b8a96fa577a87b872.mp4	running
 datasets/sv_wild/Videos/longjump/8772___4290f0ed55834784a145048cb48f6bf9.mp4	hurdling
 datasets/sv_wild/Videos/polevault/1226___e9b534143d9b4bad83427cbc911b1dbc.mp4	highjump
-datasets/sv_wild/Videos/polevault/1278___bcaf0b3829e842fe81611a53894f0b26.mp4	polevault
+datasets/sv_wild/Videos/polevault/1278___bcaf0b3829e842fe81611a53894f0b26.mp4	highjump
 datasets/sv_wild/Videos/polevault/1330___8720c9142d514b0f9162e06d4047076d.mp4	highjump
 datasets/sv_wild/Videos/polevault/1528___ea4542b2d54e46a3a435888a47c173b4.mp4	highjump
 datasets/sv_wild/Videos/polevault/1582___8ebb111adbb64b8780e83f90bd93ae57.mp4	highjump
 datasets/sv_wild/Videos/polevault/1584___ebcd98429ae845a0a91669ecacfa46f0.mp4	highjump
 datasets/sv_wild/Videos/polevault/1722___6407a14aed974fd3bc5c6e3fa9243f38.mp4	hurdling
-datasets/sv_wild/Videos/polevault/1801___aed0d222f9204a7797bfbd4781cf5c28.mp4	running
+datasets/sv_wild/Videos/polevault/1801___aed0d222f9204a7797bfbd4781cf5c28.mp4	highjump
 datasets/sv_wild/Videos/polevault/1903___d23504e8646a407ba7b12e06a9f7c37c.mp4	polevault
 datasets/sv_wild/Videos/polevault/1992___280a797e410b423ea26c768339650a3b.mp4	highjump
-datasets/sv_wild/Videos/polevault/2061___1eb061d357be4682819f096be5992bf3.mp4	football
-datasets/sv_wild/Videos/polevault/2083___3000271398b241fc96ddcb4b91682cbd.mp4	gymnastics
+datasets/sv_wild/Videos/polevault/2061___1eb061d357be4682819f096be5992bf3.mp4	highjump
+datasets/sv_wild/Videos/polevault/2083___3000271398b241fc96ddcb4b91682cbd.mp4	polevault
 datasets/sv_wild/Videos/polevault/208___ace2e0f5dbc246199ecc2de6ed8714b2.mp4	highjump
 datasets/sv_wild/Videos/polevault/2128___b0a8d3d43633422081a350f784881f53.mp4	running
-datasets/sv_wild/Videos/polevault/2294___5fff9baa3b514c3aa85894116e78ba47.mp4	gymnastics
-datasets/sv_wild/Videos/polevault/2413___77020a5ae25945dd82eafcebad1d8291.mp4	polevault
+datasets/sv_wild/Videos/polevault/2294___5fff9baa3b514c3aa85894116e78ba47.mp4	wrestling
+datasets/sv_wild/Videos/polevault/2413___77020a5ae25945dd82eafcebad1d8291.mp4	highjump
 datasets/sv_wild/Videos/polevault/2512___70d514c1c1b74d1ea3745734d76f0b74.mp4	highjump
-datasets/sv_wild/Videos/polevault/2628___939f89741b3043df845cdf75a7dd7cc6.mp4	polevault
+datasets/sv_wild/Videos/polevault/2628___939f89741b3043df845cdf75a7dd7cc6.mp4	highjump
 datasets/sv_wild/Videos/polevault/3034___01e6579b945e4d0b835934b2a51d8662.mp4	highjump
 datasets/sv_wild/Videos/polevault/3081___53d56ee3232f4e2a931e8e8e396c92ab.mp4	highjump
-datasets/sv_wild/Videos/polevault/333___4fc06fd8c4224a7dba23a7e0e2457b83.mp4	gymnastics
-datasets/sv_wild/Videos/polevault/3358___092aa98d6ed94b08a45050eb300de780.mp4	hammerthrow
-datasets/sv_wild/Videos/polevault/3383___add0435c45194747826dfc9c7569b320.mp4	hammerthrow
-datasets/sv_wild/Videos/polevault/3441___9d776d736dc0402a8815b2c5c73d337b.mp4	gymnastics
-datasets/sv_wild/Videos/polevault/3488___68756842e62f421fb46202cb16e151d8.mp4	highjump
+datasets/sv_wild/Videos/polevault/333___4fc06fd8c4224a7dba23a7e0e2457b83.mp4	polevault
+datasets/sv_wild/Videos/polevault/3358___092aa98d6ed94b08a45050eb300de780.mp4	polevault
+datasets/sv_wild/Videos/polevault/3383___add0435c45194747826dfc9c7569b320.mp4	highjump
+datasets/sv_wild/Videos/polevault/3441___9d776d736dc0402a8815b2c5c73d337b.mp4	highjump
+datasets/sv_wild/Videos/polevault/3488___68756842e62f421fb46202cb16e151d8.mp4	polevault
 datasets/sv_wild/Videos/polevault/3631___bdfa1c106c2f4003ae4263b78656e413.mp4	highjump
 datasets/sv_wild/Videos/polevault/3824___1c712205620d45b69f6f9d0676ff3647.mp4	highjump
 datasets/sv_wild/Videos/polevault/3829___3bb6cac3cabd47309f93868dd0077dec.mp4	highjump
-datasets/sv_wild/Videos/polevault/3972___00f8e771b4a244eb9133da47eb69ef14.mp4	running
+datasets/sv_wild/Videos/polevault/3972___00f8e771b4a244eb9133da47eb69ef14.mp4	highjump
 datasets/sv_wild/Videos/polevault/578___c2a194e89d96412a93b587ded2461a97.mp4	highjump
 datasets/sv_wild/Videos/polevault/653___1c110214afc9435da974f4532f660941.mp4	highjump
 datasets/sv_wild/Videos/polevault/684___7c5672725866431a8c857b6c38955d48.mp4	gymnastics
@@ -768,7 +1082,7 @@ datasets/sv_wild/Videos/polevault/728___4b017d108c574084af1929a6021f991b.mp4	hig
 datasets/sv_wild/Videos/polevault/788___3feeb11b882840ab854d216caa53fb91.mp4	highjump
 datasets/sv_wild/Videos/polevault/805___bd01ecd1697642d590e9b9b72e967605.mp4	highjump
 datasets/sv_wild/Videos/polevault/891___82a7fdea847d4fd597833125279d4d53.mp4	running
-datasets/sv_wild/Videos/polevault/979___fbfbb30dc3fd4dc182b564e460e7190e.mp4	polevault
+datasets/sv_wild/Videos/polevault/979___fbfbb30dc3fd4dc182b564e460e7190e.mp4	highjump
 datasets/sv_wild/Videos/rowing/10023___2a5d4ebe5eec4646bf7bd71a62a604a2.mp4	rowing
 datasets/sv_wild/Videos/rowing/1010011214___ae6275fdbb254b0da4d1e2cd5e1949a8.mp4	rowing
 datasets/sv_wild/Videos/rowing/1010016961___5f3f6116243d4580800b7be87740e67d.mp4	rowing
@@ -776,7 +1090,7 @@ datasets/sv_wild/Videos/rowing/1010030051___844d2fcf5a6e4daca661e19964c46fe8.mp4
 datasets/sv_wild/Videos/rowing/101004799___90e8a4174b1e4190993c70acf0ec7b2f.mp4	rowing
 datasets/sv_wild/Videos/rowing/11093___306ddd67657d4099a0f529817512dfd4.mp4	rowing
 datasets/sv_wild/Videos/rowing/1217___fd42b6909b4e44e78e5878e2a6ef7f48.mp4	rowing
-datasets/sv_wild/Videos/rowing/1353___a4c9e8ab8ef54589a5bbba9fa780d720.mp4	swimming
+datasets/sv_wild/Videos/rowing/1353___a4c9e8ab8ef54589a5bbba9fa780d720.mp4	skating
 datasets/sv_wild/Videos/rowing/1371___326d2720d94a41abb18d81487d9a7c42.mp4	rowing
 datasets/sv_wild/Videos/rowing/1727___343c9241971d45a4ac8718e5f86debdc.mp4	rowing
 datasets/sv_wild/Videos/rowing/20582___bfaeac1c260d4e8fb631360e84a5b502.mp4	rowing
@@ -810,82 +1124,82 @@ datasets/sv_wild/Videos/running/10465___2a56f191afcb453fa334f35f38801f8c.mp4	run
 datasets/sv_wild/Videos/running/10547___69dcf1d900444830b792d8c7cfce246b.mp4	running
 datasets/sv_wild/Videos/running/106___0205f35e2fad42b1bd11ef4aefb22670.mp4	running
 datasets/sv_wild/Videos/running/1239___bf5840ed613c4feba32194ad55e17873.mp4	running
-datasets/sv_wild/Videos/running/137___e6fffd316d8741eba910d7c4bb039ae4.mp4	Running
+datasets/sv_wild/Videos/running/137___e6fffd316d8741eba910d7c4bb039ae4.mp4	running
 datasets/sv_wild/Videos/running/2032___ee857b7c0af74cd797cf7d3210f48e83.mp4	running
 datasets/sv_wild/Videos/running/2089___656d636b23304637909faff6031b7a2f.mp4	running
 datasets/sv_wild/Videos/running/2216___fe3f2d8b8cd34191b3c0fefc0ac21383.mp4	running
 datasets/sv_wild/Videos/running/2466___8ec28eccb79b41019af788544586b773.mp4	running
 datasets/sv_wild/Videos/running/2498___fac0c3dfae644f738f5e563deb54d523.mp4	running
-datasets/sv_wild/Videos/running/26024___f4f8876b3e49418f8445a389f533b105.mp4	running
+datasets/sv_wild/Videos/running/26024___f4f8876b3e49418f8445a389f533b105.mp4	hurdling
 datasets/sv_wild/Videos/running/2696___588dfb3143e84a91977255c72a16eab3.mp4	running
 datasets/sv_wild/Videos/running/27139___2527ae9f26494d5dae5527f655526bc5.mp4	running
-datasets/sv_wild/Videos/running/28406___77ee6c850b3d45039bb0e86a645b27aa.mp4	Running
-datasets/sv_wild/Videos/running/3197___975e4d3f691244ee8b7c9c25f80b70d4.mp4	Running
-datasets/sv_wild/Videos/running/3540___cb8f9c6af2f14bdc9b6d986ee25a3f26.mp4	hurdling
-datasets/sv_wild/Videos/running/44417___52213e8033f14c8dbb4f9f9afbe350ad.mp4	running
+datasets/sv_wild/Videos/running/28406___77ee6c850b3d45039bb0e86a645b27aa.mp4	running
+datasets/sv_wild/Videos/running/3197___975e4d3f691244ee8b7c9c25f80b70d4.mp4	running
+datasets/sv_wild/Videos/running/3540___cb8f9c6af2f14bdc9b6d986ee25a3f26.mp4	running
+datasets/sv_wild/Videos/running/44417___52213e8033f14c8dbb4f9f9afbe350ad.mp4	hurdling
 datasets/sv_wild/Videos/running/47689___cba54260e389493a8fba868ac9c60fd6.mp4	highjump
-datasets/sv_wild/Videos/running/4843___a98b9e7050dc4851a8366e63e9d566fb.mp4	Running
+datasets/sv_wild/Videos/running/4843___a98b9e7050dc4851a8366e63e9d566fb.mp4	running
 datasets/sv_wild/Videos/running/50107___756cc3627d074348b2dcc0ac6849858a.mp4	running
-datasets/sv_wild/Videos/running/5271___ab3806844ba24b9b9b3eea76755a7e3c.mp4	running
+datasets/sv_wild/Videos/running/5271___ab3806844ba24b9b9b3eea76755a7e3c.mp4	hurdling
 datasets/sv_wild/Videos/running/5531___680f7d3eea244ef58a4940f2deef0bb9.mp4	running
-datasets/sv_wild/Videos/running/5685___6a00a6448c6e44599015956bc74bd69a.mp4	running
+datasets/sv_wild/Videos/running/5685___6a00a6448c6e44599015956bc74bd69a.mp4	longjump
 datasets/sv_wild/Videos/running/6067___167a7c4256b0431da2fc9825e4d0e37f.mp4	running
 datasets/sv_wild/Videos/running/6249___3f70cc40f43444c8afdcb3cbd16185f0.mp4	running
 datasets/sv_wild/Videos/running/6278___daf67652f7a14a8ead26ea4c37a0b78d.mp4	running
 datasets/sv_wild/Videos/running/6980___0cc912cdadec49ae9fd6c0d27e9491be.mp4	running
 datasets/sv_wild/Videos/running/7108___3890f31f75ec47629e59a2625390da1b.mp4	running
 datasets/sv_wild/Videos/running/7149___71bc9270bf264c22a05f73df565d6217.mp4	running
-datasets/sv_wild/Videos/running/7216___c5b6aca2959947df959732fce454c852.mp4	Running
-datasets/sv_wild/Videos/running/7478___7e293038a2864cceb5f2d99f14690a53.mp4	Running
-datasets/sv_wild/Videos/running/7541___801cc93a8f1c4411889c17dfc1b25e45.mp4	Running
+datasets/sv_wild/Videos/running/7216___c5b6aca2959947df959732fce454c852.mp4	running
+datasets/sv_wild/Videos/running/7478___7e293038a2864cceb5f2d99f14690a53.mp4	running
+datasets/sv_wild/Videos/running/7541___801cc93a8f1c4411889c17dfc1b25e45.mp4	running
 datasets/sv_wild/Videos/running/7605___c4a0ba7dccb7407787b4eb0b90dcd899.mp4	running
-datasets/sv_wild/Videos/running/7772___1b1eb54e1b6541208d8e6d6194d930ee.mp4	Running
+datasets/sv_wild/Videos/running/7772___1b1eb54e1b6541208d8e6d6194d930ee.mp4	running
 datasets/sv_wild/Videos/running/7978___e48dac3228884a189b1c837fd417142a.mp4	running
 datasets/sv_wild/Videos/running/8308___e1150702848f490db0db7fe04bd3140f.mp4	running
 datasets/sv_wild/Videos/running/8578___40b0f6b4bd65401da67f38d70c2ab64f.mp4	running
 datasets/sv_wild/Videos/running/8678___aa0f7ea5abe547c0a295b6b4f31e4a4e.mp4	running
-datasets/sv_wild/Videos/shotput/10122___bd25a2191a804f12a0a6d2796a541641.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/10122___bd25a2191a804f12a0a6d2796a541641.mp4	shotput
 datasets/sv_wild/Videos/shotput/10720___ba3d906730184daea05659362b17d56b.mp4	longjump
 datasets/sv_wild/Videos/shotput/10924___a1353266f3e84e3db040e28b3f6b27b3.mp4	wrestling
-datasets/sv_wild/Videos/shotput/11131___06339517a4604648a1faf99338b120f2.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/11131___06339517a4604648a1faf99338b120f2.mp4	shotput
 datasets/sv_wild/Videos/shotput/11248___4df72f0787ab4b389769591a75cf4464.mp4	shotput
-datasets/sv_wild/Videos/shotput/1173___8b3eaffc3921483dba43afd1bcab2779.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/1386___a2ed49a6767143c4aaa7f99b23445eb2.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/179___7ffe0656ce7c4a6b93ffd16fbf7c0eb3.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/20179___cbaaf0db9f7d4180a061eb822e003433.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/1173___8b3eaffc3921483dba43afd1bcab2779.mp4	discusthrow
+datasets/sv_wild/Videos/shotput/1386___a2ed49a6767143c4aaa7f99b23445eb2.mp4	shotput
+datasets/sv_wild/Videos/shotput/179___7ffe0656ce7c4a6b93ffd16fbf7c0eb3.mp4	shotput
+datasets/sv_wild/Videos/shotput/20179___cbaaf0db9f7d4180a061eb822e003433.mp4	shotput
 datasets/sv_wild/Videos/shotput/20453___34764edbf11a4fd6b4033668fe18377a.mp4	weight
-datasets/sv_wild/Videos/shotput/20466___133d0bc533db45a9aca175e1cd67c625.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/20761___c0498c08d99441abaeca877bfad19d40.mp4	highjump
+datasets/sv_wild/Videos/shotput/20466___133d0bc533db45a9aca175e1cd67c625.mp4	shotput
+datasets/sv_wild/Videos/shotput/20761___c0498c08d99441abaeca877bfad19d40.mp4	shotput
 datasets/sv_wild/Videos/shotput/20866___e57a9a0f345c46f0a9f2852960412b33.mp4	wrestling
 datasets/sv_wild/Videos/shotput/20937___c1007e5445e246678e93b976b0433169.mp4	weight
-datasets/sv_wild/Videos/shotput/21251___6f5b656a98b64845bb2a7adce151cfca.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/2204___a8bb649d407641029c392bdee491378a.mp4	weight
-datasets/sv_wild/Videos/shotput/22350___ccfd1c02778a44b78e297d6637f64a8d.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/21251___6f5b656a98b64845bb2a7adce151cfca.mp4	shotput
+datasets/sv_wild/Videos/shotput/2204___a8bb649d407641029c392bdee491378a.mp4	shotput
+datasets/sv_wild/Videos/shotput/22350___ccfd1c02778a44b78e297d6637f64a8d.mp4	shotput
 datasets/sv_wild/Videos/shotput/22735___0282f49efd9542d5a667853ada880c8b.mp4	weight
-datasets/sv_wild/Videos/shotput/23588___374873cc0b0949418f92c401ae999c2a.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/23588___374873cc0b0949418f92c401ae999c2a.mp4	shotput
 datasets/sv_wild/Videos/shotput/24380___0cffe40826c642909288df747cb7bfb2.mp4	weight
 datasets/sv_wild/Videos/shotput/24578___8e88b92d35834255976c2697a684d9bc.mp4	weight
 datasets/sv_wild/Videos/shotput/2470___502c1774a6e0466c8b5903173d70b7ef.mp4	weight
-datasets/sv_wild/Videos/shotput/2540___7c4a65ae62ae42e8b71e71386764a1b7.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/2540___7c4a65ae62ae42e8b71e71386764a1b7.mp4	shotput
 datasets/sv_wild/Videos/shotput/25573___5b0d173104594a189acc8529d6047f08.mp4	weight
-datasets/sv_wild/Videos/shotput/26497___c597aeed477b4b659a6501089de0d710.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/26497___c597aeed477b4b659a6501089de0d710.mp4	shotput
 datasets/sv_wild/Videos/shotput/26760___aa29956660fd4bbc80b6f085c88e65cc.mp4	discusthrow
-datasets/sv_wild/Videos/shotput/27301___b1409617ecaf4658bc9f24824050d05f.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/3124___27cb0de343f2470cbb89c5efa2435b42.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/3720___3a034c77d9d149cd880e751666848ecf.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/27301___b1409617ecaf4658bc9f24824050d05f.mp4	shotput
+datasets/sv_wild/Videos/shotput/3124___27cb0de343f2470cbb89c5efa2435b42.mp4	shotput
+datasets/sv_wild/Videos/shotput/3720___3a034c77d9d149cd880e751666848ecf.mp4	shotput
 datasets/sv_wild/Videos/shotput/3847___c267645a3be14601a01a82816bfc9475.mp4	shotput
 datasets/sv_wild/Videos/shotput/4252___055ca1e7c0cd47f6a6637c71ef1edb10.mp4	shotput
 datasets/sv_wild/Videos/shotput/4431___5c6d40f1a7fe40119076d151472a8996.mp4	shotput
 datasets/sv_wild/Videos/shotput/4863___b1fbbd5f3f4a4844bae937c9d8933981.mp4	discusthrow
-datasets/sv_wild/Videos/shotput/5123___784b24e6b8d740448c1a016370b2a66a.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/5300___a3f67e009bc94e6ba769a9f19974131a.mp4	weight
-datasets/sv_wild/Videos/shotput/5796___3c99102d977d4fc3a9dc4c7b47977995.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/6462___df44b3cddac046099396fd4153cd845c.mp4	weight
-datasets/sv_wild/Videos/shotput/6796___cf268b8d0ad94155a0d98d39790ab62f.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/707___24af2c1061d04bb29143118c6d44929e.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/7548___d7a9a442024c424cb0e22ce38629645f.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/8145___17757cdc67814ccbb6098530634d31db.mp4	hammerthrow
-datasets/sv_wild/Videos/shotput/8185___11925b02eacc408e807a7d328a90d906.mp4	hammerthrow
+datasets/sv_wild/Videos/shotput/5123___784b24e6b8d740448c1a016370b2a66a.mp4	shotput
+datasets/sv_wild/Videos/shotput/5300___a3f67e009bc94e6ba769a9f19974131a.mp4	shotput
+datasets/sv_wild/Videos/shotput/5796___3c99102d977d4fc3a9dc4c7b47977995.mp4	shotput
+datasets/sv_wild/Videos/shotput/6462___df44b3cddac046099396fd4153cd845c.mp4	running
+datasets/sv_wild/Videos/shotput/6796___cf268b8d0ad94155a0d98d39790ab62f.mp4	shotput
+datasets/sv_wild/Videos/shotput/707___24af2c1061d04bb29143118c6d44929e.mp4	shotput
+datasets/sv_wild/Videos/shotput/7548___d7a9a442024c424cb0e22ce38629645f.mp4	shotput
+datasets/sv_wild/Videos/shotput/8145___17757cdc67814ccbb6098530634d31db.mp4	shotput
+datasets/sv_wild/Videos/shotput/8185___11925b02eacc408e807a7d328a90d906.mp4	shotput
 datasets/sv_wild/Videos/skating/10175___59a9be07f5ff4fde881cc69f45c03596.mp4	skating
 datasets/sv_wild/Videos/skating/10365___59fcde0c01b54686b227e8b3bbcb3447.mp4	skating
 datasets/sv_wild/Videos/skating/10469___b8a71d46e5924295b259bbfe1487dd0d.mp4	skating
@@ -899,7 +1213,7 @@ datasets/sv_wild/Videos/skating/2197___52e5cdbf2f614168a679fb9fc6aac9a1.mp4	skat
 datasets/sv_wild/Videos/skating/249___669dde2156c542eda893cbf9e1cb9c64.mp4	skating
 datasets/sv_wild/Videos/skating/2500___073fc2287d674768a9d2598cb25a9227.mp4	skating
 datasets/sv_wild/Videos/skating/2662___7796a7040f584957b7a931b5c9907249.mp4	skating
-datasets/sv_wild/Videos/skating/2833___3f56201bf11f4d42949c7d86ec2cc521.mp4	Ice skating
+datasets/sv_wild/Videos/skating/2833___3f56201bf11f4d42949c7d86ec2cc521.mp4	skating
 datasets/sv_wild/Videos/skating/3477___b320aaaebc614c758450650300bf3b25.mp4	skating
 datasets/sv_wild/Videos/skating/3735___59a0c9d59e3b48538c7747d5c4345a54.mp4	skating
 datasets/sv_wild/Videos/skating/3812___8fe363e0f57949e196cff5abd3990f41.mp4	skating
@@ -912,7 +1226,7 @@ datasets/sv_wild/Videos/skating/4614___48f9a41674a646f2badb6d1c05fe4649.mp4	skat
 datasets/sv_wild/Videos/skating/5095___90a205a488524940ace7f542cee54760.mp4	skating
 datasets/sv_wild/Videos/skating/5722___a300ed8cb12149d3a040e511d1d10540.mp4	skating
 datasets/sv_wild/Videos/skating/6214___5b914700039c41928f6801d34ca4a08b.mp4	skating
-datasets/sv_wild/Videos/skating/6460___f32493caa7b345f8b6a1d63981010e78.mp4	Skating
+datasets/sv_wild/Videos/skating/6460___f32493caa7b345f8b6a1d63981010e78.mp4	skating
 datasets/sv_wild/Videos/skating/6709___9d5195167a8a45c2af6052ddcff9791c.mp4	skating
 datasets/sv_wild/Videos/skating/7469___5c9bc84516d64d9ab2833f430350689e.mp4	skating
 datasets/sv_wild/Videos/skating/7536___18d9982575694981b228fde623c5eccd.mp4	skating
@@ -923,56 +1237,56 @@ datasets/sv_wild/Videos/skating/8302___60df123b8c794e77a125f3842cc9da63.mp4	skat
 datasets/sv_wild/Videos/skating/8438___29667844b25c403990ce46f1dea3d4e9.mp4	skating
 datasets/sv_wild/Videos/skating/9382___fe0bb14a8bc742dcb31359b85f990d61.mp4	skating
 datasets/sv_wild/Videos/skating/9495___7fcb34d05f9243aba5e9a72a6c9c94a7.mp4	skating
-datasets/sv_wild/Videos/skiing/10171___b763bb9f778c45c3a4fa68e76701e85e.mp4	Skiing
-datasets/sv_wild/Videos/skiing/10585___533a5584fcb94083894292ff2e71d1b2.mp4	swimming
+datasets/sv_wild/Videos/skiing/10171___b763bb9f778c45c3a4fa68e76701e85e.mp4	skiing
+datasets/sv_wild/Videos/skiing/10585___533a5584fcb94083894292ff2e71d1b2.mp4	diving
 datasets/sv_wild/Videos/skiing/10672___87db2216555247a3bd99e11d1d62838b.mp4	skiing
-datasets/sv_wild/Videos/skiing/11009___b783d31dbc7647008988807e7f49ff0e.mp4	Skiing
+datasets/sv_wild/Videos/skiing/11009___b783d31dbc7647008988807e7f49ff0e.mp4	skiing
 datasets/sv_wild/Videos/skiing/11009___fb6ffcdd3b2b4e15b818477d129e97dc.mp4	skiing
-datasets/sv_wild/Videos/skiing/1183___9fb616468122427a9b08d9cfb51505b4.mp4	Skiing
+datasets/sv_wild/Videos/skiing/1183___9fb616468122427a9b08d9cfb51505b4.mp4	skiing
 datasets/sv_wild/Videos/skiing/21650___46582d28619f46c5aee3edd81833a031.mp4	skiing
-datasets/sv_wild/Videos/skiing/24942___6eafbfa071614d2db5ca31786b7e845f.mp4	Skiing
+datasets/sv_wild/Videos/skiing/24942___6eafbfa071614d2db5ca31786b7e845f.mp4	skiing
 datasets/sv_wild/Videos/skiing/25939___abd0f8d5499449a4a7257917e1626069.mp4	skiing
-datasets/sv_wild/Videos/skiing/26205___5b7505a0ba5e4335a1cd1b8265dc0513.mp4	Skiing
+datasets/sv_wild/Videos/skiing/26205___5b7505a0ba5e4335a1cd1b8265dc0513.mp4	skiing
 datasets/sv_wild/Videos/skiing/2872___61bb6b3d0cbb46278de1a2ea4ac95ae9.mp4	skiing
 datasets/sv_wild/Videos/skiing/31579___f1af0057ce4d4387ae3590d5260c91a9.mp4	skiing
 datasets/sv_wild/Videos/skiing/3911___b116c15edded4f3b97f0a4812a594eb1.mp4	skiing
-datasets/sv_wild/Videos/skiing/4280___3b498942a80f415fbcd51ce534ff409d.mp4	Skiing
-datasets/sv_wild/Videos/skiing/42880___6e400450eda1455c9f16cce0d8da721d.mp4	swimming
-datasets/sv_wild/Videos/skiing/44162___90925ff755434148871a0c8ce98135d9.mp4	Skiing
+datasets/sv_wild/Videos/skiing/4280___3b498942a80f415fbcd51ce534ff409d.mp4	skiing
+datasets/sv_wild/Videos/skiing/42880___6e400450eda1455c9f16cce0d8da721d.mp4	diving
+datasets/sv_wild/Videos/skiing/44162___90925ff755434148871a0c8ce98135d9.mp4	skiing
 datasets/sv_wild/Videos/skiing/44418___48c40abd98924c2eba4a39e615fce806.mp4	skiing
 datasets/sv_wild/Videos/skiing/44605___861d4cf78c4745e3a13ae5a227012723.mp4	skiing
 datasets/sv_wild/Videos/skiing/44890___b345a41772f94b26bef3891d00cd6896.mp4	skiing
 datasets/sv_wild/Videos/skiing/46268___860c31e830bf4092abe51471a2d414c5.mp4	swimming
 datasets/sv_wild/Videos/skiing/47249___34b0d98bc12d43c08997ebd5d253ea49.mp4	skiing
-datasets/sv_wild/Videos/skiing/48678___826466e4370f466cb5cefd041792e408.mp4	Skiing
-datasets/sv_wild/Videos/skiing/50581___0eb51555c417479fbe50a04440ac3be6.mp4	Skiing
-datasets/sv_wild/Videos/skiing/50608___65f12637bd84479da99bb076234e900d.mp4	skiing
-datasets/sv_wild/Videos/skiing/51458___46a74b2c99874ab483b24d149a7c5614.mp4	Skiing
-datasets/sv_wild/Videos/skiing/52113___8f13b969fe4e4d1c9ff2995949109ce9.mp4	Skiing
+datasets/sv_wild/Videos/skiing/48678___826466e4370f466cb5cefd041792e408.mp4	skiing
+datasets/sv_wild/Videos/skiing/50581___0eb51555c417479fbe50a04440ac3be6.mp4	skiing
+datasets/sv_wild/Videos/skiing/50608___65f12637bd84479da99bb076234e900d.mp4	diving
+datasets/sv_wild/Videos/skiing/51458___46a74b2c99874ab483b24d149a7c5614.mp4	skiing
+datasets/sv_wild/Videos/skiing/52113___8f13b969fe4e4d1c9ff2995949109ce9.mp4	skiing
 datasets/sv_wild/Videos/skiing/52430___40d5da7cdc684f2d826aa04e3365bc77.mp4	skiing
 datasets/sv_wild/Videos/skiing/5332___40a116c29a3f4098b874ca3fed708e0e.mp4	skiing
-datasets/sv_wild/Videos/skiing/55360___1177f73ac49d471d866f5a03a643f29e.mp4	Skiing
+datasets/sv_wild/Videos/skiing/55360___1177f73ac49d471d866f5a03a643f29e.mp4	skiing
 datasets/sv_wild/Videos/skiing/5547___fd4438c75b8c4ea3ad7c9a68c6dc874d.mp4	skiing
 datasets/sv_wild/Videos/skiing/56367___e377d9d96c8b4ed996b253bcd4e732a9.mp4	skiing
 datasets/sv_wild/Videos/skiing/57477___e148f101a2b146eda9d06dfc1e0b23d2.mp4	skiing
-datasets/sv_wild/Videos/skiing/5905___075a50938bb84130a8b2abe2eee17763.mp4	Skiing
+datasets/sv_wild/Videos/skiing/5905___075a50938bb84130a8b2abe2eee17763.mp4	skiing
 datasets/sv_wild/Videos/skiing/6540___8c057a19920141a8bd13ca2b3572a45a.mp4	skiing
 datasets/sv_wild/Videos/skiing/675___f7f5a5beab4d44e187710d144c21487e.mp4	skiing
-datasets/sv_wild/Videos/skiing/6963___bda2c3bbe6d14d5abc62a5b101c835bd.mp4	Skiing
+datasets/sv_wild/Videos/skiing/6963___bda2c3bbe6d14d5abc62a5b101c835bd.mp4	skiing
 datasets/sv_wild/Videos/skiing/7013___8f1ca3f91de544e38823d9d254f67545.mp4	skiing
-datasets/sv_wild/Videos/skiing/7046___765e7420ba604a4a838017b2b1d2d7d1.mp4	Skiing
-datasets/sv_wild/Videos/skiing/7820___59d8c7c2bad34853beaf8aeb8d1de4d4.mp4	Skiing
+datasets/sv_wild/Videos/skiing/7046___765e7420ba604a4a838017b2b1d2d7d1.mp4	skiing
+datasets/sv_wild/Videos/skiing/7820___59d8c7c2bad34853beaf8aeb8d1de4d4.mp4	skiing
 datasets/sv_wild/Videos/skiing/8074___c702071e19bf47618501f129cd6af5fb.mp4	skiing
-datasets/sv_wild/Videos/skiing/8103___ea97eeec37684e33b42b1a0a223ae75e.mp4	Skiing
+datasets/sv_wild/Videos/skiing/8103___ea97eeec37684e33b42b1a0a223ae75e.mp4	skiing
 datasets/sv_wild/Videos/skiing/8345___7f2361645811439c84851b8754f8e620.mp4	skiing
 datasets/sv_wild/Videos/skiing/8680___486ec1a466ab49e2ae627cbd96395222.mp4	skiing
-datasets/sv_wild/Videos/skiing/8841___b0ea4b4df9064d2099055c720b91da59.mp4	Skiing
-datasets/sv_wild/Videos/skiing/9563___8ed85de936ec432e808f5b9f62f4d3e0.mp4	skating
+datasets/sv_wild/Videos/skiing/8841___b0ea4b4df9064d2099055c720b91da59.mp4	skiing
+datasets/sv_wild/Videos/skiing/9563___8ed85de936ec432e808f5b9f62f4d3e0.mp4	skiing
 datasets/sv_wild/Videos/soccer/10229___15e3d35418054ef4a050b8dd110d03aa.mp4	running
 datasets/sv_wild/Videos/soccer/10352___ebe92531578c43799ccd78bf2d683732.mp4	soccer
 datasets/sv_wild/Videos/soccer/168___22083b811c444f438c4e8dc464b28278.mp4	soccer
 datasets/sv_wild/Videos/soccer/1768___b2af1f63e2d54749bc5c00cf5482c239.mp4	soccer
-datasets/sv_wild/Videos/soccer/1846___3428a779c52a4a2eb62b00fdd2a2dec2.mp4	soccer
+datasets/sv_wild/Videos/soccer/1846___3428a779c52a4a2eb62b00fdd2a2dec2.mp4	running
 datasets/sv_wild/Videos/soccer/2520___37b3144aa5ea4a84b78fe839e0c28f23.mp4	soccer
 datasets/sv_wild/Videos/soccer/252___64eaaaffa5284ed8aae4682f4b08e9ba.mp4	soccer
 datasets/sv_wild/Videos/soccer/280___460a9054e11346d1946977c8cef2c9c0.mp4	soccer
@@ -989,7 +1303,7 @@ datasets/sv_wild/Videos/soccer/5450___1562d8f5a31c43feb233ee273c69f346.mp4	gymna
 datasets/sv_wild/Videos/soccer/5875___9955d739ef4548b7a7083deac4520212.mp4	soccer
 datasets/sv_wild/Videos/soccer/6162___60ba02f42ff547e2b4971ccbdc26dbd7.mp4	soccer
 datasets/sv_wild/Videos/soccer/6378___327abd0b671846579af36f2201736634.mp4	soccer
-datasets/sv_wild/Videos/soccer/6406___62b3c7b90f32455093b35afe8364e70b.mp4	soccer
+datasets/sv_wild/Videos/soccer/6406___62b3c7b90f32455093b35afe8364e70b.mp4	running
 datasets/sv_wild/Videos/soccer/685___9e47103b6f2b4861b0033b6f14828864.mp4	soccer
 datasets/sv_wild/Videos/soccer/7049___05f3607c2f92496eb5dc311ffcafcc40.mp4	soccer
 datasets/sv_wild/Videos/soccer/712___9b155cf0795a465f9a9c0d7e6aa1985e.mp4	soccer
@@ -999,7 +1313,7 @@ datasets/sv_wild/Videos/soccer/8042___4efbaa0f30f542589f4671c6075348da.mp4	socce
 datasets/sv_wild/Videos/soccer/8194___ccf3e163d0614fc4a2dcf5b4a896e6ce.mp4	soccer
 datasets/sv_wild/Videos/soccer/8941___9cbbdf4418124d519c26377cf1958eb8.mp4	running
 datasets/sv_wild/Videos/soccer/9277___afb5f39e46504e70afbc1cc4588a4d7f.mp4	soccer
-datasets/sv_wild/Videos/soccer/9422___b6f8ebae30f147658b2859380527f7ca.mp4	soccer
+datasets/sv_wild/Videos/soccer/9422___b6f8ebae30f147658b2859380527f7ca.mp4	running
 datasets/sv_wild/Videos/soccer/9556___584679a6163145fa865b0eb5ac4139ad.mp4	soccer
 datasets/sv_wild/Videos/swimming/10100150___60e9439064a147a3b96d0bb65c16f70d.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100212___4296493a32824991bb145fceaea5b004.mp4	swimming
@@ -1008,29 +1322,29 @@ datasets/sv_wild/Videos/swimming/10100226___20de23d0b48748c19682747446b3ed4c.mp4
 datasets/sv_wild/Videos/swimming/10100228___f5dad6991419439baabbf86771296f4b.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100239___afaf806bb6ad4fc293a0dd0a30431073.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100253___f86f27a148464cb8a7dcba3f85556baa.mp4	swimming
-datasets/sv_wild/Videos/swimming/10100268___0628d5edd6a84e9495b8233b6e947ec0.mp4	Swimming
-datasets/sv_wild/Videos/swimming/10100298___1fd0b4b71f254a6791bcdf9c9aa73eb0.mp4	Swimming
+datasets/sv_wild/Videos/swimming/10100268___0628d5edd6a84e9495b8233b6e947ec0.mp4	swimming
+datasets/sv_wild/Videos/swimming/10100298___1fd0b4b71f254a6791bcdf9c9aa73eb0.mp4	swimming
 datasets/sv_wild/Videos/swimming/1010029___59298a53014f4b82bdd6a52e6395b44d.mp4	swimming
-datasets/sv_wild/Videos/swimming/10100305___b2c8ecfafcde4b9992fe4e3c425adb84.mp4	Swimming
+datasets/sv_wild/Videos/swimming/10100305___b2c8ecfafcde4b9992fe4e3c425adb84.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100309___6ce01a3d333a437d940aab153dc9cc17.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100331___fbc07302188748cc87e9d81cf3c5ef89.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100333___00848f5104254d1fa6392d013c75eb2f.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100338___1e167499a7c14956a50e9fdd68bf3824.mp4	swimming
 datasets/sv_wild/Videos/swimming/10100340___5ffc16b7d90241b69530e6df1f4b12f7.mp4	swimming
-datasets/sv_wild/Videos/swimming/10100351___465c60bea1e1402f9a077c4855327f8b.mp4	Swimming
-datasets/sv_wild/Videos/swimming/1010044___cc08fab08cc24558a6d3265e9213e04b.mp4	Swimming
+datasets/sv_wild/Videos/swimming/10100351___465c60bea1e1402f9a077c4855327f8b.mp4	swimming
+datasets/sv_wild/Videos/swimming/1010044___cc08fab08cc24558a6d3265e9213e04b.mp4	swimming
 datasets/sv_wild/Videos/swimming/1010046___84f2a63b4ebc4a75861af90da444e039.mp4	swimming
 datasets/sv_wild/Videos/swimming/1010070___1db75e9479e14aceb4ee0066fa1c8290.mp4	swimming
-datasets/sv_wild/Videos/swimming/1010079___130ab3baeadc4581aa48f681342a31a5.mp4	Swimming
-datasets/sv_wild/Videos/swimming/10576___30dc4d9ab32847b3a995fe082e4260dd.mp4	Swimming
+datasets/sv_wild/Videos/swimming/1010079___130ab3baeadc4581aa48f681342a31a5.mp4	swimming
+datasets/sv_wild/Videos/swimming/10576___30dc4d9ab32847b3a995fe082e4260dd.mp4	swimming
 datasets/sv_wild/Videos/swimming/10649___14b655277dfc4242b04443ed1d72582f.mp4	swimming
 datasets/sv_wild/Videos/swimming/10930___b1f53c391531414c96d93f19cf0917e2.mp4	swimming
-datasets/sv_wild/Videos/swimming/1106___ade6a4be17d94650a0f3474effdb51a3.mp4	Swimming
+datasets/sv_wild/Videos/swimming/1106___ade6a4be17d94650a0f3474effdb51a3.mp4	swimming
 datasets/sv_wild/Videos/swimming/11099___cf340720cba04b8a951d1b06a20387c8.mp4	swimming
-datasets/sv_wild/Videos/swimming/11328___9f7dff08e8b84a7c9b4734bfc2c0d5fb.mp4	Swimming
+datasets/sv_wild/Videos/swimming/11328___9f7dff08e8b84a7c9b4734bfc2c0d5fb.mp4	swimming
 datasets/sv_wild/Videos/swimming/11401___f38f353cc0074d9fa5918bf0142d12f3.mp4	swimming
 datasets/sv_wild/Videos/swimming/1167___cce4b8eebd9f4df68ad77f8350d3d18d.mp4	swimming
-datasets/sv_wild/Videos/swimming/1559___cacb1dfd19b046c3893e11d4a16350ba.mp4	swimming
+datasets/sv_wild/Videos/swimming/1559___cacb1dfd19b046c3893e11d4a16350ba.mp4	diving
 datasets/sv_wild/Videos/swimming/16139___94727821bf2b4ccc96b2ca9d8808f5c4.mp4	swimming
 datasets/sv_wild/Videos/swimming/16598___bd648208f09841799137548831a82629.mp4	swimming
 datasets/sv_wild/Videos/swimming/1746___658744fde9f8419497a9be19b795674d.mp4	swimming
@@ -1048,24 +1362,24 @@ datasets/sv_wild/Videos/swimming/4447___f49cac069ef646629366b339dd781d18.mp4	swi
 datasets/sv_wild/Videos/swimming/4530___114c98dabbcf4d0aa2c714091c4eb086.mp4	swimming
 datasets/sv_wild/Videos/swimming/4636___405f0afc142342308e24a60771c27580.mp4	swimming
 datasets/sv_wild/Videos/swimming/4670___a211a52de22e44e18b7afc5025cec0bd.mp4	swimming
-datasets/sv_wild/Videos/swimming/4725___a885d2ba64454de380fe2e2c189b1b01.mp4	Swimming
+datasets/sv_wild/Videos/swimming/4725___a885d2ba64454de380fe2e2c189b1b01.mp4	swimming
 datasets/sv_wild/Videos/swimming/4754___808acf390003456fa4d4a7db77eb7ef1.mp4	swimming
 datasets/sv_wild/Videos/swimming/4930___1fbfe6161cb64527b39cdaa50c8422fd.mp4	swimming
 datasets/sv_wild/Videos/swimming/5303___6b8b209f9a8744b18fdfa8d4c23a8b72.mp4	swimming
-datasets/sv_wild/Videos/swimming/5470___f72aebf5692c4f9ca9f3aa973f31589b.mp4	Swimming
+datasets/sv_wild/Videos/swimming/5470___f72aebf5692c4f9ca9f3aa973f31589b.mp4	swimming
 datasets/sv_wild/Videos/swimming/5979___68c3cc314f914788b628339c2c3d1ee5.mp4	swimming
 datasets/sv_wild/Videos/swimming/6311___ddeb514949c846c68e28a85487d56b76.mp4	diving
 datasets/sv_wild/Videos/swimming/6325___bd9aabd8b9e8418e9f46c957d3908b06.mp4	swimming
 datasets/sv_wild/Videos/swimming/6427___dbd372bf1dd9477987312cac1805529e.mp4	swimming
-datasets/sv_wild/Videos/swimming/6513___ca25e64ea32c4f0688b5947429c8c8b9.mp4	Swimming
+datasets/sv_wild/Videos/swimming/6513___ca25e64ea32c4f0688b5947429c8c8b9.mp4	swimming
 datasets/sv_wild/Videos/swimming/6965___5ed4dea655ab4880a1220c6f9101a26a.mp4	swimming
 datasets/sv_wild/Videos/swimming/696___6a38283822b24cbb9003fb744d3d41fd.mp4	swimming
 datasets/sv_wild/Videos/swimming/7057___eadb58463b4d4c93b56b21fe099b9e79.mp4	swimming
-datasets/sv_wild/Videos/swimming/7394___873943afdc2e421aaac8cac6b6872684.mp4	Swimming
-datasets/sv_wild/Videos/swimming/7959___c01d55d909754baab06219f494cd1989.mp4	Swimming
+datasets/sv_wild/Videos/swimming/7394___873943afdc2e421aaac8cac6b6872684.mp4	swimming
+datasets/sv_wild/Videos/swimming/7959___c01d55d909754baab06219f494cd1989.mp4	swimming
 datasets/sv_wild/Videos/swimming/8003___fbab12c9a535444187355b25210a35b7.mp4	swimming
 datasets/sv_wild/Videos/swimming/8140___8a0083378d0a4dbb8eb140775f4d8271.mp4	swimming
-datasets/sv_wild/Videos/swimming/829___8f8b67b2570a4409a01658fc39755f80.mp4	Swimming
+datasets/sv_wild/Videos/swimming/829___8f8b67b2570a4409a01658fc39755f80.mp4	swimming
 datasets/sv_wild/Videos/swimming/8639___7d32f167af3441be9a9ecdf0f4839eab.mp4	swimming
 datasets/sv_wild/Videos/swimming/8697___e9bddf273f4e42479922cba296a9b6cc.mp4	swimming
 datasets/sv_wild/Videos/swimming/8714___1e539d988d6d4110a51a0d5f5aa54e9a.mp4	swimming
@@ -1073,9 +1387,9 @@ datasets/sv_wild/Videos/swimming/8903___23cba1afe76b4d74a81ecbaf207f5ab8.mp4	swi
 datasets/sv_wild/Videos/swimming/8915___0a86c23bef8e4032abee6c468d02e599.mp4	swimming
 datasets/sv_wild/Videos/swimming/9275___e6d56535c85845508296d6a8d905e318.mp4	swimming
 datasets/sv_wild/Videos/swimming/9613___2e1b2862bbf7486681897643b2b2cec3.mp4	swimming
-datasets/sv_wild/Videos/swimming/9617___5dc9e85956d54c00a79c8de73f7ff338.mp4	Swimming
+datasets/sv_wild/Videos/swimming/9617___5dc9e85956d54c00a79c8de73f7ff338.mp4	swimming
 datasets/sv_wild/Videos/swimming/9652___52036d3e34a14decabe51b3c473c9091.mp4	swimming
-datasets/sv_wild/Videos/swimming/968___4d8d6fe8f9c546b4b2dec8b33d8d22e0.mp4	Swimming
+datasets/sv_wild/Videos/swimming/968___4d8d6fe8f9c546b4b2dec8b33d8d22e0.mp4	swimming
 datasets/sv_wild/Videos/tennis/10778___a9745d62b0014484bab97be12ffbd290.mp4	tennis
 datasets/sv_wild/Videos/tennis/11264___2f38c715047c4308a4a32dd25d0c4359.mp4	tennis
 datasets/sv_wild/Videos/tennis/2017___defae41373204347946790f5ffad7f20.mp4	tennis
@@ -1120,7 +1434,7 @@ datasets/sv_wild/Videos/volleyball/10100109___a581901802b94fcfb39a49d5d7d281f8.m
 datasets/sv_wild/Videos/volleyball/10100114___7dd93290c75d4bfeabd6deb6b6f2de57.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/10100119___470a16ce19a44beea3709f666a358d2b.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/10100124___4b0ee2646304420cab7e067f63a54345.mp4	volleyball
-datasets/sv_wild/Videos/volleyball/10100125___a7ed190b4e354d1088ca3b93b9f4ecc5.mp4	basketball
+datasets/sv_wild/Videos/volleyball/10100125___a7ed190b4e354d1088ca3b93b9f4ecc5.mp4	cheerleading
 datasets/sv_wild/Videos/volleyball/10100130___4398303a177243189112c66c8814a27d.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/10100133___eb49eb0f1bcd46a89d570f8e39b4faa7.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/10100135___626b46a8b11b472f86e1d307176069d0.mp4	volleyball
@@ -1130,7 +1444,7 @@ datasets/sv_wild/Videos/volleyball/10100143___510a7b1c03e7446ebecc7bbefbe70b0a.m
 datasets/sv_wild/Videos/volleyball/10100151___6d1fddf3d8214ff280423b8237b8c827.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/10100161___de361b22a070489aba4807f42c8e5c96.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/1010034___d55356de99164e84aae09a4f792e2c0e.mp4	volleyball
-datasets/sv_wild/Videos/volleyball/1010036___375b473baeb14beabfe4515793cb9495.mp4	volleyball
+datasets/sv_wild/Videos/volleyball/1010036___375b473baeb14beabfe4515793cb9495.mp4	bowling
 datasets/sv_wild/Videos/volleyball/1010040___e188d18c1ac344e0b66b262dc7e750b2.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/1010061___030d75ebafc348459b8cbe9b72640131.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/1010075___a5b4fd4712b94b168a3b776e9aa4ff3a.mp4	basketball
@@ -1142,7 +1456,7 @@ datasets/sv_wild/Videos/volleyball/1010094___7e0ef5938c094828ad4dbfeb294b6b53.mp
 datasets/sv_wild/Videos/volleyball/1010095___78cc475011014608a61f2a5dcdc72a33.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/1010096___b29ac669fe8c4f5c8134c31bfe553b88.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/1010097___bb97fcf173c549e1adb11ce909b76e4e.mp4	volleyball
-datasets/sv_wild/Videos/volleyball/10458___b98d79bf67c64e3c8e577bf7ea345016.mp4	volleyball
+datasets/sv_wild/Videos/volleyball/10458___b98d79bf67c64e3c8e577bf7ea345016.mp4	basketball
 datasets/sv_wild/Videos/volleyball/10609___b5b8fc4246d04aee8fb65bf5c58b580d.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/10652___4a8f77371010422c932ff4d7861c6193.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/1066___1d7a6ba09f434f89b0e7d16e6189b6f8.mp4	volleyball
@@ -1161,11 +1475,11 @@ datasets/sv_wild/Videos/volleyball/2324___f5506b8102b64f21971c4369424dbbc7.mp4	v
 datasets/sv_wild/Videos/volleyball/2482___a991bb7a76ca443593079febacad3877.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/2506___aa5e9e6702894ff0bff82669632c07f1.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/2592___2af28a92cedf405f913f18210a7153f6.mp4	volleyball
-datasets/sv_wild/Videos/volleyball/2977___6c2a7561c7b943479c624956aa8a004c.mp4	volleyball
+datasets/sv_wild/Videos/volleyball/2977___6c2a7561c7b943479c624956aa8a004c.mp4	gymnastics
 datasets/sv_wild/Videos/volleyball/2980___094033e8ef0d4f5495febe406f606e68.mp4	basketball
 datasets/sv_wild/Videos/volleyball/328___2da69fc8e64c4c6395ce62a063bba4a8.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/3353___f194d8088b71453cb4fdd70b69a4d5e2.mp4	volleyball
-datasets/sv_wild/Videos/volleyball/3422___32fa274579aa40518d2b929bd1f25aa9.mp4	volleyball
+datasets/sv_wild/Videos/volleyball/3422___32fa274579aa40518d2b929bd1f25aa9.mp4	running
 datasets/sv_wild/Videos/volleyball/3475___5123e7fbea444d02a9646ba23f76b71e.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/3682___7a225dacc5b048cdb818f4fda43782e0.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/4127___462b46a38cd34e52b562a91a688c0dba.mp4	basketball
@@ -1184,7 +1498,7 @@ datasets/sv_wild/Videos/volleyball/6241___dad8fbc24c564e058ec3cc3dd6980202.mp4	v
 datasets/sv_wild/Videos/volleyball/6956___3c60f60033724f288ded1ac7b261767d.mp4	basketball
 datasets/sv_wild/Videos/volleyball/7276___9dd032b0e8554d17bfd8a817b8562fa6.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/8104___88699ec504ae400783b62d77f8f235c2.mp4	volleyball
-datasets/sv_wild/Videos/volleyball/8424___2f57b231d69141409b8a211b8c9e7b6b.mp4	volleyball
+datasets/sv_wild/Videos/volleyball/8424___2f57b231d69141409b8a211b8c9e7b6b.mp4	cheerleading
 datasets/sv_wild/Videos/volleyball/8478___67800b6d02d54a1d8b41d540b0dba231.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/8524___4c14e23dc47b43e78e9a02cb8b380fd5.mp4	volleyball
 datasets/sv_wild/Videos/volleyball/8547___e97841369b474330a55f4947185b7af5.mp4	volleyball
@@ -1284,7 +1598,7 @@ time:
 
 
 
-2.0631 ±0.0072
+2.3218 ±0.0070
 
 
 
