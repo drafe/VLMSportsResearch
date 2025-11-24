@@ -58,14 +58,16 @@ for result_file in "$RESULTS_DIR"/*.txt; do
         dataset_type=""
     fi
     
-    # Run compute_metrics and save to file
+    # Run compute_metrics and save to file, filtering out uv package installation messages
     if [ -n "$dataset_type" ]; then
-        uv run python utils/compute_metrics.py "$result_file" --dataset "$dataset_type" >> "$OUTPUT_FILE" 2>&1
+        uv run python utils/compute_metrics.py "$result_file" --dataset "$dataset_type" 2>&1 | grep -v -E "^(Uninstalled|Installed) [0-9]+ package" >> "$OUTPUT_FILE"
+        exit_code=${PIPESTATUS[0]}
     else
-        uv run python utils/compute_metrics.py "$result_file" >> "$OUTPUT_FILE" 2>&1
+        uv run python utils/compute_metrics.py "$result_file" 2>&1 | grep -v -E "^(Uninstalled|Installed) [0-9]+ package" >> "$OUTPUT_FILE"
+        exit_code=${PIPESTATUS[0]}
     fi
     
-    if [ $? -eq 0 ]; then
+    if [ $exit_code -eq 0 ]; then
         processed=$((processed + 1))
         echo -e "${GREEN}✓ Successfully processed: $filename${NC}"
     else

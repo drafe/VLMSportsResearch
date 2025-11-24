@@ -7,6 +7,6 @@ INTERNAL STEPS
 3. Match the observed action to one of the following classes: Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.  
 
 OUTPUT  
-Return only the class name (one word): Diving, Golf-Swing, Kicking, Lifting, Riding-Horse, Running, SkateBoarding, Swing-Bench, Swing-Side, Walking.
+Return only the class name (one word).
 
 Do **not** reveal your reasoning or the internal steps—reply with the class name only.

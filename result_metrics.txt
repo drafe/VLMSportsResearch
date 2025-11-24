@@ -1,135 +1,249 @@
-Metrics computed on: Sat Nov 15 11:07:32 PM MSK 2025
+Metrics computed on: Wed Nov 19 11:39:19 AM MSK 2025
 ========================================
 
 ========================================
 File: svw_gemma-3-4b-it_basic.txt
 ========================================
 
-Uninstalled 1 package in 1ms
-Installed 1 package in 1ms
-Samples         : 2
-Classes         : 2
-Accuracy        : 0.0000
-Precision (macro)    : 0.0000
-Precision (weighted): 0.0000
-Recall (macro)       : 0.0000
-Recall (weighted)    : 0.0000
-F1-score (macro)    : 0.0000
-F1-score (weighted) : 0.0000
 
-LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+========================================
+File: svw_gemma-3-4b-it_cot.txt
+========================================
+
+
+========================================
+File: svw_gemma-3-4b-it_fewshot.txt
+========================================
+
+
+========================================
+File: svw_gemma-3-4b-it_zero_shot.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-2B_basic.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-2B_cot.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-2B_fewshot_2B.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-2B_zero_shot.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-8B_basic.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-8B_cot.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-8B_fewshot.txt
+========================================
+
+
+========================================
+File: svw_InternVL3-8B_zero_shot.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_basic.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_cot.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_fewshot.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_zero_shot.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_basic.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_cot.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_fewshot.txt
+========================================
+
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_zero_shot.txt
+========================================
+
 
 ========================================
 File: svw_Video-LLaVA-7B-hf_basic.txt
 ========================================
 
-Uninstalled 1 package in 1ms
-Installed 1 package in 2ms
-Samples         : 1270
-Classes         : 40
-Accuracy        : 0.3488
-Precision (macro)    : 0.4685
-Precision (weighted): 0.6593
-Recall (macro)       : 0.2488
-Recall (weighted)    : 0.3488
-F1-score (macro)    : 0.2765
-F1-score (weighted) : 0.3891
 
-LaTeX: 0.3488 & 0.4685 & 0.2488 & 0.2765
+========================================
+File: svw_Video-LLaVA-7B-hf_cot.txt
+========================================
+
+
+========================================
+File: svw_Video-LLaVA-7B-hf_fewshot.txt
+========================================
+
+
+========================================
+File: svw_Video-LLaVA-7B-hf_zero_shot.txt
+========================================
+
 
 ========================================
 File: ucf_gemma-3-4b-it_basic.txt
 ========================================
 
-Uninstalled 1 package in 1ms
-Installed 1 package in 1ms
-Samples         : 2
-Classes         : 2
-Accuracy        : 0.0000
-Precision (macro)    : 0.0000
-Precision (weighted): 0.0000
-Recall (macro)       : 0.0000
-Recall (weighted)    : 0.0000
-F1-score (macro)    : 0.0000
-F1-score (weighted) : 0.0000
 
-LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+========================================
+File: ucf_gemma-3-4b-it_cot.txt
+========================================
+
+
+========================================
+File: ucf_gemma-3-4b-it_fewshot.txt
+========================================
+
+
+========================================
+File: ucf_gemma-3-4b-it_zero_shot.txt
+========================================
+
 
 ========================================
 File: ucf_InternVL3-2B_basic.txt
 ========================================
 
-Uninstalled 1 package in 1ms
-Installed 1 package in 2ms
-Samples         : 2
-Classes         : 2
-Accuracy        : 0.0000
-Precision (macro)    : 0.0000
-Precision (weighted): 0.0000
-Recall (macro)       : 0.0000
-Recall (weighted)    : 0.0000
-F1-score (macro)    : 0.0000
-F1-score (weighted) : 0.0000
 
-LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+========================================
+File: ucf_InternVL3-2B_cot.txt
+========================================
+
+
+========================================
+File: ucf_InternVL3-2B_fewshot_2B.txt
+========================================
+
+
+========================================
+File: ucf_InternVL3-2B_zero_shot.txt
+========================================
+
 
 ========================================
 File: ucf_InternVL3-8B_basic.txt
 ========================================
 
-Uninstalled 1 package in 0.99ms
-Installed 1 package in 1ms
-Samples         : 2
-Classes         : 2
-Accuracy        : 0.0000
-Precision (macro)    : 0.0000
-Precision (weighted): 0.0000
-Recall (macro)       : 0.0000
-Recall (weighted)    : 0.0000
-F1-score (macro)    : 0.0000
-F1-score (weighted) : 0.0000
 
-LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+========================================
+File: ucf_InternVL3-8B_cot.txt
+========================================
+
+
+========================================
+File: ucf_InternVL3-8B_fewshot.txt
+========================================
+
+
+========================================
+File: ucf_InternVL3-8B_zero_shot.txt
+========================================
+
 
 ========================================
 File: ucf_Qwen2.5-VL-3B-Instruct_basic.txt
 ========================================
 
-Uninstalled 1 package in 0.95ms
-Installed 1 package in 2ms
-Samples         : 2
-Classes         : 2
-Accuracy        : 0.0000
-Precision (macro)    : 0.0000
-Precision (weighted): 0.0000
-Recall (macro)       : 0.0000
-Recall (weighted)    : 0.0000
-F1-score (macro)    : 0.0000
-F1-score (weighted) : 0.0000
 
-LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+========================================
+File: ucf_Qwen2.5-VL-3B-Instruct_cot.txt
+========================================
+
+
+========================================
+File: ucf_Qwen2.5-VL-3B-Instruct_fewshot.txt
+========================================
+
+
+========================================
+File: ucf_Qwen2.5-VL-3B-Instruct_zero_shot.txt
+========================================
+
 
 ========================================
 File: ucf_Qwen2.5-VL-7B-Instruct_basic.txt
 ========================================
 
-Uninstalled 1 package in 0.94ms
-Installed 1 package in 2ms
-Samples         : 2
-Classes         : 2
-Accuracy        : 0.0000
-Precision (macro)    : 0.0000
-Precision (weighted): 0.0000
-Recall (macro)       : 0.0000
-Recall (weighted)    : 0.0000
-F1-score (macro)    : 0.0000
-F1-score (weighted) : 0.0000
 
-LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+========================================
+File: ucf_Qwen2.5-VL-7B-Instruct_cot.txt
+========================================
+
+
+========================================
+File: ucf_Qwen2.5-VL-7B-Instruct_fewshot.txt
+========================================
+
+
+========================================
+File: ucf_Qwen2.5-VL-7B-Instruct_zero_shot.txt
+========================================
+
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_basic.txt
+========================================
+
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_cot.txt
+========================================
+
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_fewshot.txt
+========================================
+
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_zero_shot.txt
+========================================
+
 
 
 ========================================
 Summary:
-  Total files: 7
-  Processed: 7
+  Total files: 48
+  Processed: 48
   Errors: 0

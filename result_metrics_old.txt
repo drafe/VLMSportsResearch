@@ -1,0 +1,1047 @@
+Metrics computed on: Mon Nov 17 11:08:33 AM MSK 2025
+========================================
+
+========================================
+File: svw_gemma-3-4b-it_basic.txt
+========================================
+
+Samples         : 1270
+Classes         : 32
+Accuracy        : 0.7882
+Precision (macro)    : 0.7378
+Precision (weighted): 0.8022
+Recall (macro)       : 0.7236
+Recall (weighted)    : 0.7882
+F1-score (macro)    : 0.6937
+F1-score (weighted) : 0.7580
+
+LaTeX: 0.7882 & 0.7378 & 0.7236 & 0.6937
+
+========================================
+File: svw_gemma-3-4b-it_cot.txt
+========================================
+
+Samples         : 1270
+Classes         : 417
+Accuracy        : 0.2551
+Precision (macro)    : 0.0522
+Precision (weighted): 0.7433
+Recall (macro)       : 0.0173
+Recall (weighted)    : 0.2551
+F1-score (macro)    : 0.0248
+F1-score (weighted) : 0.3625
+
+LaTeX: 0.2551 & 0.0522 & 0.0173 & 0.0248
+
+========================================
+File: svw_gemma-3-4b-it_fewshot.txt
+========================================
+
+Samples         : 1270
+Classes         : 30
+Accuracy        : 0.8000
+Precision (macro)    : 0.8129
+Precision (weighted): 0.8256
+Recall (macro)       : 0.7880
+Recall (weighted)    : 0.8000
+F1-score (macro)    : 0.7619
+F1-score (weighted) : 0.7772
+
+LaTeX: 0.8000 & 0.8129 & 0.7880 & 0.7619
+
+========================================
+File: svw_gemma-3-4b-it_zero_shot.txt
+========================================
+
+Samples         : 1270
+Classes         : 32
+Accuracy        : 0.7953
+Precision (macro)    : 0.7369
+Precision (weighted): 0.8026
+Recall (macro)       : 0.7322
+Recall (weighted)    : 0.7953
+F1-score (macro)    : 0.7105
+F1-score (weighted) : 0.7749
+
+LaTeX: 0.7953 & 0.7369 & 0.7322 & 0.7105
+
+========================================
+File: svw_InternVL3-2B_basic.txt
+========================================
+
+Samples         : 1270
+Classes         : 46
+Accuracy        : 0.8024
+Precision (macro)    : 0.5377
+Precision (weighted): 0.8365
+Recall (macro)       : 0.5159
+Recall (weighted)    : 0.8024
+F1-score (macro)    : 0.5104
+F1-score (weighted) : 0.7953
+
+LaTeX: 0.8024 & 0.5377 & 0.5159 & 0.5104
+
+========================================
+File: svw_InternVL3-2B_cot.txt
+========================================
+
+Samples         : 1270
+Classes         : 42
+Accuracy        : 0.8102
+Precision (macro)    : 0.5789
+Precision (weighted): 0.8227
+Recall (macro)       : 0.5747
+Recall (weighted)    : 0.8102
+F1-score (macro)    : 0.5601
+F1-score (weighted) : 0.7947
+
+LaTeX: 0.8102 & 0.5789 & 0.5747 & 0.5601
+
+========================================
+File: svw_InternVL3-2B_fewshot_2B.txt
+========================================
+
+Samples         : 1270
+Classes         : 43
+Accuracy        : 0.7756
+Precision (macro)    : 0.5747
+Precision (weighted): 0.8376
+Recall (macro)       : 0.5397
+Recall (weighted)    : 0.7756
+F1-score (macro)    : 0.5304
+F1-score (weighted) : 0.7698
+
+LaTeX: 0.7756 & 0.5747 & 0.5397 & 0.5304
+
+========================================
+File: svw_InternVL3-2B_zero_shot.txt
+========================================
+
+Samples         : 1270
+Classes         : 43
+Accuracy        : 0.7488
+Precision (macro)    : 0.5397
+Precision (weighted): 0.7912
+Recall (macro)       : 0.5150
+Recall (weighted)    : 0.7488
+F1-score (macro)    : 0.5047
+F1-score (weighted) : 0.7383
+
+LaTeX: 0.7488 & 0.5397 & 0.5150 & 0.5047
+
+========================================
+File: svw_InternVL3-8B_basic.txt
+========================================
+
+Samples         : 1270
+Classes         : 36
+Accuracy        : 0.8827
+Precision (macro)    : 0.7439
+Precision (weighted): 0.8969
+Recall (macro)       : 0.7361
+Recall (weighted)    : 0.8827
+F1-score (macro)    : 0.7357
+F1-score (weighted) : 0.8838
+
+LaTeX: 0.8827 & 0.7439 & 0.7361 & 0.7357
+
+========================================
+File: svw_InternVL3-8B_cot.txt
+========================================
+
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+Samples         : 1270
+Classes         : 887
+Accuracy        : 0.0008
+Precision (macro)    : 0.0011
+Precision (weighted): 0.0591
+Recall (macro)       : 0.0000
+Recall (weighted)    : 0.0008
+F1-score (macro)    : 0.0000
+F1-score (weighted) : 0.0016
+
+LaTeX: 0.0008 & 0.0011 & 0.0000 & 0.0000
+
+========================================
+File: svw_InternVL3-8B_fewshot.txt
+========================================
+
+Samples         : 1270
+Classes         : 39
+Accuracy        : 0.8709
+Precision (macro)    : 0.6858
+Precision (weighted): 0.8984
+Recall (macro)       : 0.6690
+Recall (weighted)    : 0.8709
+F1-score (macro)    : 0.6642
+F1-score (weighted) : 0.8672
+
+LaTeX: 0.8709 & 0.6858 & 0.6690 & 0.6642
+
+========================================
+File: svw_InternVL3-8B_zero_shot.txt
+========================================
+
+Samples         : 1270
+Classes         : 43
+Accuracy        : 0.8724
+Precision (macro)    : 0.6233
+Precision (weighted): 0.8988
+Recall (macro)       : 0.6083
+Recall (weighted)    : 0.8724
+F1-score (macro)    : 0.6066
+F1-score (weighted) : 0.8724
+
+LaTeX: 0.8724 & 0.6233 & 0.6083 & 0.6066
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_basic.txt
+========================================
+
+Samples         : 1270
+Classes         : 30
+Accuracy        : 0.7559
+Precision (macro)    : 0.8171
+Precision (weighted): 0.8330
+Recall (macro)       : 0.7584
+Recall (weighted)    : 0.7559
+F1-score (macro)    : 0.7482
+F1-score (weighted) : 0.7564
+
+LaTeX: 0.7559 & 0.8171 & 0.7584 & 0.7482
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_cot.txt
+========================================
+
+Samples         : 1270
+Classes         : 32
+Accuracy        : 0.7787
+Precision (macro)    : 0.7418
+Precision (weighted): 0.8014
+Recall (macro)       : 0.7286
+Recall (weighted)    : 0.7787
+F1-score (macro)    : 0.7089
+F1-score (weighted) : 0.7635
+
+LaTeX: 0.7787 & 0.7418 & 0.7286 & 0.7089
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_fewshot.txt
+========================================
+
+Samples         : 1270
+Classes         : 30
+Accuracy        : 0.7827
+Precision (macro)    : 0.7999
+Precision (weighted): 0.8097
+Recall (macro)       : 0.7860
+Recall (weighted)    : 0.7827
+F1-score (macro)    : 0.7631
+F1-score (weighted) : 0.7680
+
+LaTeX: 0.7827 & 0.7999 & 0.7860 & 0.7631
+
+========================================
+File: svw_Qwen2.5-VL-3B-Instruct_zero_shot.txt
+========================================
+
+Samples         : 1270
+Classes         : 31
+Accuracy        : 0.7630
+Precision (macro)    : 0.7989
+Precision (weighted): 0.8390
+Recall (macro)       : 0.7413
+Recall (weighted)    : 0.7630
+F1-score (macro)    : 0.7347
+F1-score (weighted) : 0.7654
+
+LaTeX: 0.7630 & 0.7989 & 0.7413 & 0.7347
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_basic.txt
+========================================
+
+Samples         : 1270
+Classes         : 30
+Accuracy        : 0.8472
+Precision (macro)    : 0.8660
+Precision (weighted): 0.8764
+Recall (macro)       : 0.8519
+Recall (weighted)    : 0.8472
+F1-score (macro)    : 0.8365
+F1-score (weighted) : 0.8400
+
+LaTeX: 0.8472 & 0.8660 & 0.8519 & 0.8365
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_cot.txt
+========================================
+
+Samples         : 1270
+Classes         : 33
+Accuracy        : 0.8488
+Precision (macro)    : 0.7718
+Precision (weighted): 0.8583
+Recall (macro)       : 0.7705
+Recall (weighted)    : 0.8488
+F1-score (macro)    : 0.7639
+F1-score (weighted) : 0.8461
+
+LaTeX: 0.8488 & 0.7718 & 0.7705 & 0.7639
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_fewshot.txt
+========================================
+
+Samples         : 1270
+Classes         : 31
+Accuracy        : 0.8425
+Precision (macro)    : 0.8285
+Precision (weighted): 0.8667
+Recall (macro)       : 0.8143
+Recall (weighted)    : 0.8425
+F1-score (macro)    : 0.8018
+F1-score (weighted) : 0.8349
+
+LaTeX: 0.8425 & 0.8285 & 0.8143 & 0.8018
+
+========================================
+File: svw_Qwen2.5-VL-7B-Instruct_zero_shot.txt
+========================================
+
+Samples         : 1270
+Classes         : 30
+Accuracy        : 0.8559
+Precision (macro)    : 0.8508
+Precision (weighted): 0.8609
+Recall (macro)       : 0.8570
+Recall (weighted)    : 0.8559
+F1-score (macro)    : 0.8473
+F1-score (weighted) : 0.8521
+
+LaTeX: 0.8559 & 0.8508 & 0.8570 & 0.8473
+
+========================================
+File: svw_Video-LLaVA-7B-hf_basic.txt
+========================================
+
+Samples         : 1270
+Classes         : 40
+Accuracy        : 0.3488
+Precision (macro)    : 0.4685
+Precision (weighted): 0.6593
+Recall (macro)       : 0.2488
+Recall (weighted)    : 0.3488
+F1-score (macro)    : 0.2765
+F1-score (weighted) : 0.3891
+
+LaTeX: 0.3488 & 0.4685 & 0.2488 & 0.2765
+
+========================================
+File: svw_Video-LLaVA-7B-hf_cot.txt
+========================================
+
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+Samples         : 678
+Classes         : 455
+Accuracy        : 0.0000
+Precision (macro)    : 0.0000
+Precision (weighted): 0.0000
+Recall (macro)       : 0.0000
+Recall (weighted)    : 0.0000
+F1-score (macro)    : 0.0000
+F1-score (weighted) : 0.0000
+
+LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+
+========================================
+File: svw_Video-LLaVA-7B-hf_fewshot.txt
+========================================
+
+Samples         : 1133
+Classes         : 508
+Accuracy        : 0.0000
+Precision (macro)    : 0.0000
+Precision (weighted): 0.0000
+Recall (macro)       : 0.0000
+Recall (weighted)    : 0.0000
+F1-score (macro)    : 0.0000
+F1-score (weighted) : 0.0000
+
+LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+
+========================================
+File: svw_Video-LLaVA-7B-hf_zero_shot.txt
+========================================
+
+Samples         : 1245
+Classes         : 549
+Accuracy        : 0.0024
+Precision (macro)    : 0.0036
+Precision (weighted): 0.0747
+Recall (macro)       : 0.0001
+Recall (weighted)    : 0.0024
+F1-score (macro)    : 0.0002
+F1-score (weighted) : 0.0047
+
+LaTeX: 0.0024 & 0.0036 & 0.0001 & 0.0002
+
+========================================
+File: ucf_gemma-3-4b-it_basic.txt
+========================================
+
+Samples         : 143
+Classes         : 13
+Accuracy        : 0.3846
+Precision (macro)    : 0.3142
+Precision (weighted): 0.3880
+Recall (macro)       : 0.3513
+Recall (weighted)    : 0.3846
+F1-score (macro)    : 0.3079
+F1-score (weighted) : 0.3669
+
+LaTeX: 0.3846 & 0.3142 & 0.3513 & 0.3079
+
+========================================
+File: ucf_gemma-3-4b-it_cot.txt
+========================================
+
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+Samples         : 143
+Classes         : 82
+Accuracy        : 0.1748
+Precision (macro)    : 0.0549
+Precision (weighted): 0.4161
+Recall (macro)       : 0.0251
+Recall (weighted)    : 0.1748
+F1-score (macro)    : 0.0321
+F1-score (weighted) : 0.2206
+
+LaTeX: 0.1748 & 0.0549 & 0.0251 & 0.0321
+
+========================================
+File: ucf_gemma-3-4b-it_fewshot.txt
+========================================
+
+Samples         : 143
+Classes         : 14
+Accuracy        : 0.3497
+Precision (macro)    : 0.3411
+Precision (weighted): 0.4219
+Recall (macro)       : 0.3107
+Recall (weighted)    : 0.3497
+F1-score (macro)    : 0.3142
+F1-score (weighted) : 0.3633
+
+LaTeX: 0.3497 & 0.3411 & 0.3107 & 0.3142
+
+========================================
+File: ucf_gemma-3-4b-it_zero_shot.txt
+========================================
+
+Samples         : 143
+Classes         : 12
+Accuracy        : 0.3776
+Precision (macro)    : 0.3353
+Precision (weighted): 0.3897
+Recall (macro)       : 0.3792
+Recall (weighted)    : 0.3776
+F1-score (macro)    : 0.3304
+F1-score (weighted) : 0.3619
+
+LaTeX: 0.3776 & 0.3353 & 0.3792 & 0.3304
+
+========================================
+File: ucf_InternVL3-2B_basic.txt
+========================================
+
+Samples         : 143
+Classes         : 14
+Accuracy        : 0.3706
+Precision (macro)    : 0.3034
+Precision (weighted): 0.4017
+Recall (macro)       : 0.3024
+Recall (weighted)    : 0.3706
+F1-score (macro)    : 0.2855
+F1-score (weighted) : 0.3687
+
+LaTeX: 0.3706 & 0.3034 & 0.3024 & 0.2855
+
+========================================
+File: ucf_InternVL3-2B_cot.txt
+========================================
+
+Samples         : 143
+Classes         : 18
+Accuracy        : 0.2448
+Precision (macro)    : 0.2259
+Precision (weighted): 0.3966
+Recall (macro)       : 0.1643
+Recall (weighted)    : 0.2448
+F1-score (macro)    : 0.1729
+F1-score (weighted) : 0.2827
+
+LaTeX: 0.2448 & 0.2259 & 0.1643 & 0.1729
+
+========================================
+File: ucf_InternVL3-2B_fewshot_2B.txt
+========================================
+
+Samples         : 143
+Classes         : 15
+Accuracy        : 0.3916
+Precision (macro)    : 0.3148
+Precision (weighted): 0.4219
+Recall (macro)       : 0.3048
+Recall (weighted)    : 0.3916
+F1-score (macro)    : 0.3080
+F1-score (weighted) : 0.4047
+
+LaTeX: 0.3916 & 0.3148 & 0.3048 & 0.3080
+
+========================================
+File: ucf_InternVL3-2B_zero_shot.txt
+========================================
+
+Samples         : 143
+Classes         : 16
+Accuracy        : 0.3566
+Precision (macro)    : 0.2635
+Precision (weighted): 0.4000
+Recall (macro)       : 0.2604
+Recall (weighted)    : 0.3566
+F1-score (macro)    : 0.2477
+F1-score (weighted) : 0.3626
+
+LaTeX: 0.3566 & 0.2635 & 0.2604 & 0.2477
+
+========================================
+File: ucf_InternVL3-8B_basic.txt
+========================================
+
+Samples         : 143
+Classes         : 15
+Accuracy        : 0.4196
+Precision (macro)    : 0.3030
+Precision (weighted): 0.4055
+Recall (macro)       : 0.3233
+Recall (weighted)    : 0.4196
+F1-score (macro)    : 0.3110
+F1-score (weighted) : 0.4106
+
+LaTeX: 0.4196 & 0.3030 & 0.3233 & 0.3110
+
+========================================
+File: ucf_InternVL3-8B_cot.txt
+========================================
+
+Samples         : 143
+Classes         : 25
+Accuracy        : 0.0000
+Precision (macro)    : 0.0000
+Precision (weighted): 0.0000
+Recall (macro)       : 0.0000
+Recall (weighted)    : 0.0000
+F1-score (macro)    : 0.0000
+F1-score (weighted) : 0.0000
+
+LaTeX: 0.0000 & 0.0000 & 0.0000 & 0.0000
+
+========================================
+File: ucf_InternVL3-8B_fewshot.txt
+========================================
+
+Samples         : 143
+Classes         : 15
+Accuracy        : 0.4266
+Precision (macro)    : 0.3052
+Precision (weighted): 0.4031
+Recall (macro)       : 0.3267
+Recall (weighted)    : 0.4266
+F1-score (macro)    : 0.3148
+F1-score (weighted) : 0.4138
+
+LaTeX: 0.4266 & 0.3052 & 0.3267 & 0.3148
+
+========================================
+File: ucf_InternVL3-8B_zero_shot.txt
+========================================
+
+Samples         : 143
+Classes         : 14
+Accuracy        : 0.4266
+Precision (macro)    : 0.3172
+Precision (weighted): 0.3974
+Recall (macro)       : 0.3500
+Recall (weighted)    : 0.4266
+F1-score (macro)    : 0.3303
+F1-score (weighted) : 0.4092
+
+LaTeX: 0.4266 & 0.3172 & 0.3500 & 0.3303
+
+========================================
+File: ucf_Qwen2.5-VL-3B-Instruct_basic.txt
+========================================
+
+Samples         : 140
+Classes         : 14
+Accuracy        : 0.4286
+Precision (macro)    : 0.2723
+Precision (weighted): 0.3748
+Recall (macro)       : 0.3536
+Recall (weighted)    : 0.4286
+F1-score (macro)    : 0.2997
+F1-score (weighted) : 0.3941
+
+LaTeX: 0.4286 & 0.2723 & 0.3536 & 0.2997
+
+========================================
+File: ucf_Qwen2.5-VL-3B-Instruct_cot.txt
+========================================
+
+Samples         : 140
+Classes         : 14
+Accuracy        : 0.4357
+Precision (macro)    : 0.3232
+Precision (weighted): 0.4088
+Recall (macro)       : 0.3571
+Recall (weighted)    : 0.4357
+F1-score (macro)    : 0.3370
+F1-score (weighted) : 0.4205
+
+LaTeX: 0.4357 & 0.3232 & 0.3571 & 0.3370
+
+========================================
+File: ucf_Qwen2.5-VL-3B-Instruct_fewshot.txt
+========================================
+
+Samples         : 140
+Classes         : 14
+Accuracy        : 0.4286
+Precision (macro)    : 0.2639
+Precision (weighted): 0.3535
+Recall (macro)       : 0.3536
+Recall (weighted)    : 0.4286
+F1-score (macro)    : 0.2948
+F1-score (weighted) : 0.3810
+
+LaTeX: 0.4286 & 0.2639 & 0.3536 & 0.2948
+
+========================================
+File: ucf_Qwen2.5-VL-3B-Instruct_zero_shot.txt
+========================================
+
+Samples         : 140
+Classes         : 14
+Accuracy        : 0.4286
+Precision (macro)    : 0.2973
+Precision (weighted): 0.3901
+Recall (macro)       : 0.3536
+Recall (weighted)    : 0.4286
+F1-score (macro)    : 0.3175
+F1-score (weighted) : 0.4051
+
+LaTeX: 0.4286 & 0.2973 & 0.3536 & 0.3175
+
+========================================
+File: ucf_Qwen2.5-VL-7B-Instruct_basic.txt
+========================================
+
+Samples         : 140
+Classes         : 13
+Accuracy        : 0.4286
+Precision (macro)    : 0.3294
+Precision (weighted): 0.3998
+Recall (macro)       : 0.3808
+Recall (weighted)    : 0.4286
+F1-score (macro)    : 0.3445
+F1-score (weighted) : 0.4092
+
+LaTeX: 0.4286 & 0.3294 & 0.3808 & 0.3445
+
+========================================
+File: ucf_Qwen2.5-VL-7B-Instruct_cot.txt
+========================================
+
+Samples         : 140
+Classes         : 13
+Accuracy        : 0.4286
+Precision (macro)    : 0.3479
+Precision (weighted): 0.4084
+Recall (macro)       : 0.3808
+Recall (weighted)    : 0.4286
+F1-score (macro)    : 0.3609
+F1-score (weighted) : 0.4169
+
+LaTeX: 0.4286 & 0.3479 & 0.3808 & 0.3609
+
+========================================
+File: ucf_Qwen2.5-VL-7B-Instruct_fewshot.txt
+========================================
+
+Samples         : 140
+Classes         : 13
+Accuracy        : 0.4286
+Precision (macro)    : 0.3547
+Precision (weighted): 0.4116
+Recall (macro)       : 0.3808
+Recall (weighted)    : 0.4286
+F1-score (macro)    : 0.3659
+F1-score (weighted) : 0.4191
+
+LaTeX: 0.4286 & 0.3547 & 0.3808 & 0.3659
+
+========================================
+File: ucf_Qwen2.5-VL-7B-Instruct_zero_shot.txt
+========================================
+
+Samples         : 140
+Classes         : 14
+Accuracy        : 0.4286
+Precision (macro)    : 0.3081
+Precision (weighted): 0.4010
+Recall (macro)       : 0.3536
+Recall (weighted)    : 0.4286
+F1-score (macro)    : 0.3222
+F1-score (weighted) : 0.4104
+
+LaTeX: 0.4286 & 0.3081 & 0.3536 & 0.3222
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_basic.txt
+========================================
+
+Samples         : 143
+Classes         : 12
+Accuracy        : 0.0769
+Precision (macro)    : 0.1720
+Precision (weighted): 0.2129
+Recall (macro)       : 0.1088
+Recall (weighted)    : 0.0769
+F1-score (macro)    : 0.0521
+F1-score (weighted) : 0.0527
+
+LaTeX: 0.0769 & 0.1720 & 0.1088 & 0.0521
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_cot.txt
+========================================
+
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+Samples         : 109
+Classes         : 106
+Accuracy        : 0.0275
+Precision (macro)    : 0.0031
+Precision (weighted): 0.0122
+Recall (macro)       : 0.0071
+Recall (weighted)    : 0.0275
+F1-score (macro)    : 0.0044
+F1-score (weighted) : 0.0169
+
+LaTeX: 0.0275 & 0.0031 & 0.0071 & 0.0044
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_fewshot.txt
+========================================
+
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:99: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  type_pred = type_of_target(y_pred, input_name="y_pred")
+/home/user/ksy-research/VLMSportsResearch/.venv/lib/python3.12/site-packages/sklearn/utils/multiclass.py:79: UserWarning: The number of unique classes is greater than 50% of the number of samples. `y` could represent a regression problem, not a classification problem.
+  ys_types = set(type_of_target(x) for x in ys)
+Samples         : 90
+Classes         : 80
+Accuracy        : 0.0333
+Precision (macro)    : 0.0042
+Precision (weighted): 0.0148
+Recall (macro)       : 0.0094
+Recall (weighted)    : 0.0333
+F1-score (macro)    : 0.0058
+F1-score (weighted) : 0.0205
+
+LaTeX: 0.0333 & 0.0042 & 0.0094 & 0.0058
+
+========================================
+File: ucf_Video-LLaVA-7B-hf_zero_shot.txt
+========================================
+
+Samples         : 143
+Classes         : 15
+Accuracy        : 0.0559
+Precision (macro)    : 0.0760
+Precision (weighted): 0.1327
+Recall (macro)       : 0.0704
+Recall (weighted)    : 0.0559
+F1-score (macro)    : 0.0234
+F1-score (weighted) : 0.0253
+
+LaTeX: 0.0559 & 0.0760 & 0.0704 & 0.0234
+
+
+========================================
+Summary:
+  Total files: 48
+  Processed: 48
+  Errors: 0
